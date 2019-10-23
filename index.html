@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="js/owl.carousel.min.css">
+  <link rel="stylesheet" href="js/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet/less" href="css/style.less">
+  <title>Алмаз</title>
+  <script>
+    less = {
+      env: 'development'
+    };
+  </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js"></script>
+  <script>less.watch();</script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+  <body>
+
+  <div class="page-nav">
+    <a href="/" class="page-nav__logo">
+      <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="page-nav__logo-path" d="M20.129 19.5272L29.9355 30.1901V46.1202L33.0323 48.6896V29.1624L20.129 15.2878V19.5272ZM20.129 27.1069L24.6452 32.1172V41.8808L27.7419 44.4501V31.2179L20 22.9959V27.1069H20.129ZM20.129 38.2837L22.5806 40.2107V33.4018L20.129 30.5755V38.2837ZM40.3871 44.4501L43.4839 41.8808V32.1172L48 27.1069V22.8674L40.2581 31.0894V44.4501H40.3871ZM35.0968 48.6896L38.1935 46.1202V30.1901L48 19.5272V15.2878L35.0968 29.1624V48.6896ZM45.6774 40.2107L48.129 38.2837V30.5755L45.6774 33.4018V40.2107ZM40.3871 0.385406L34.0645 7.06578L27.871 0.385406V4.75334L34.0645 11.5622L40.3871 4.62487V0.385406ZM34.0645 19.5272L48.129 4.23947V0L34.0645 14.9024L20.129 0V4.23947L34.0645 19.5272ZM20.129 11.8191L34.0645 27.1069L48.129 11.8191V7.70812L34.0645 22.6105L20.129 7.70812V11.8191Z" />
+        <path d="M65.4485 61.6038L68.6195 57.7736V55H57.8382L58.8529 58.1698H64.8143L61.2629 61.7358L64.5607 65.566H58.9798L57.7114 67.283L54.7941 55H45.7886L46.5496 57.5094L44.1397 67.5472L41.8566 57.7736L43.7592 55H39.5735L36.2757 60.6792L32.8511 55L28.4118 55L30.1875 57.9057L27.9044 67.283L24.9871 55H15.8548L16.7427 57.5094L14.7132 65.6981H13.5717L11.0349 55H2.02942L2.79045 57.5094L0 69H3.67831L4.43934 65.566H8.37133L7.48346 62.9245H5.07353L6.21508 57.9057H7.99081L10.4007 69H11.5423H14.4596H17.6305L20.1673 57.9057H21.943L24.3529 69H27.5239H28.2849H31.329L32.7243 62.1321L35.8952 67.4151L39.0662 62.1321L40.4614 69H43.7592H44.5202H47.5643L48.3254 65.566H52.1305L51.3695 62.9245H48.8327L49.9743 57.9057H51.8768L54.1599 69H56.443H58.2188H69V66.4906L65.4485 61.6038Z" fill="black"/>
+      </svg>
+    </a>
+    <a href="#" class="page-nav__menu">
+      <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2L0 2L0 -0.00012207L15 -0.00012207V2ZM15 6.00012L0 6.00012L0 4L15 4V6.00012Z" fill="black"/>
+        <path d="M0 10H15V8L0 8L0 10Z" fill="black"/>
+      </svg>
+      <span>меню</span>
+    </a>
+    <div class="page-nav__exit">
+      <img src="img/exit.svg" alt="">
+    </div>
+    <div class="page-nav__bot">
+      <div class="page-nav__bot-main">
+        <a href="#" class="page-nav__search">
+          <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3697 17.4849L22.7338 23.8488L22.7336 21.0206L17.7024 15.9892C18.5443 14.7502 19.0307 13.2513 19.0165 11.64C18.9794 7.42717 15.5341 4.04202 11.3212 4.0791C7.10835 4.11618 3.7232 7.56146 3.76028 11.7743C3.79736 15.9872 7.24264 19.3724 11.4555 19.3353C13.3351 19.3187 15.05 18.6238 16.3697 17.4849ZM11.4379 17.3354C8.32956 17.3627 5.78756 14.8651 5.7602 11.7567C5.73284 8.64838 8.23048 6.10638 11.3388 6.07902C14.4472 6.05166 16.9892 8.5493 17.0166 11.6577C17.0439 14.766 14.5463 17.308 11.4379 17.3354Z" fill="black"/>
+          </svg>
+        </a>
+        <a href="#" class="page-nav__lc">
+          <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 14.25L1.875 21H16.125L18 14.25L10.5 10.875H7.5L0 14.25Z" fill="black"/>
+            <path d="M12.7501 9C12.0001 10.5 10.5001 11.25 10.5001 11.25L9.00006 12L7.50006 11.25C7.50006 11.25 6.00007 10.5 5.25007 9C4.77572 8.0513 2.25002 0 9.00006 0C15.7501 0 13.1555 8.18915 12.7501 9Z" fill="black"/>
+          </svg>
+        </a>
+        <a href="#" class="page-nav__location">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.429824 13.4212L9.78979 17.3159L12 27.21L22.2099 6.89416L0.429824 13.4212Z" fill="black"/>
+          </svg>
+        </a>
+      </div>
+      <div class="page-nav__bot-menu">
+        <a href="#" class="page-nav__search">
+          <img src="img/f-b.svg" alt="">
+        </a>
+        <a href="#" class="page-nav__lc">
+          <img src="img/y-b.svg" alt="">
+        </a>
+        <a href="#" class="page-nav__location">
+          <img src="img/i-b.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="page-content">
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__logo">
+            <a href="/">
+              <svg width="69" height="23" viewBox="0 0 69 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.059633 9.22427L4.59174 14.2612V21.7863L6.02294 23V13.7757L0.059633 7.22164V9.22427ZM0.059633 12.8047L2.14679 15.1715V19.7836L3.57798 20.9974V14.7467L0 10.8628V12.8047H0.059633ZM0.059633 18.0844L1.19266 18.9947V15.7784L0.059633 14.4433V18.0844ZM9.42202 20.9974L10.8532 19.7836V15.1715L12.9404 12.8047V10.8021L9.36239 14.686V20.9974H9.42202ZM6.97706 23L8.40826 21.7863V14.2612L12.9404 9.22427V7.22164L6.97706 13.7757V23ZM11.867 18.9947L13 18.0844V14.4433L11.867 15.7784V18.9947ZM9.42202 0.182058L6.5 3.33773L3.63761 0.182058V2.24538L6.5 5.46174L9.42202 2.1847V0.182058ZM6.5 9.22427L13 2.00264V0L6.5 7.03958L0.059633 0V2.00264L6.5 9.22427ZM0.059633 5.58311L6.5 12.8047L13 5.58311V3.64116L6.5 10.6807L0.059633 3.64116V5.58311Z" fill="#FBBA00"/>
+                <path d="M66.4265 10.717L68.7243 7.98113V6L60.9118 6L61.6471 8.26415H65.9669L63.3934 10.8113L65.7831 13.5472H61.739L60.8199 14.7736L58.7059 6L52.1801 6L52.7316 7.79245L50.9853 14.9623L49.3309 7.98113L50.7096 6H47.6765L45.2868 10.0566L42.8051 6H39.5882L40.875 8.07547L39.2206 14.7736L37.1066 6L30.489 6L31.1324 7.79245L29.6618 13.6415H28.8346L26.9963 6L20.4706 6L21.0221 7.79245L19 16H21.6654L22.2169 13.5472H25.0662L24.4228 11.6604H22.6765L23.5037 8.07547H24.7904L26.5368 16H27.364H29.4779H31.7757L33.614 8.07547H34.9007L36.6471 16H38.9449H39.4963L41.7022 16L42.7132 11.0943L45.011 14.8679L47.3088 11.0943L48.3199 16H50.7096H51.261H53.4669L54.0184 13.5472L56.7757 13.5472L56.2243 11.6604L54.386 11.6604L55.2132 8.07547H56.5919L58.2463 16H59.9007H61.1875H69V14.2075L66.4265 10.717Z" fill="black"/>
+              </svg>
+            </a>
+          </div>
+          <ul class="header__menu">
+            <li><a href="#">Техника</a></li>
+            <li><a href="#">Запчасти</a></li>
+            <li><a href="#">Сервис</a></li>
+            <li><a href="#">Компания</a></li>
+            <li><a href="#">Покупка</a></li>
+            <li><a href="#">Пресс-центр</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+          <div class="header__phone">
+            <a href="tel:88007005008">8 800 700 50 08</a>
+          </div>
+          <div class="header__mobile">
+            <div class="header__location">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.429824 13.4212L9.78979 17.3159L12 27.21L22.2099 6.89416L0.429824 13.4212Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="header__lc">
+              <a href="#">
+                <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 14.25L1.875 21H16.125L18 14.25L10.5 10.875H7.5L0 14.25Z" fill="black"/>
+                  <path d="M12.7501 9C12.0001 10.5 10.5001 11.25 10.5001 11.25L9.00006 12L7.50006 11.25C7.50006 11.25 6.00007 10.5 5.25007 9C4.77572 8.0513 2.25002 0 9.00006 0C15.7501 0 13.1555 8.18915 12.7501 9Z" fill="black"/>
+                </svg>
+              </a>
+            </div>
+            <div class="header__burger">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2L0 2L0 -0.00012207L15 -0.00012207V2ZM15 6.00012L0 6.00012L0 4L15 4V6.00012Z" fill="black"/>
+                <path d="M0 10H15V8L0 8L0 10Z" fill="black"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+              <div class="skybox"></div>
+    
+<section class="first" data-tab>
+  <div class="container not-center">
+    <div class="first__inner">
+      <h1 class="title first__title">
+        <div>Надежная техника</div>
+        <div>Надежное партнерство</div>
+      </h1>
+      <div class="row row-dir">
+        <div class="col-2 col-sm-1"></div>
+        <div class="col-13 col-sm-14 first__video">
+          <div class="first__tabs">
+            <a href="#" class="first__tab current">Алмаз</a>
+            <a href="#" class="first__tab">техника</a>
+            <a href="#" class="first__tab">запчасти</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-dir">
+      <div class="col-5 col-t-3 col-sm-0"></div>
+      <div class="col-7 col-md-9 col-t-11 col-sm-14">
+        <p>«Алмаз» — это четыре компании, объединенные общей целью: создавать лучшую почвообрабатывающую технику и лучшие запасные части к ней.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-slider__wrap" data-tab>
+  <div class="container not-center">
+    <h2><a class="title title-line" href="">Техника</a></h2>
+    <div class="row row-dir">
+      <div class="col-2 col-sm-1"></div>
+      <div class="col-13 col-sm-14">
+        <div class="big-slider owl-carousel owl-theme">
+          <div class="big-slide" data-slide="1" style="background-image: url('img/random/2.png');">
+            <div class="big-slide__bot">
+              <div class="big-slide__count">
+                <div class="big-slide__count-current">01</div>
+                <div class="big-slide__count-all">01</div>
+              </div>
+              <h4 class="big-slide__title">Дисковые бороны DANA</h4>
+            </div>
+          </div>
+          <div class="big-slide" data-slide="2" style="background-image: url('img/random/2.png');">
+            <div class="big-slide__bot">
+              <div class="big-slide__count">
+                <div class="big-slide__count-current">01</div>
+                <div class="big-slide__count-all">01</div>
+              </div>
+              <h4 class="big-slide__title">Дисковые бороны DANA</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-dir">
+      <div class="col-5 col-t-3 col-sm-0"></div>
+      <div class="col-7 col-md-9 col-t-11 col-sm-14">
+        <p>Наша техника разрабатывается под потребности почвеных и климатических условий различных регионов – России, стран Европы и Азии.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-slider__wrap" data-tab>
+  <div class="container not-center">
+    <h2><a class="title title-line" href="">Запчасти</a></h2>
+    <div class="row row-dir">
+      <div class="col-2 col-sm-1"></div>
+      <div class="col-13 col-sm-14">
+        <div class="big-slider owl-carousel owl-theme">
+          <div class="big-slide" data-slide="1" style="background-image: url('img/random/2.png');">
+            <div class="big-slide__bot">
+              <div class="big-slide__count">
+                <div class="big-slide__count-current">01</div>
+                <div class="big-slide__count-all">01</div>
+              </div>
+              <h4 class="big-slide__title">Дисковые бороны DANA</h4>
+            </div>
+          </div>
+          <div class="big-slide" data-slide="2" style="background-image: url('img/random/2.png');">
+            <div class="big-slide__bot">
+              <div class="big-slide__count">
+                <div class="big-slide__count-current">01</div>
+                <div class="big-slide__count-all">01</div>
+              </div>
+              <h4 class="big-slide__title">Дисковые бороны DANA</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-dir">
+      <div class="col-5 col-t-3 col-sm-0"></div>
+      <div class="col-7 col-md-9 col-t-11 col-sm-14">
+        <p>Многоступенчатый контроль качества и ежегодные ресурсные испытания — важнейшие этапы производства запасных частей для техники.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="news news-slider__wrap">
+  <div class="container not-center">
+    <h2><a class="title title-line" href="">Новости</a></h2>
+    <div class="row row-dir">
+      <div class="col-2 col-sm-1"></div>
+      <div class="col-10 col-md-11 col-sm-12">
+        <div class="news-slider owl-carousel owl-theme">
+          <a href="#" class="news-slide" style="background-image: url('img/random/2.png');">
+            <h4 class="news-slide__title">На Кубани презентуют технику и запчасти АЛМАЗ</h4>
+            <div class="news-slide__date">20 мая 2019</div>
+          </a>
+          <a href="#" class="news-slide">
+            <h4 class="news-slide__title">Объединение компаний «Алмаз» увеличило поставки техники и оборудования в рамках программы № 1432</h4>
+            <div class="news-slide__date">20 мая 2019</div>
+          </a>
+          <a href="#" class="news-slide" style="background-image: url('img/random/4.png');">
+            <h4 class="news-slide__title">АЛМАЗ на полях Сибири</h4>
+            <div class="news-slide__date">20 мая 2019</div>
+          </a>
+          <a href="#" class="news-slide">
+            <h4 class="news-slide__title">Объединение компаний «Алмаз» увеличило поставки техники и оборудования в рамках программы № 1432</h4>
+            <div class="news-slide__date">20 мая 2019</div>
+          </a>
+          <a href="#" class="news-slide" style="background-image: url('img/random/2.png');">
+            <h4 class="news-slide__title">На Кубани презентуют технику и запчасти АЛМАЗ</h4>
+            <div class="news-slide__date">20 мая 2019</div>
+          </a>
+          <a href="#" class="news-slide" style="background-image: url('img/random/4.png');">
+            <h4 class="news-slide__title">АЛМАЗ на полях Сибири</h4>
+            <div class="news-slide__date">20 мая 2019</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/home.js"></script>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-4 col-md-6 col-sm-15">
+          <p>© ТД Алмаз 2019. Алтайский край, г. Барнаул, ул. Северо-Западная 2а, оф. 301</p>
+          <p><a href="tel:+73852503703">+7 (3852) 503-703</a></p>
+          <p><a href="mailto:almaztd@almaztd.ru">almaztd@almaztd.ru</a></p>
+          <p></p>
+        </div>
+        <div class="col-2 col-md-3"></div>
+        <div class="col-4 col-md-6">
+          <p><a href="#" class="footer__soc f">Facebook</a></p>
+          <p><a href="#" class="footer__soc y">YouTube</a></p>
+          <p><a href="#" class="footer__soc i">Instagram</a></p>
+        </div>
+      </div>
+      <div class="footer__bot">
+        <div class="copy"><a href="#">Пользовательское соглашение</a></div>
+        <div class="country">
+            <a target="_blank" href="http://studio.country">
+              Сайт разработан в Студии Country
+            </a>
+            <a target="_blank" href="http://studio.country">
+              <img src="img/country.svg" alt="">
+            </a>
+          </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- page-content -->
+
+<div class="menu">
+  <div class="menu__exit"><img src="img/exit.svg" alt=""></div>
+  <div class="menu__inner">
+    <div class="container">
+      <div class="menu-search">
+        <form action="#">
+          <input type="text" class="menu-search__input" placeholder="Поиск по сайту">
+          <label for="" class="menu-search__btn">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7696 16.5659L22.1337 22.9298L22.1335 20.1016L17.1023 15.0702C17.9442 13.8312 18.4306 12.3323 18.4164 10.721C18.3793 6.50816 14.934 3.12301 10.7211 3.16009C6.50825 3.19717 3.1231 6.64245 3.16018 10.8553C3.19727 15.0682 6.64254 18.4534 10.8554 18.4163C12.735 18.3997 14.4499 17.7048 15.7696 16.5659ZM10.8378 16.4164C7.72947 16.4437 5.18747 13.9461 5.16011 10.8377C5.13275 7.72937 7.63038 5.18737 10.7387 5.16001C13.8471 5.13265 16.3891 7.63029 16.4165 10.7386C16.4438 13.847 13.9462 16.389 10.8378 16.4164Z">
+            </svg>
+            <input type="submit" value="">
+          </label>
+        </form>
+      </div>
+      <div class="menu-search-help">
+        <div class="menu-search-help__item">234</div>
+        <div class="menu-search-help__item">234</div>
+      </div>
+      <div class="menu-blocks">
+        <div class="menu-block">
+          <h4 class="menu-block__title"><a href="#">Техника</a></h4>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Алмаз РЗЗ</a></h5>
+            <ul>
+              <li><a href="#">Дисковые бороны DANA</a></li>
+              <li><a href="#">Оборотные плуги PERESVET</a></li>
+              <li><a href="#">Лемешные плуги FINIST</a></li>
+              <li><a href="#">Чизельные плуги SVAROG</a></li>
+              <li><a href="#">Сеялки зернотуковые VITA</a></li>
+              <li><a href="#">Плоскорезы STAVR</a></li>
+              <li><a href="#">Культиваторы STAVRIS</a></li>
+            </ul>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Алмаз АНИТИМ</a></h5>
+            <ul>
+              <li><a href="#">Дисковые бороны DANA</a></li>
+              <li><a href="#">Оборотные плуги PERESVET</a></li>
+              <li><a href="#">Лемешные плуги FINIST</a></li>
+              <li><a href="#">Чизельные плуги SVAROG</a></li>
+              <li><a href="#">Сеялки зернотуковые VITA</a></li>
+              <li><a href="#">Плоскорезы STAVR</a></li>
+              <li><a href="#">Культиваторы STAVRIS</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-block">
+          <h4 class="menu-block__title"><a href="#">Техника</a></h4>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Каталог</a></h5>
+            <ul>
+              <li><a href="#">Дисковые бороны DANA</a></li>
+              <li><a href="#">Оборотные плуги PERESVET</a></li>
+              <li><a href="#">Лемешные плуги FINIST</a></li>
+              <li><a href="#">Чизельные плуги SVAROG</a></li>
+              <li><a href="#">Сеялки зернотуковые VITA</a></li>
+              <li><a href="#">Плоскорезы STAVR</a></li>
+              <li><a href="#">Культиваторы STAVRIS</a></li>
+            </ul>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Контрафакт</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Новинки</a></h5>
+          </div>
+        </div>
+        <div class="menu-block">
+          <h4 class="menu-block__title"><a href="#">Сервис</a></h4>
+        </div>
+        <div class="menu-block">
+          <h4 class="menu-block__title"><a href="#">Компания</a></h4>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">История</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Структура</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Качество</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Награды и дипломы</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Технологии</a></h5>
+          </div>
+        </div>
+        <div class="menu-block">
+          <h4 class="menu-block__title"><a href="#">Пресс-центр</a></h4>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Новости</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Пресса о нас</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Фото</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Видео</a></h5>
+          </div>
+        </div>
+        <div class="menu-block">
+          <h4 class="menu-block__title"><a href="#">Покупка</a></h4>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Поиск дилера</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Постановление №1432</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Лизинг</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Акции</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Стать дилером</a></h5>
+          </div>
+        </div>
+        <div class="menu-block">
+          <h4 class="menu-block__title"><a href="#">Контакты</a></h4>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Продажи</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Сервисная служба</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Маркетинг</a></h5>
+          </div>
+          <div class="menu-block__item">
+            <h5 class="menu-block__item-title"><a href="#">Общие контакты</a></h5>
+          </div>
+        </div>
+      </div>
+      <div class="menu-phone">
+        <h3><a href="tel:88007005008">8 800 700 50 08</a></h3>
+        <p>Бесплатные звонки по России</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="regions">
+  <div class="regions__exit"><img src="img/exit.svg" alt=""></div>
+  <div class="regions__inner">
+    <div class="container">
+      <div class="regions__search">
+        <form action="#">
+          <input type="text" class="regions__search-input" placeholder="Поиск по регионам">
+          <label for="" class="regions__search-btn">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7696 16.5659L22.1337 22.9298L22.1335 20.1016L17.1023 15.0702C17.9442 13.8312 18.4306 12.3323 18.4164 10.721C18.3793 6.50816 14.934 3.12301 10.7211 3.16009C6.50825 3.19717 3.1231 6.64245 3.16018 10.8553C3.19727 15.0682 6.64254 18.4534 10.8554 18.4163C12.735 18.3997 14.4499 17.7048 15.7696 16.5659ZM10.8378 16.4164C7.72947 16.4437 5.18747 13.9461 5.16011 10.8377C5.13275 7.72937 7.63038 5.18737 10.7387 5.16001C13.8471 5.13265 16.3891 7.63029 16.4165 10.7386C16.4438 13.847 13.9462 16.389 10.8378 16.4164Z">
+            </svg>
+            <input type="submit" value="">
+          </label>
+        </form>
+      </div>
+      <div class="regions__help"></div>
+      <ul class="regions__country">
+        <li class="regions__country-item">Азербайджан</li>
+        <li class="regions__country-item">Армения</li>
+        <li class="regions__country-item">Грузия</li>
+        <li class="regions__country-item">Кыргызская Республика</li>
+        <li class="regions__country-item">Монголия</li>
+        <li class="regions__country-item">Республика Беларусь</li>
+        <li class="regions__country-item">Республика Казахстан</li>
+        <li class="regions__country-item">Республика Молдова</li>
+        <li class="regions__country-item">Таджикестан</li>
+        <li class="regions__country-item">Узбескистан</li>
+      </ul>
+      <div class="regions__russia">
+        <span class="regions__country-item">Россия</span>
+        <div class="regions__russia-items">
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">А</div>
+            <span class="regions__russia-item_child">Адыгея</span>
+            <span class="regions__russia-item_child">Алтай, Республика</span>
+            <span class="regions__russia-item_child">Алтайский край</span>
+            <span class="regions__russia-item_child">Амурская область</span>
+            <span class="regions__russia-item_child">Архангельская область</span>
+            <span class="regions__russia-item_child">Астраханская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">Б</div>
+            <span class="regions__russia-item_child">Башкортостан</span>
+            <span class="regions__russia-item_child">Белгородская область</span>
+            <span class="regions__russia-item_child">Брянская область</span>
+            <span class="regions__russia-item_child">Бурятия</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">В</div>
+            <span class="regions__russia-item_child">Владимирская область</span>
+            <span class="regions__russia-item_child">Волгоградская область</span>
+            <span class="regions__russia-item_child">Вологодская область</span>
+            <span class="regions__russia-item_child">Воронежская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">Д</div>
+            <span class="regions__russia-item_child">Дагестан</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">Е</div>
+            <span class="regions__russia-item_child">Еврейская автономная область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">З</div>
+            <span class="regions__russia-item_child">Забайкальский край</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">и</div>
+            <span class="regions__russia-item_child">Ивановская область</span>
+            <span class="regions__russia-item_child">Ингушетия</span>
+            <span class="regions__russia-item_child">Иркутская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">к</div>
+            <span class="regions__russia-item_child">Кабардино-Балкарская Республика</span>
+            <span class="regions__russia-item_child">Калининградская область</span>
+            <span class="regions__russia-item_child">Калмыкия</span>
+            <span class="regions__russia-item_child">Калужская область</span>
+            <span class="regions__russia-item_child">Камчатский край</span>
+            <span class="regions__russia-item_child">Карачаево-Черкессия</span>
+            <span class="regions__russia-item_child">Карелия</span>
+            <span class="regions__russia-item_child">Кемеровская область</span>
+            <span class="regions__russia-item_child">Кировская область</span>
+            <span class="regions__russia-item_child">Коми</span>
+            <span class="regions__russia-item_child">Костромская область</span>
+            <span class="regions__russia-item_child">Краснодарский край</span>
+            <span class="regions__russia-item_child">Красноярский край</span>
+            <span class="regions__russia-item_child">Крым</span>
+            <span class="regions__russia-item_child">Курганская область</span>
+            <span class="regions__russia-item_child">Курская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">л</div>
+            <span class="regions__russia-item_child">Ленинградская область</span>
+            <span class="regions__russia-item_child">Липецкая область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">м</div>
+            <span class="regions__russia-item_child">Магаданская область</span>
+            <span class="regions__russia-item_child">Марий Эл</span>
+            <span class="regions__russia-item_child">Мордовия</span>
+            <span class="regions__russia-item_child">Москва</span>
+            <span class="regions__russia-item_child">Московская область</span>
+            <span class="regions__russia-item_child">Мурманская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">н</div>
+            <span class="regions__russia-item_child">Ненецкий автономный округ</span>
+            <span class="regions__russia-item_child">Нижегородская область</span>
+            <span class="regions__russia-item_child">Новгородская область</span>
+            <span class="regions__russia-item_child">Новосибирская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">о</div>
+            <span class="regions__russia-item_child">Омская область</span>
+            <span class="regions__russia-item_child">Оренбургская область</span>
+            <span class="regions__russia-item_child">Орловская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">п</div>
+            <span class="regions__russia-item_child">Пензенская область</span>
+            <span class="regions__russia-item_child">Пермский край</span>
+            <span class="regions__russia-item_child">Приморский край</span>
+            <span class="regions__russia-item_child">Псковская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">р</div>
+            <span class="regions__russia-item_child">Ростовская область</span>
+            <span class="regions__russia-item_child">Рязанская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">с</div>
+            <span class="regions__russia-item_child">Самарская область</span>
+            <span class="regions__russia-item_child">Санкт-Петербург</span>
+            <span class="regions__russia-item_child">Саратовская область</span>
+            <span class="regions__russia-item_child">Саха (Якутия)</span>
+            <span class="regions__russia-item_child">Сахалинская область</span>
+            <span class="regions__russia-item_child">Свердловская область</span>
+            <span class="regions__russia-item_child">Северная Осетия (Алания)</span>
+            <span class="regions__russia-item_child">Смоленская область</span>
+            <span class="regions__russia-item_child">Ставропольский край</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">т</div>
+            <span class="regions__russia-item_child">Тамбовская область</span>
+            <span class="regions__russia-item_child">Татарстан</span>
+            <span class="regions__russia-item_child">Тверская область</span>
+            <span class="regions__russia-item_child">Томская область</span>
+            <span class="regions__russia-item_child">Тульская область</span>
+            <span class="regions__russia-item_child">Тыва (Тува)</span>
+            <span class="regions__russia-item_child">Тюменская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">у</div>
+            <span class="regions__russia-item_child">Удмуртия</span>
+            <span class="regions__russia-item_child">Ульяновская область</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">х</div>
+            <span class="regions__russia-item_child">Хабаровский край</span>
+            <span class="regions__russia-item_child">Хакасия</span>
+            <span class="regions__russia-item_child">Ханты-Мансийский автономный округ</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">ч</div>
+            <span class="regions__russia-item_child">Челябинская область</span>
+            <span class="regions__russia-item_child">Чечня</span>
+            <span class="regions__russia-item_child">Чувашия</span>
+            <span class="regions__russia-item_child">Чукотский автономный округ</span>
+          </div>
+          <div class="regions__russia-item">
+            <div class="regions__russia-sum">я</div>
+            <span class="regions__russia-item_child">Ямало-Ненецкий автономный округ</span>
+            <span class="regions__russia-item_child">Ярославская область</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hint-region">
+  <div class="hint-region__text">&nbsp;</div>
+</div>
+
+<div class="hint-region-ask">
+  <span class="hint-region-ask__text">Ваш регион Алтайский край?</span>
+  <span class="hint-region-ask__btn">ДА</span>
+  <span class="hint-region-ask__btn">НЕТ</span>
+</div>
+
+
+
+<script src="js/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+<script src="js/jquery.maskedinput.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

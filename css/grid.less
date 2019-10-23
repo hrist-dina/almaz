@@ -1,0 +1,58 @@
+@iterations: 15;
+@kek: 100/15;
+.col-loop (@i) when (@i > 0) {
+    .col-@{i} {
+      @kek1: round(@kek * @i,3);
+        width: ~"@{kek1}%";
+    }
+    .col-loop(@i - 1);
+}
+.col-loop (@iterations);
+
+@media(max-width: 1050px) {
+  .col-loop (@i) when (@i >= 0) {
+      .col-md-@{i} {
+        @kek1: round(@kek * @i,3);
+          width: ~"@{kek1}%";
+      }
+      .col-loop(@i - 1);
+  }
+  .col-loop (@iterations);
+}
+
+@media(max-width: 768px) {
+  .col-loop (@i) when (@i >= 0) {
+      .col-t-@{i} {
+        @kek1: round(@kek * @i,3);
+          width: ~"@{kek1}%";
+      }
+      .col-loop(@i - 1);
+  }
+  .col-loop (@iterations);
+}
+
+@media(max-width: 576px) {
+  .col-loop (@i) when (@i >= 0) {
+      .col-sm-@{i} {
+        @kek1: round(@kek * @i,3);
+          width: ~"@{kek1}%";
+      }
+      .col-loop(@i - 1);
+  }
+  .col-loop (@iterations);
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    width: 100%;
+  }
+}

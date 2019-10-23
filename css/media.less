@@ -1,0 +1,432 @@
+@media(max-width: 1150px) {
+    .header__menu li{
+      margin-right: 1em;
+    }
+    .news-slide__title{
+      font-size: 26px;
+    }
+    .square-slide__title{
+      font-size: 26px;
+    }
+    .technology-imgs{
+      justify-content: center;
+      img{
+        width: 33%;
+      }
+    }
+    .technology-items{
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      justify-content: space-between;
+    }
+    .technology-item{
+      position: static;
+      width: auto!important;
+      &__line{
+        display: none;
+      }
+      &__circle{
+        display: none;
+      }
+    }
+    .search-dealer__param{
+      width: 50%;
+    }
+  }
+  @media(max-width: 1050px) {
+    .title,h1,h2{
+      font-size: 50px;
+    }
+    h4{
+      font-size: 28px;
+    }
+    .header{
+      width: 100%;
+      padding: 10px 0;
+    }
+    .header__menu{
+      display: none;
+    }
+    .header__inner{
+      align-items: center;
+    }
+    .header__logo{
+      display: block;
+      svg{
+        width: 110px;
+        height: 50px;
+      }
+    }
+    .header__phone{
+      display: none;
+    }
+    .header__mobile{
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+    }
+    .page-nav{
+      display: none;
+    }
+    .page-content{
+      margin-left: 0;
+    }
+    .news-slide{
+      min-height: auto;
+    }
+    .first__tabs{
+      right: 20px;
+    }
+    .menu{
+      padding-left: 0;
+      &__exit{
+        display: flex;
+      }
+      &-blocks{
+        column-count: 3;
+      }
+    }
+    body.menu-active{
+      overflow: hidden;
+      .menu{
+        overflow: auto;
+      }
+    }
+    .square-slide{
+      &::after{
+        // background-color: transparent;
+        transform: translateY(0%);
+      }
+    }
+    .square-slide__text{
+      opacity: 1;
+    }
+    .square-slide__img{
+      opacity: 0.5;
+    }
+    .square-slide__count{
+      color: #000;
+    }
+    .square-slide__bot{
+      color: #000;
+    }
+    .spares-items{
+      justify-content: space-between;
+      margin: 0;
+    }
+    .spares-item{
+      width: 48%;
+      margin: 0 0 2em;
+    }
+    .awards-item{
+      width: 31%;
+    }
+    .regions{
+      padding-left: 0;
+    }
+    .regions__russia-items{
+      column-count: 3;
+    }
+    .spare-element__gallery-img{
+      margin-left: 10px;
+    }
+    .machinery__gallery-bot{
+      left: 5%;
+    }
+  
+    .news-section__item{
+      width: 48%;
+      &.long{
+        width: 48%;
+      }
+    }
+    .news-section__row{
+      flex-wrap: wrap;
+    }
+    .news-section__block{
+      width: 100%!important;
+    }
+    .news-section_1 .news-section__item{
+      margin: 0 0 3%;
+      padding-top: 50%;
+    }
+  
+    .media-item{
+      width: 48%;
+      margin-bottom: 1em;
+      padding-top: 25%;
+    }
+  
+    .media-detail__item{
+      width: 48%;
+    }
+  
+    .calendar__item-title{
+      font-size: 24px;
+    }
+    .calendar__item{
+      padding: 1.4em 1em;
+    }
+  }
+  @media(max-width: 768px) {
+    .title, h1, h2 {
+      word-break: break-word;
+      font-size: 40px;
+    }
+    h4{
+      font-size: 28px;
+    }
+    .menu{
+      &-blocks{
+        column-count: 2;
+      }
+    }
+    .equipment-item{
+      width: 100%;
+    }
+    .reserve-item{
+      font-size: 18px;
+    }
+    .form__inputs{
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-bottom: 1em;
+    }
+    .form__input{
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    .technology-items{
+      flex-direction: column;
+    }
+    .technology-item{
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    .regions__russia-items{
+      column-count: 2;
+    }
+    .equipment-type__items{
+      margin: 0;
+    }
+    .equipment-type__item{
+      width: 100%;
+      padding-top: 100%;
+    }
+    .search-dealer__params{
+      font-size: 18px;
+    }
+    .machinery__advantages-card{
+      display: none;
+    }
+    .machinery__advantages-slider{
+      display: block!important;
+    }
+    .machinery__advantages{
+      circle{
+        display: none;
+      }
+    }
+    .news-section__item{
+      width: 100%;
+      padding-top: 50%;
+      &.long{
+        width: 100%;
+        padding-top: 50%;
+      }
+    }
+  
+    .media-item{
+      width: 100%;
+      margin-right: 0;
+      padding-top: 50%;
+    }
+  
+    .media-detail__item{
+      width: 100%;
+      margin-right: 0;
+      height: auto;
+      img{
+        min-height: auto;
+      }
+    }
+  
+    .calendar__item{
+      flex-direction: column;
+      align-items: flex-start;
+      &-block{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1em;
+      }
+      &-date{
+        margin-bottom: 0.5em;
+      }
+    }
+  
+    .contacts-card{
+      width: 100%;
+    }
+    .contacts-block{
+      width: 100%;
+    }
+  }
+  @media(max-width: 576px) {
+    body{
+      font-size: 18px;
+    }
+    section{
+      margin: 90px 0;
+    }
+    .title, h1, h2{
+      font-size: 28px;
+      word-break: break-word;
+    }
+    h3{
+      font-size: 24px;
+    }
+    .menu-block__title,h4{
+      font-size: 20px;
+    }
+    h5{
+      font-size: 18px;
+    }
+    p{
+      font-size: 18px;
+    }
+    .page-header__tab{
+      font-size: 13px;
+      margin-left: 1em;
+    }
+    .square-slide__title{
+      font-size: 20px;
+    }
+    .square-slide__top{
+      top: 5%;
+    }
+    .menu-block__item-title{
+      .pt;
+    }
+    .news-slide__title{
+      font-size: 18px;
+    }
+    .footer__bot{
+      flex-direction: column;
+    }
+    .country{
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      img{
+        margin-left: 0;
+        margin-top: 1em;
+      }
+    }
+    .footer{
+      margin: 100px 0 30px;
+    }
+    .menu{
+      &-blocks{
+        column-count: 1;
+      }
+      &-block{
+        &__item{
+          ul{
+            display: none;
+          }
+        }
+      }
+    }
+    .doc-item,.mini-block{
+      width: 100%;
+    }
+    .equipment-filters{
+      flex-direction: column;
+    }
+    .equipment-filter{
+      margin-right: 0;
+    }
+    .spares-item{
+      width: 100%;
+    }
+  
+    .reserve-item{
+      flex-direction: column;
+      font-size: 16px;
+      &__img{
+        padding-top: 40%;
+        width: 100%;
+        background-size: contain;
+      }
+      &__table{
+        width: 100%;
+      }
+    }
+  
+    .quality-item{
+      width: 100%;
+    }
+  
+    .awards-item{
+      width: 48%;
+    }
+    .regions__russia-sum{
+      display: none;
+    }
+    .regions__russia-item_child{
+      font-size: 14px;
+    }
+    .regions__country-item{
+      font-size: 14px;
+    }
+  
+    .search-dealer__param{
+      width: 100%;
+      padding-right: 0;
+    }
+    .search-dealer__select-wrap{
+      width: 100%;
+    }
+    .search-dealer__select{
+      max-width: 270px;
+    }
+  
+    .spare-element__img{
+      padding-top: 100%;
+    }
+  
+    .machinery__tabs{
+      position: absolute;
+      top: auto;
+      right: 0px;
+      left: 0px;
+      bottom: 0px;
+      width: 100%;
+      transform: none;
+      writing-mode: inherit;
+    }
+    .machinery__tabs-item{
+      margin-top: 0;
+      margin-left: -2px;
+      flex-grow: 1;
+      padding: 6px 4px;
+      text-align: center;
+    }
+    .machinery__3d-360{
+      bottom: 50px;
+    }
+    .machinery__advantages-card{
+      bottom: 50px;
+    }
+    .machinery{
+      padding-top: 80px;
+    }
+    .news-section__item{
+      padding-top: 100%!important;
+    }
+  
+    .calendar__item-title{
+      margin-right: 1em;
+    }
+  }
