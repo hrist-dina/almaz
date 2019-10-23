@@ -403,5 +403,22 @@ $(document).ready(function(){
     $('.hint-region-ask').removeClass('active');
   });
 
-  // $('')
+  $.fn.select2.defaults.set("width", "100%");
+  $('.js-select').select2({
+    minimumResultsForSearch: Infinity,
+    theme: 'almaz'
+  });
+
+  $('.field input, .field textarea').focus(function(){
+    $(this).parents('.field').addClass('focused');
+  });
+
+  $('.field input, .field textarea').blur(function(){
+      let inputValue = $(this).val();
+      if ( inputValue === "" ) {
+          $(this).parents('.field').removeClass('focused');
+      }
+  });
+
+  $('.js-datepicker').datepicker();
 });

@@ -16,17 +16,21 @@ $(document).ready(function(){
 
   $(window).on('scroll', function(e) {
     let docScroll = $('body,html').scrollTop();
-    $('[data-tab]').each(function(i,item) {
+    let dataTab =  $('[data-tab]')
+    dataTab.each(function(i,item) {
       if ($(item).offset().top - 125 < docScroll && docScroll < ($(item).offset().top + $(item).height()) ) {
         $('.first__tab').removeClass('current');
         $('.first__tab').eq(i).addClass('current');
       }
     });
 
-    if ($('[data-tab]').last().offset().top < docScroll) {
-      $('.first__tabs').addClass('close');
-    } else {
-      $('.first__tabs').removeClass('close');
+    if (dataTab.last().offset()) {
+      if (dataTab.last().offset().top < docScroll) {
+        $('.first__tabs').addClass('close');
+      } else {
+        $('.first__tabs').removeClass('close');
+      }
     }
+ 
   })
 });
