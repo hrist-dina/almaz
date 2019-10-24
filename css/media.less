@@ -63,7 +63,7 @@
     &__block {
       flex-wrap: wrap;
     }
-  
+
     &__sidebar {
       max-width: 100%;
       margin-right: 0;
@@ -71,12 +71,12 @@
       margin-top: 0;
       margin-bottom: 32px;
     }
-  
+
     &__content {
       width: 100%;
     }
   }
-  
+
 }
 
 
@@ -420,6 +420,7 @@
       margin-left: 0;
       margin-right: 20px;
       margin-bottom: 5px;
+
       &-block {
         display: flex;
         flex-wrap: wrap;
@@ -443,6 +444,18 @@
         margin-bottom: 16px;
       }
 
+      &-block {
+        margin-top: 20px;
+        margin-bottom: 20px;
+  
+        &-head {
+          flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+      }
+
       &-field {
         max-width: ~"calc(100% - 30px)";
       }
@@ -451,13 +464,21 @@
         flex-wrap: wrap;
         padding: 16px;
       }
+
+      &-remove {
+        order: -1;
+        font-size: 13px;
+        line-height: 15px;
+      }
     }
+
     &__download {
-      margin-bottom: 16px;  
+      margin-bottom: 16px;
     }
 
   }
-  .tooltip {
+
+  .error .tooltip {
     display: inline-block;
     width: auto;
     margin-left: 0;
@@ -685,5 +706,16 @@
 
   .calendar__item-title {
     margin-right: 1em;
+  }
+}
+
+/* Если нужно меню слева на десктопе - расскомментировать этот код */
+@media(min-width: 1050px) {
+
+  .page-nav__menu, 
+  .page-nav__bot,
+  .hint-region,
+  .hint-region-ask {
+    display: none;
   }
 }

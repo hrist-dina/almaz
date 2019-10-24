@@ -107,9 +107,16 @@
         border-radius: 4px;
     }
 
-    & .select2-results__options {
-        max-height: 250px;
-        overflow-y: auto;
+    & .select2-results {
+        border-top: 1px solid #CCCCCC;
+        &__options {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+    }
+
+    & .select2-search__field {
+        height: 44px;
     }
 
     & .select2-results__option {
