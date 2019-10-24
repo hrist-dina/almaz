@@ -17,6 +17,7 @@
         max-width: 253px;
         width: 100%;
         margin-right: 80px;
+        margin-top: 45px;
     }
 
     &__content {
@@ -260,38 +261,17 @@
             color: #253238;
             border: 1px solid #FBBA00;
             box-sizing: border-box;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 0H4V4H0V6H4V10H6V6H10V4H6V0Z' fill='%23253238'/%3E%3C/svg%3E%0A");
+            background-size: 10px 10px;
+            background-position: 16px center;
+            background-repeat: no-repeat;
 
             &:hover {
+                border-width: 3px;
                 color: #253238;
-                background: #FBBA00;
+                padding: 11px 15px 8px 34px;
                 box-shadow: none;
-            }
-
-            &::before {
-                content: '';
-                top: 0;
-                bottom: 0;
-                left: 22px;
-                right: auto;
-                margin: auto;
-                position: absolute;
-                width: 2px;
-                height: 10px;
-                background: #253238;
-
-            }
-
-            &::after {
-                content: '';
-                top: 0;
-                bottom: 0;
-                left: 18px;
-                right: auto;
-                margin: auto;
-                position: absolute;
-                width: 10px;
-                height: 2px;
-                background: #253238;
+                background-position: 14px center;
             }
         }
 
@@ -486,7 +466,8 @@
         transition: 0.3s ease-in-out all;
 
         &:hover {
-            background: #FBBA00;
+            border-width: 3px;
+            padding: 11px 11px 8px;
         }
 
         &__input {
@@ -521,8 +502,7 @@
 
 .btn {
     min-width: 180px;
-    height: 48px;
-    padding: 16px 13px 13px;
+    padding: 18px 10px 16px;
     box-sizing: border-box;
     font-family: 'GP';
     font-size: 15px;
@@ -546,10 +526,11 @@
     }
 
     &:hover {
-        background: rgba(255, 187, 0, 0.8);
+        color: #FBBA00;
+        background: #000;
     }
 
     &:active {
-        box-shadow:inset -1px -1px 5px 0px rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.8);
     }
 }
