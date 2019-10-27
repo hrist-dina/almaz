@@ -359,7 +359,7 @@ $(document).ready(function () {
     })
   }
 
-  if (getCookie('regionCur') == undefined) {
+  /*if (getCookie('regionCur') == undefined) {
     $('.hint-region-ask').addClass('active');
   } else {
     $('.hint-region__text').text(getCookie('regionCur'));
@@ -377,7 +377,7 @@ $(document).ready(function () {
     } else {
       $('body').addClass('regions-active');
     }
-  });
+  });*/
 
   $('.page-nav__location').on('mouseenter', function (e) {
     e.preventDefault();
