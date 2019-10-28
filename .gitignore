@@ -1,0 +1,6 @@
+/node_modules
+/.idea
+/bitrix
+/upload
+/.htaccess
+.DS_Store

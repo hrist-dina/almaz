@@ -16,7 +16,7 @@
     background-image: url('../img/random/1.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: calc(100vh - 206px);
+    height: ~"calc(100vh - 206px)";
     &::before{
       content: '';
       position: absolute;
@@ -449,7 +449,7 @@
     &.left{
       text-align: right;
       &::before{
-        right: calc(-53% - 18px);
+        right: ~"calc(-53% - 18px)";
       }
       &::after{
         right: -54%;
@@ -458,7 +458,7 @@
     &.right{
       text-align: left;
       &::before{
-        left: calc(-53% - 18px);
+        left: ~"calc(-53% - 18px)";
       }
       &::after{
         left: -54%;
@@ -476,7 +476,7 @@
         right: -44%;
       }
       &::before{
-        right: calc(-43% - 18px);
+        right: ~"calc(-43% - 18px)";
       }
     }
     &.mark{
