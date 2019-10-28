@@ -25,7 +25,7 @@ const assetsDir = "./build/";
 function browserSync(done) {
     browsersync.init({
         server: {
-            baseDir: baseDir
+            baseDir: assetsDir
         },
         port: 3000
     });
@@ -110,22 +110,31 @@ function scripts() {
     );
 }
 
+// Transpile, concatenate and minify scripts
+function html() {
+    return (
+        gulp
+            .src([baseDir + "/*.html"])
+            .pipe(gulp.dest(assetsDir + "/"))
+    );
+}
+
 // Watch files
 function watchFiles() {
-    gulp.watch(baseDir + "less/**/*", css);
-    gulp.watch(baseDir + "js/**/*", gulp.series(scripts));
+    gulp.watch(baseDir + "css/**/*", gulp.series(css, browserSyncReload));
+    gulp.watch(baseDir + "js/**/*", gulp.series(scripts, browserSyncReload));
     gulp.watch(
         [
-            baseDir + "pages/**"
+            baseDir + "*.html"
         ],
-        gulp.series(browserSyncReload)
+        gulp.series(browserSyncReload, html)
     );
     gulp.watch(baseDir + "img/**/*", images);
 }
 
 // define complex tasks
 const js = gulp.series(scripts);
-const build = gulp.series(clean, gulp.parallel(css, images, fonts, js));
+const build = gulp.series(clean, gulp.parallel(css, images, fonts, html, js));
 const watch = gulp.parallel(watchFiles, browserSync);
 
 // export tasks

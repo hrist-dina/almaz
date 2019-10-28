@@ -28,7 +28,8 @@
     "gulp-svgstore": "^6.1.1",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
-    "stream-combiner2": "^1.1.1"
+    "stream-combiner2": "^1.1.1",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
