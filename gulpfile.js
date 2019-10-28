@@ -19,7 +19,7 @@ const webpackconfig = require("./webpack.config.js");
 const webpackstream = require("webpack-stream");
 
 const baseDir = "./src/";
-const assetsDir = "./build/";
+const assetsDir = "../assets/";
 
 // BrowserSync
 function browserSync(done) {
@@ -40,7 +40,10 @@ function browserSyncReload(done) {
 
 // Clean assets
 function clean() {
-    return del([assetsDir]);
+    return del(
+        [assetsDir],
+        {force: true}
+    );
 }
 
 // Optimize Images
@@ -50,9 +53,9 @@ function images() {
         .pipe(newer(assetsDir + "img"))
         .pipe(
             imagemin([
-                imagemin.gifsicle({ interlaced: true }),
-                imagemin.jpegtran({ progressive: true }),
-                imagemin.optipng({ optimizationLevel: 5 }),
+                imagemin.gifsicle({interlaced: true}),
+                imagemin.jpegtran({progressive: true}),
+                imagemin.optipng({optimizationLevel: 5}),
                 imagemin.svgo({
                     plugins: [
                         {
@@ -67,15 +70,14 @@ function images() {
 }
 
 
-
 // CSS task
 function css() {
     return gulp
         .src(baseDir + "css/main.less")
         .pipe(plumber())
-        .pipe(less({ outputStyle: "expanded" }))
+        .pipe(less({outputStyle: "expanded"}))
         .pipe(gulp.dest(assetsDir + "css/"))
-        .pipe(rename({ suffix: ".min" }))
+        .pipe(rename({suffix: ".min"}))
         .pipe(postcss([autoprefixer(), cssnano()]))
         .pipe(gulp.dest(assetsDir + "css/"))
         .pipe(browsersync.stream());
