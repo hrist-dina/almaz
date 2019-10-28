@@ -1,209 +1,139 @@
-'use strict'
+"use strict";
 
-const path = require('path');
-const gulp = require('gulp');
-const $ = require('gulp-load-plugins')();
-const fileinclude = require('gulp-file-include');
-const combine = require('stream-combiner2');
-const browserSync = require('browser-sync').create();
-const rimraf = require('rimraf');
+// Load plugins
+const autoprefixer = require("autoprefixer");
+const browsersync = require("browser-sync").create();
+const cp = require("child_process");
+const cssnano = require("cssnano");
+const del = require("del");
+const eslint = require("gulp-eslint");
+const gulp = require("gulp");
+const imagemin = require("gulp-imagemin");
+const newer = require("gulp-newer");
+const plumber = require("gulp-plumber");
+const postcss = require("gulp-postcss");
+const rename = require("gulp-rename");
+const less = require("gulp-less");
+const webpack = require("webpack");
+const webpackconfig = require("./webpack.config.js");
+const webpackstream = require("webpack-stream");
 
-const ENV = {
-	dev: $.environments.development,
-	prod: $.environments.production
+const baseDir = "./src/";
+const assetsDir = "./build/";
+
+// BrowserSync
+function browserSync(done) {
+    browsersync.init({
+        server: {
+            baseDir: baseDir
+        },
+        port: 3000
+    });
+    done();
 }
 
-gulp.task('html', () => {
-	let combined = combine.obj([
-		gulp.src('./*.html'),
-		gulp.dest('../assets/')
-	]);
+// BrowserSync Reload
+function browserSyncReload(done) {
+    browsersync.reload();
+    done();
+}
 
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
+// Clean assets
+function clean() {
+    return del([assetsDir]);
+}
 
-gulp.task('styles', () => {
-	let combined = combine.obj([
-		gulp.src('./css/main.less'),
-		ENV.dev($.sourcemaps.init()),
-		$.less({
-            relativeUrls: true
-		}),
-		$.autoprefixer({ cascade: false }),
-		$.csscomb(),
-		ENV.dev($.sourcemaps.write()),
-		gulp.dest('../assets/css/')
-	]);
+// Optimize Images
+function images() {
+    return gulp
+        .src(baseDir + "img/**/*")
+        .pipe(newer(assetsDir + "img"))
+        .pipe(
+            imagemin([
+                imagemin.gifsicle({ interlaced: true }),
+                imagemin.jpegtran({ progressive: true }),
+                imagemin.optipng({ optimizationLevel: 5 }),
+                imagemin.svgo({
+                    plugins: [
+                        {
+                            removeViewBox: false,
+                            collapseGroups: true
+                        }
+                    ]
+                })
+            ])
+        )
+        .pipe(gulp.dest(assetsDir + "img"));
+}
 
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
 
-gulp.task('libs', () => {
-	let combined = combine.obj([
-		gulp.src('./js/libs.js'),
-		fileinclude('@@'),
-		$.uglify(),
-		gulp.dest('../assets/js/')
-	]);
 
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
+// CSS task
+function css() {
+    return gulp
+        .src(baseDir + "css/main.less")
+        .pipe(plumber())
+        .pipe(less({ outputStyle: "expanded" }))
+        .pipe(gulp.dest(assetsDir + "css/"))
+        .pipe(rename({ suffix: ".min" }))
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(gulp.dest(assetsDir + "css/"))
+        .pipe(browsersync.stream());
+}
 
-gulp.task('scripts', () => {
-	let combined = combine.obj([
-		gulp.src(['./js/*.js', '!./js/libs.js']),
-		ENV.dev($.sourcemaps.init()),
-		$.babel({
-			presets: ['env'],
-			plugins: ['transform-object-rest-spread']
-		}),
-		$.uglify(),
-		ENV.dev($.sourcemaps.write()),
-		gulp.dest('../assets/js/')
-	]);
+function fonts() {
+    return gulp
+        .src(baseDir + "css/fonts/*{ttf,woff,woff2,svg,eot,otf}")
+        .pipe(gulp.dest(assetsDir + "css/fonts/"));
+}
 
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
+// Lint scripts
+function scriptsLint() {
+    return gulp
+        .src([baseDir + "js/**/*", "./gulpfile.js"])
+        .pipe(plumber())
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+}
 
-gulp.task('img', () => {
-	let combined = combine.obj([
-		gulp.src('./img/**/*.*'),
-		$.imagemin(),
-		gulp.dest('../assets/img/')
-	]);
+// Transpile, concatenate and minify scripts
+function scripts() {
+    return (
+        gulp
+            .src([baseDir + "js/**/*"])
+            .pipe(plumber())
+            .pipe(webpackstream(webpackconfig, webpack))
+            // folder only, filename is specified in webpack config
+            .pipe(gulp.dest(assetsDir + "js/"))
+            .pipe(browsersync.stream())
+    );
+}
 
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
+// Watch files
+function watchFiles() {
+    gulp.watch(baseDir + "less/**/*", css);
+    gulp.watch(baseDir + "js/**/*", gulp.series(scripts));
+    gulp.watch(
+        [
+            baseDir + "pages/**"
+        ],
+        gulp.series(browserSyncReload)
+    );
+    gulp.watch(baseDir + "img/**/*", images);
+}
 
-gulp.task('pictures', () => {
-	let combined = combine.obj([
-		gulp.src('./pictures/**/*.*'),
-		$.imagemin(),
-		gulp.dest('../assets/pictures/')
-	]);
+// define complex tasks
+const js = gulp.series(scripts);
+const build = gulp.series(clean, gulp.parallel(css, images, fonts, js));
+const watch = gulp.parallel(watchFiles, browserSync);
 
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
-
-gulp.task('icons', function () {
-	return gulp
-		.src('dev/icons/**/*.svg')
-		.pipe($.svgmin(function (file) {
-			var prefix = path.basename(file.relative, path.extname(file.relative));
-			
-			return {
-				plugins: [{
-					cleanupIDs: {
-					prefix: 'icon-' + prefix,
-					minify: true
-				}
-			}]
-		}
-	}))
-	.pipe($.cheerio({
-		run: function ($, file) {
-			$('style').remove();
-		},
-		parserOptions: { xmlMode: true }
-	}))
-	.pipe($.svgstore())
-	.pipe(gulp.dest('public/img'));
-});
-
-gulp.task('fonts', () => {
-	let combined = combine.obj([
-		gulp.src('./css/fonts/*.*'),
-		gulp.dest('../assets/css/fonts/')
-	]);
-
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
-
-gulp.task('video', () => {
-	let combined = combine.obj([
-		gulp.src('./video/**/*.*'),
-		gulp.dest('../assets/video/')
-	]);
-
-	combined.on('error', console.error.bind(console));
-	return combined;
-});
-
-gulp.task('clean', (cb) => {
-	rimraf('../assets', cb);
-});
-
-gulp.task('build', [
-	'html',
-	'styles',
-	'libs',
-	'scripts',
-	'img',
-	'pictures',
-	'icons',
-	'fonts',
-	'video'
-]);
-
-gulp.task('watch', () => {
-	$.watch(['dev/**/*.html'], () => {
-		gulp.start('html');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/css/**/*.*'], function() {
-		gulp.start('styles');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/js/vendor/*.*', 'dev/js/libs.js'], function() {
-		gulp.start('libs');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/js/**/*.js', '!dev/js/libs.js'], function() {
-		gulp.start('scripts');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/img/**/*.*'], function() {
-		gulp.start('img');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/pictures/**/*.*'], function() {
-		gulp.start('pictures');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/icons/**/*.*'], function() {
-		gulp.start('icons');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/fonts/**/*.*'], function() {
-		gulp.start('fonts');
-		browserSync.reload();
-	});
-
-	$.watch(['dev/video/**/*.*'], function() {
-		gulp.start('video');
-		browserSync.reload();
-	});
-});
-
-gulp.task('server', () => {
-	browserSync.init({
-		server: { baseDir: "../assets/" },
-		port: 9000
-	});
-});
-
-gulp.task('default', ['build', 'server', 'watch']);
+// export tasks
+exports.images = images;
+exports.css = css;
+exports.js = js;
+exports.clean = clean;
+exports.fonts = fonts;
+exports.build = build;
+exports.watch = watch;
+exports.default = build;

@@ -1,7 +1,0 @@
-@@include('lib/jquery-3.3.1.min.js')
-@@include('lib/datepicker.min.js')
-@@include('lib/jquery.fancybox.min.js')
-@@include('lib/jquery.maskedinput.min.js')
-@@include('lib/less.min.js')
-@@include('lib/owl.carousel.min.js')
-@@include('lib/select2.min.js')
