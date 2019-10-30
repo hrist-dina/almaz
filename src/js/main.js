@@ -1,3 +1,4 @@
+import "jquery-mask-plugin";
 import ExploitationForm from "./form/exploitationForm";
 
 
@@ -438,20 +439,31 @@ $(document).ready(function () {
     $('.js-datepicker').datepicker();
 
     $('.js-lk-buyer-add').on('click', function () {
-        $(this)
-            .parents('.js-lk-buyer-add-wrap')
-            .addClass('hide');
-        $('.js-lk-buyer-block').removeClass('hide')
+        const $wrap = $(this).parents('.js-lk-buyer-add-wrap');
+        const $buyersBlock = $('.js-lk-buyer-block');
+
+        $wrap.slideUp(500, () => {
+            $wrap.addClass('hide');
+        });
+
+        $buyersBlock.slideDown(500, ()=>{
+            $buyersBlock.removeClass('hide');
+        });
     });
 
     $('.js-lk-buyer-remove').on('click', function () {
-        $(this)
-            .parents('.js-lk-buyer-block')
-            .addClass('hide');
-        $('.js-lk-buyer-add-wrap').removeClass('hide');
-        $('.js-lk-buyer-block').find('input').val('');
-    });
+        const $wrap = $(this).parents('.js-lk-buyer-add-wrap');
+        const $buyersBlock = $('.js-lk-buyer-block');
 
+        $wrap.slideDown(500, () => {
+            $wrap.addClass('hide');
+        });
+
+        $buyersBlock.slideUp(500, ()=>{
+            $buyersBlock.removeClass('hide');
+            $buyersBlock.find('input').val('');
+        });
+    });
 
     $('.first__tab').on('click', function (e) {
         e.preventDefault();
@@ -505,14 +517,13 @@ $(document).ready(function () {
                     $selectModels.find('option:not([hidden])').remove();
                     $selectModels.val(0);
 
-                    $.each(response.data.EQUIPMENTS, (index,value) => {
+                    $.each(response.data.EQUIPMENTS, (index, value) => {
                         $selectModels.append(`<option value="${value['ID']}">${value['NAME']}</option>`)
                     });
                 }
             }
         });
     });
-
 
 
 });

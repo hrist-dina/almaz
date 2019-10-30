@@ -48,15 +48,20 @@ class BaseForm {
 
         $form.validate({
             errorPlacement: function (error, element) {
-                $(element).closest('.js-field').find('.js-error-tooltip').fadeIn();
-                $(element).addClass('error');
-                console.log(element);
-                console.log(error);
+                $(element).closest('.js-field').addClass('error').find('.js-error-tooltip').fadeIn();
 
                 return true;
             },
             success: function (element) {
+                $(element).closest('.js-field').removeClass('error').find('.js-error-tooltip').fadeOut();
+
                 return true;
+            },
+            highlight: function(element) {
+                $(element).closest('.js-field').addClass('error').find('.js-error-tooltip').fadeIn();
+            },
+            unhighlight: function(element) {
+                $(element).closest('.js-field').removeClass('error').find('.js-error-tooltip').fadeOut();
             },
             lang: 'ru',
             invalidHandler: function (form) {
@@ -68,7 +73,6 @@ class BaseForm {
             },
         });
 
-        $form.find('COMMENT').rules("remove", 'required');
 
         $form.find('.name').rules("add", {
             minlength: 2,
@@ -82,6 +86,12 @@ class BaseForm {
             minlength: 17,
             checkPhone: true
         });
+        $form.find('.js-number').rules("add", {
+            minlength: 5,
+            maxlength: 6,
+            number: true
+        });
+
 
         $.validator.setDefaults({ignore: ".ignore"});
 
