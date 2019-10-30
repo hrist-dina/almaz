@@ -1,4 +1,11 @@
+import ExploitationForm from "./form/exploitationForm";
+
+
 $(document).ready(function () {
+    $('.js-form-exploitation').each((i, el) => {
+        new ExploitationForm(el);
+    });
+
     let sliderSet = {
         loop: false,
         // autoplay:true,
@@ -441,7 +448,8 @@ $(document).ready(function () {
         $(this)
             .parents('.js-lk-buyer-block')
             .addClass('hide');
-        $('.js-lk-buyer-add-wrap').removeClass('hide')
+        $('.js-lk-buyer-add-wrap').removeClass('hide');
+        $('.js-lk-buyer-block').find('input').val('');
     });
 
 
@@ -505,26 +513,6 @@ $(document).ready(function () {
         });
     });
 
-    $('.js-form-exploitation').on('submit', (e) => {
-        e.preventDefault();
-        const $form = $(e.target);
-        const formData = new FormData($form.get(0));
-
-        $.ajax({
-            url: '/ajax/personal/set/',
-            method: "post",
-            data: formData,
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-
-            success: function (response) {
-                if (response.success === 1) {
-                 console.log('форма отправлена');
-                }
-            }
-        });
-    });
 
 
 });
