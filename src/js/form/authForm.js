@@ -3,7 +3,7 @@ import "jquery-validation";
 import {BaseModal} from "../base-modal";
 
 
-export default class ExploitationForm extends BaseForm {
+export default class AuthForm extends BaseForm {
     init() {
         this.validate();
     }
@@ -22,10 +22,11 @@ export default class ExploitationForm extends BaseForm {
 
             success: (response) => {
                 if (response.success === 1) {
-                    $form.trigger('reset');
+                    window.location.replace("/");
+
+                } else {
                     let modal = BaseModal.openModal('result');
-                    BaseModal.renderMessage(modal, 'Действие совершено успешно');
-                    console.log('форма отправлена');
+                    BaseModal.renderMessage(modal, response.data.error);
                 }
             }
         });

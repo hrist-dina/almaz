@@ -1,5 +1,6 @@
 import "jquery-mask-plugin";
 import ExploitationForm from "./form/exploitationForm";
+import AuthForm from "./form/authForm";
 import {BaseModal} from "./base-modal";
 
 
@@ -7,19 +8,13 @@ $(document).ready(function () {
     $('.js-form-exploitation').each((i, el) => {
         new ExploitationForm(el);
     });
+    $('.js-form-auth').each((i, el) => {
+        new AuthForm(el);
+    });
+
+
 
     new BaseModal();
-
-    // TODO:: Для примера, убрать
-    setTimeout(function () {
-        let modal = BaseModal.openModal('result');
-        BaseModal.renderMessage(modal, 'Действие совершено успешно');
-
-        setTimeout(function () {
-            BaseModal.closeCurrent(modal);
-        }, 5000);
-
-    }, 1000);
 
 
     let sliderSet = {
@@ -463,20 +458,26 @@ $(document).ready(function () {
 
         $buyersBlock.slideDown(500, ()=>{
             $buyersBlock.removeClass('hide');
+            $buyersBlock.find('input').attr('required', true);
+            $('.js-select-buyer').attr('required', false);
         });
     });
 
     $('.js-lk-buyer-remove').on('click', function () {
-        const $wrap = $(this).parents('.js-lk-buyer-add-wrap');
+        const $wrap = $('.js-lk-buyer-add-wrap');
         const $buyersBlock = $('.js-lk-buyer-block');
 
         $wrap.slideDown(500, () => {
-            $wrap.addClass('hide');
+            $wrap.removeClass('hide');
+            $wrap.css('display', 'flex');
         });
 
         $buyersBlock.slideUp(500, ()=>{
             $buyersBlock.removeClass('hide');
-            $buyersBlock.find('input').val('');
+            const $inputs = $buyersBlock.find('input');
+            $inputs.val('');
+            $inputs.attr('required', false);
+            $('.js-select-buyer').attr('required', true);
         });
     });
 
@@ -515,30 +516,34 @@ $(document).ready(function () {
 
     });
 
-    $('.js-select-type').on('change', (e) => {
+    $('.js-select-linked').on('change', (e) => {
         const $el = $(e.target);
+        const path = $el.data('path');
+        const $linkedNode = $($el.data('linked'));
+
 
         $.ajax({
-            url: '/ajax/equipments/get/',
+            url: path,
             method: "post",
             data: {
-                type: $el.val()
+                sign: $el.val()
             },
             dataType: 'json',
 
             success: function (response) {
                 if (response.success === 1) {
-                    const $selectModels = $('.js-select-models');
-                    $selectModels.find('option:not([hidden])').remove();
-                    $selectModels.val(0);
+                    $linkedNode.find('option:not([hidden])').remove();
+                    $linkedNode.val(0);
 
-                    $.each(response.data.EQUIPMENTS, (index, value) => {
-                        $selectModels.append(`<option value="${value['ID']}">${value['NAME']}</option>`)
+                    $.each(response.data.DATA, (index, value) => {
+                        $linkedNode.append(`<option value="${value['ID']}">${value['NAME']}</option>`)
                     });
                 }
             }
         });
     });
+
+
 
 
 });
