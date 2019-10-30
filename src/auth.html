@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="build/img/favicon.png">
-  <link rel="stylesheet" href="build/css/main.css">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="css/main.css">
   <title>Алмаз</title>
 </head>
 
-<body>
+<body class="body-right">
 
   <div class="page-nav">
     <a href="/" class="page-nav__logo">
@@ -125,365 +125,34 @@
       </div>
     </header>
     <div class="skybox"></div>
-    <section class="lk">
-      <div class="container">
-        <div class="lk__head">
-          <h2 class="lk__title">Личный кабинет (дилер)</h2>
-          <h3 class="lk__subtitle">ООО «Пневмослон» </h3>
-        </div>
-        <div class="lk__block">
-          <div class="lk__sidebar">
-            <ul class="lk__menu">
-              <li>
-                <a href="#">Главная страница</a>
-              </li>
-              <li class="active">
-                <a href="#">Ввод в эксплуатацию</a>
-              </li>
-              <li>
-                <a href="#">Рекламации</a>
-              </li>
-              <li>
-                <a href="#">Маркетинговые компенсации</a>
-              </li>
-            </ul>
-            <div class="lk__card">
-              <div class="lk__card-title">Возникли вопросы?</div>
-              <div class="lk__card-avatar">
-                <img src="img/lk/lk-avatar.png" alt="">
-              </div>
-              <div class="lk__card-name">
-                Клим Константинов
-              </div>
-              <div class="lk__card-position">
-                Персональный менеджер
-              </div>
-              <a href="tel:89069108899" class="lk__card-phone">8 906 910 88 99</a>
-              <a href="mailto:klim@almaz.ru" class="lk__card-mail">klim@almaz.ru</a>
-            </div>
-            <a href="#" class="lk__logout">Выход</a>
-          </div>
 
-          <div class="lk__content">
-            <div class="lk__file-link-block">
-              <a href="#" class="lk__file-link">Документы</a>
-              <a href="#" class="lk__file-link lk__file-link_info"> Справочная информация</a>
+    <section class="auth-section">
+      <div class="container">
+        <h2 class="auth-title">Вход в личный кабинет</h2>
+        <div class="auth-wrap">
+          <form action="" method="POST" class="auth-form">
+            <div class="auth-form__row">
+              <div class="auth-form__field required">
+                <label class="field"><span class="field__title field__required">Электронная почта</span>
+                  <input class="field__input" type="text" name="email">
+                </label>
+              </div>
+              <div class="tooltip">
+                Поле не должно быть пустым
+              </div>
             </div>
-            <form action="" method="POST" class="lk__form">
-              <div class="lk__form-section">
-                <div class="lk__form-title">
-                  Заполните информацию о технике
-                </div>
-                <div class="lk__form-row">
-                  <div class="lk__form-field required">
-                    <select class="select js-select" name="type">
-                      <option disabled selected hidden>Выберите тип техники</option>
-                      <option value="1">Техника 1</option>
-                      <option value="2">Техника 2</option>
-                      <option value="3">Техника 3</option>
-                      <option value="4">Тест 4</option>
-                      <option value="5">Тест 5</option>
-                    </select>
-                  </div>
-                  <div class="hint">
-                    <div class="hint__message">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
-                      libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                      veritatis quibusdam, aliquid natus.
-                    </div>
-                  </div>
-                </div>
-                <div class="lk__form-row">
-                  <div class="lk__form-field required">
-                    <select class="select js-select" name="model">
-                      <option disabled selected hidden>Выберите модель</option>
-                      <option value="1">Модель 1</option>
-                      <option value="2">Модель 2</option>
-                      <option value="3">Модель 3</option>
-                      <option value="4">Тест модель 4</option>
-                      <option value="5">Тест модель 5</option>
-                    </select>
-                  </div>
-                  <div class="hint">
-                    <div class="hint__message">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
-                      libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                      veritatis quibusdam, aliquid natus.
-                    </div>
-                  </div>
-                </div>
-                <div class="lk__form-row error">
-                  <div class="lk__form-field required">
-                    <label class="field"><span class="field__title field__required">Введите заводской номер</span>
-                      <input class="field__input" type="text" name="number">
-                    </label>
-                  </div>
-                  <div class="hint">
-                    <div class="hint__message">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
-                      libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                      veritatis quibusdam, aliquid natus.
-                    </div>
-                  </div>
-                  <div class="tooltip">
-                    Номер введен неверно
-                  </div>
-                </div>
-                <div class="lk__form-row">
-                  <div class="lk__form-field required">
-                    <label class="field field_date"><span class="field__title field__required">Укажите дату ввода
-                        техники в эксплуатацию</span>
-                      <input class="field__input js-datepicker" type="text" name="date">
-                    </label>
-                  </div>
-                </div>
+            <div class="auth-form__row">
+              <div class="auth-form__field required">
+                <label class="field"><span class="field__title field__required">Пароль</span>
+                  <input class="field__input" type="text" name="password">
+                </label>
               </div>
-              <div class="lk__form-section">
-                <div class="lk__form-title">
-                  Прикрепите необходимые документы
-                </div>
-                <div class="lk__form-row">
-                  <div class="lk__form-field">
-                    <div class="lk__form-file">
-                      <div class="lk__download">
-                        <div class="lk__download-title">
-                          Акт ввода в эксплуатацию
-                        </div>
-                        <a href="#" class="lk__download-link">
-                          Скачать форму
-                        </a>
-                      </div>
-                      <label class='field-file'>
-                        <input class="field-file__input" type="file" name="file">
-                        <span class="field-file__title">Загрузить</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="hint">
-                    <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
-                      similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
-                      Excepturi laudantium atque distinctio saepe?</div>
-                  </div>
-                </div>
+              <div class="tooltip">
+                Поле не должно быть пустым
               </div>
-              <div class="lk__form-section">
-                <div class="lk__form-title">
-                  Выберите покупателя из списка
-                </div>
-                <div class="lk__form-row">
-                  <div class="lk__form-field required">
-                    <select class="select js-select" name="type">
-                      <option disabled selected hidden>Выберите покупателя</option>
-                      <option value="1">Покупатель 1</option>
-                      <option value="2">Покупатель 2</option>
-                      <option value="3">Покупатель 3</option>
-                      <option value="4">Тест 4</option>
-                      <option value="5">Тест 5</option>
-                    </select>
-                  </div>
-                  <div class="hint">
-                    <div class="hint__message">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
-                      libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                      veritatis quibusdam, aliquid natus.
-                    </div>
-                  </div>
-                </div>
-                <div class="lk__form-row js-lk-buyer-add-wrap">
-                  <a class="lk__form-add js-lk-buyer-add" href="javascript:void(0)">Добавить покупателя</a>
-                  <div class="hint">
-                    <div class="hint__message">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
-                      libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                      veritatis quibusdam, aliquid natus.
-                    </div>
-                  </div>
-                </div>
-                <div class="lk__form-block js-lk-buyer-block hide">
-                  <div class="lk__form-field lk__form-block-head">
-                    <div class="lk__form-title">
-                      Добавьте нового покупателя
-                    </div>
-                    <a class="lk__form-remove js-lk-buyer-remove" href="javascript:void()">Не добавлять</a>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <label class="field"><span class="field__title field__required">Название</span>
-                        <input class="field__input" type="text" name="name">
-                      </label>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                    <div class="tooltip">
-                      Название не должно быть пустым
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <label class="field"><span class="field__title field__required">ИНН</span>
-                        <input class="field__input" type="text" name="inn">
-                      </label>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                    <div class="tooltip">
-                      ИНН не должно быть пустым
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <!-- Цитата из axshare: При введении нового покупателя должен быть выбор регионов с закреплением определенных регионов за конкретным дилером и выбор районов в регионе (т.е. нужна база районов). -->
-                      <select class="select js-select-search" name="region">
-                        <option disabled selected hidden>Выбор региона</option>
-                        <option value="1">Москва</option>
-                        <option value="2">Алтайский край</option>
-                        <option value="3">Регион 3</option>
-                        <option value="4">Тест регион 4</option>
-                        <option value="5">Тест регион 5</option>
-                      </select>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <!-- Цитата из axshare: При введении нового покупателя должен быть выбор регионов с закреплением определенных регионов за конкретным дилером и выбор районов в регионе (т.е. нужна база районов). -->
-                      <select class="select js-select-search" name="area">
-                        <option disabled selected hidden>Выбор района</option>
-                        <option value="1">Район</option>
-                        <option value="2">Район 2</option>
-                        <option value="3">Район 3</option>
-                        <option value="4">Тест район 4</option>
-                        <option value="5">Тест район 5</option>
-                        <option value="6">Тест район 6</option>
-                        <option value="7">Тест район 7</option>
-                      </select>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <label class="field"><span class="field__title field__required">Адрес</span>
-                        <input class="field__input" type="text" name="address">
-                      </label>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                    <div class="tooltip">
-                      Адрес не должн быть пустым
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <label class="field"><span class="field__title field__required">Телефон</span>
-                        <input class="field__input js-mask-phone" type="text" name="phone">
-                      </label>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                    <div class="tooltip">
-                      Телефон не должн быть пустым
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <label class="field"><span class="field__title field__required">Электронная почта</span>
-                        <input class="field__input" type="text" name="email">
-                      </label>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                    <div class="tooltip">
-                      Электронная почта не должна быть пустой
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <label class="field"><span class="field__title field__required">Контактное лицо</span>
-                        <input class="field__input" type="text" name="contact_person">
-                      </label>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                    <div class="tooltip">
-                      Поле не должно быть пустым
-                    </div>
-                  </div>
-                  <div class="lk__form-row">
-                    <div class="lk__form-field required">
-                      <label class="field"><span class="field__title field__required">Должность</span>
-                        <input class="field__input" type="text" name="position">
-                      </label>
-                    </div>
-                    <div class="hint">
-                      <div class="hint__message">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                        quia
-                        libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
-                        veritatis quibusdam, aliquid natus.
-                      </div>
-                    </div>
-                    <div class="tooltip">
-                      Поле не должно быть пустым
-                    </div>
-                  </div>
-                </div>
-                <div class="lk__form-req-text">
-                  <b>*</b> – поля, обязательные для заполнения
-                </div>
-                <button class="btn lk__form-submit" type="submit">Отправить</button>
-              </div>
-            </form>
-          </div>
+            </div>
+
+            <button class="btn auth-form__submit" type="submit">Войти</button>
         </div>
       </div>
     </section>
@@ -865,7 +534,7 @@
     <span class="hint-region-ask__btn">НЕТ</span>
   </div>
 
-  <script src="build/js/main.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 

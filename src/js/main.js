@@ -478,7 +478,53 @@ $(document).ready(function () {
             }
         }
 
-    })
+    });
+
+    $('.js-select-type').on('change', (e) => {
+        const $el = $(e.target);
+
+        $.ajax({
+            url: '/ajax/equipments/get/',
+            method: "post",
+            data: {
+                type: $el.val()
+            },
+            dataType: 'json',
+
+            success: function (response) {
+                if (response.success === 1) {
+                    const $selectModels = $('.js-select-models');
+                    $selectModels.find('option:not([hidden])').remove();
+                    $selectModels.val(0);
+
+                    $.each(response.data.EQUIPMENTS, (index,value) => {
+                        $selectModels.append(`<option value="${value['ID']}">${value['NAME']}</option>`)
+                    });
+                }
+            }
+        });
+    });
+
+    $('.js-form-exploitation').on('submit', (e) => {
+        e.preventDefault();
+        const $form = $(e.target);
+        const formData = new FormData($form.get(0));
+
+        $.ajax({
+            url: '/ajax/personal/set/',
+            method: "post",
+            data: formData,
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+
+            success: function (response) {
+                if (response.success === 1) {
+                 console.log('форма отправлена');
+                }
+            }
+        });
+    });
 
 
 });
