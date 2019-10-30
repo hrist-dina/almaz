@@ -1,11 +1,26 @@
 import "jquery-mask-plugin";
 import ExploitationForm from "./form/exploitationForm";
+import {BaseModal} from "./base-modal";
 
 
 $(document).ready(function () {
     $('.js-form-exploitation').each((i, el) => {
         new ExploitationForm(el);
     });
+
+    new BaseModal();
+
+    // TODO:: Для примера, убрать
+    setTimeout(function () {
+        let modal = BaseModal.openModal('result');
+        BaseModal.renderMessage(modal, 'Действие совершено успешно');
+
+        setTimeout(function () {
+            BaseModal.closeCurrent(modal);
+        }, 5000);
+
+    }, 1000);
+
 
     let sliderSet = {
         loop: false,
