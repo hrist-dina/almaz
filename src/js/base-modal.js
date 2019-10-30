@@ -78,7 +78,7 @@ class BaseModal {
   }
 
   static renderMessage(modal, message) {
-    $(modal).find('.js-modal-text').html($("<div>", { class: "popup__title" }).text(message));
+    $(modal).find('.js-modal-text').html($("<div>", { class: "popup__title" }).html(message));
   }
 
   static clear(element) {

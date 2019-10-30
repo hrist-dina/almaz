@@ -26,7 +26,7 @@ export default class AuthForm extends BaseForm {
 
                 } else {
                     let modal = BaseModal.openModal('result');
-                    BaseModal.renderMessage(modal, response.data.error);
+                    BaseModal.renderMessage(modal, response.error);
                 }
             }
         });
