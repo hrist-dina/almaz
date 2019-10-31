@@ -1,4 +1,3 @@
-import "jquery-mask-plugin";
 import ExploitationForm from "./form/exploitationForm";
 import AuthForm from "./form/authForm";
 import {BaseModal} from "./base-modal";
@@ -11,7 +10,6 @@ $(document).ready(function () {
     $('.js-form-auth').each((i, el) => {
         new AuthForm(el);
     });
-
 
 
     new BaseModal();
@@ -152,7 +150,7 @@ $(document).ready(function () {
 
     jQuery(function ($) {
         $("#date").mask("99/99/9999");
-        $('[tel]').mask("+7 (999) 999-9999");
+        $('.js-tel').mask("+7 (999) 999-9999");
         $("#tin").mask("99-9999999");
         $("#ssn").mask("999-99-9999");
     });
@@ -456,14 +454,14 @@ $(document).ready(function () {
             $wrap.addClass('hide');
         });
 
-        $buyersBlock.slideDown(500, ()=>{
+        $buyersBlock.slideDown(500, () => {
             $buyersBlock.removeClass('hide');
             $buyersBlock.find('input').attr('required', true);
             $('.js-select-buyer').attr('required', false);
         });
     });
 
-    $('.js-lk-buyer-remove').on('click', function () {
+    const fadeNewBuyer = function () {
         const $wrap = $('.js-lk-buyer-add-wrap');
         const $buyersBlock = $('.js-lk-buyer-block');
 
@@ -472,14 +470,17 @@ $(document).ready(function () {
             $wrap.css('display', 'flex');
         });
 
-        $buyersBlock.slideUp(500, ()=>{
+        $buyersBlock.slideUp(500, () => {
             $buyersBlock.removeClass('hide');
             const $inputs = $buyersBlock.find('input');
             $inputs.val('');
             $inputs.attr('required', false);
             $('.js-select-buyer').attr('required', true);
         });
-    });
+    };
+
+    $('.js-lk-buyer-remove').on('click', fadeNewBuyer);
+    $('.js-select-buyer').on('change', fadeNewBuyer);
 
     $('.first__tab').on('click', function (e) {
         e.preventDefault();
@@ -542,8 +543,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
 
 
 });

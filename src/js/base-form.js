@@ -1,4 +1,6 @@
 import "jquery-validation";
+import "jquery-mask-plugin";
+
 // import autosize from "autosize/src/autosize";
 
 class BaseForm {
@@ -9,6 +11,8 @@ class BaseForm {
             this.$element.trigger('submit');
         });
 
+        // this.$element.find('.js-tel').mask('+7 (000) 000-00-00');
+
         this.init();
     }
 
@@ -16,7 +20,7 @@ class BaseForm {
         const $form = this.$element;
 
         $.validator.addMethod('checkPhone', function (value, element) {
-            return /\+\d{1} \(\d{3}\) \d{3}-\d{2}-\d{2}/g.test(value);
+            return /\+\d{1} \(\d{3}\) \d{3}-\d{4}/g.test(value);
         });
 
         $.extend($.validator.messages, {
@@ -57,10 +61,10 @@ class BaseForm {
 
                 return true;
             },
-            highlight: function(element) {
+            highlight: function (element) {
                 $(element).closest('.js-field').addClass('error').find('.js-error-tooltip').fadeIn();
             },
-            unhighlight: function(element) {
+            unhighlight: function (element) {
                 $(element).closest('.js-field').removeClass('error').find('.js-error-tooltip').fadeOut();
             },
             lang: 'ru',
@@ -82,16 +86,25 @@ class BaseForm {
             minlength: 3
         });
 
+        $form.find('.js-inn').rules("add", {
+            minlength: 10,
+            maxlength: 14,
+        });
+
         $form.find('.tel').rules("add", {
             minlength: 17,
             checkPhone: true
         });
+
         $form.find('.js-number').rules("add", {
             minlength: 5,
             maxlength: 6,
             number: true
         });
 
+        $form.find('.js-file').rules("add", {
+            accept:"jpg,png,jpeg,gif"
+        });
 
         $.validator.setDefaults({ignore: ".ignore"});
 
