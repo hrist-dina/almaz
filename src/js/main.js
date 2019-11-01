@@ -161,7 +161,7 @@ $(document).ready(function () {
             mask: "99.99.9999",
             showMaskOnHover: false
         });
-        imDate.mask("#date");
+        imDate.mask(".js-date");
 
         let imTin = new Inputmask({
             mask: "99-9999999",
@@ -497,7 +497,7 @@ $(document).ready(function () {
         });
 
         $buyersBlock.slideUp(500, () => {
-            $buyersBlock.removeClass('hide');
+            $buyersBlock.addClass('hide');
             const $inputs = $buyersBlock.find('input');
             $inputs.val('');
             $inputs.attr('required', false);
