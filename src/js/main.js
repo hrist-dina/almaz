@@ -1,5 +1,6 @@
 import ExploitationForm from "./form/exploitationForm";
 import AuthForm from "./form/authForm";
+import Inputmask from "inputmask";
 import {BaseModal} from "./base-modal";
 
 
@@ -149,12 +150,31 @@ $(document).ready(function () {
     // initScrollToPos('.CLASS', 'CLASS OR' NUMBER, 80);
 
     jQuery(function ($) {
-        $("#date").mask("99/99/9999");
-        $('.js-tel').mask("+7 (999) 999-9999");
-        $("#tin").mask("99-9999999");
-        $("#ssn").mask("999-99-9999");
-    });
+        let imTel = new Inputmask({
+            mask: "+7 (999) 999-9999",
+            showMaskOnHover: false
+        });
+        imTel.mask('.js-tel');
+        imTel.mask('.js-mask-phone');
 
+        let imDate = new Inputmask({
+            mask: "99.99.9999",
+            showMaskOnHover: false
+        });
+        imDate.mask("#date");
+
+        let imTin = new Inputmask({
+            mask: "99-9999999",
+            showMaskOnHover: false
+        })
+        imTin.mask("#tin");
+
+        let imSsn = new Inputmask({
+            mask: "999-99-9999",
+            showMaskOnHover: false
+        })
+        imSsn.mask("#ssn");
+    });
     //form menu-search
     $('.page-nav__search').on('click', function (e) {
         e.preventDefault();
@@ -444,7 +464,13 @@ $(document).ready(function () {
         }
     });
 
+    let imDate = new Inputmask({
+        mask: "99.99.9999",
+        showMaskOnHover: false
+    });
+    imDate.mask ('.js-datepicker');
     $('.js-datepicker').datepicker();
+
 
     $('.js-lk-buyer-add').on('click', function () {
         const $wrap = $(this).parents('.js-lk-buyer-add-wrap');
