@@ -475,10 +475,10 @@ $(document).ready(function () {
     $('.js-lk-buyer-add').on('click', function () {
         const $wrap = $(this).parents('.js-lk-buyer-add-wrap');
         const $buyersBlock = $('.js-lk-buyer-block');
+        const $oldBuyers = $('.js-old-buyers');
 
-        $wrap.slideUp(500, () => {
-            $wrap.addClass('hide');
-        });
+        $oldBuyers.slideUp();
+        $wrap.slideUp(500);
 
         $buyersBlock.slideDown(500, () => {
             $buyersBlock.removeClass('hide');
@@ -490,14 +490,15 @@ $(document).ready(function () {
     const fadeNewBuyer = function () {
         const $wrap = $('.js-lk-buyer-add-wrap');
         const $buyersBlock = $('.js-lk-buyer-block');
+        const $oldBuyers = $('.js-old-buyers');
 
+        $oldBuyers.slideDown();
         $wrap.slideDown(500, () => {
             $wrap.removeClass('hide');
             $wrap.css('display', 'flex');
         });
 
         $buyersBlock.slideUp(500, () => {
-            $buyersBlock.addClass('hide');
             const $inputs = $buyersBlock.find('input');
             $inputs.val('');
             $inputs.attr('required', false);
