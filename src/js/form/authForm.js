@@ -22,7 +22,7 @@ export default class AuthForm extends BaseForm {
 
             success: (response) => {
                 if (response.success === 1) {
-                    window.location.replace("/");
+                    window.location.replace($form.data('redirect'));
 
                 } else {
                     let modal = BaseModal.openModal('result');
