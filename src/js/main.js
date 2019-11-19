@@ -2,6 +2,7 @@ import ExploitationForm from "./form/exploitationForm";
 import AuthForm from "./form/authForm";
 import Inputmask from "inputmask";
 import {BaseModal} from "./base-modal";
+import {BaseTabs} from "./base-tabs";
 
 
 $(document).ready(function () {
@@ -12,9 +13,8 @@ $(document).ready(function () {
         new AuthForm(el);
     });
 
-
     new BaseModal();
-
+    new BaseTabs();
 
     let sliderSet = {
         loop: false,
