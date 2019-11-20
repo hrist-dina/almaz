@@ -20,7 +20,6 @@ class BaseTable {
     clickLink() {
         const self = this;
         this.link.on('click', function () {
-            console.log('test');
             const showText = $(this).data('show-text');
             const oldText = $(this).text();
             let links = $(this).parents(self.detail).find(self.link);

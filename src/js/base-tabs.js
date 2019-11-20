@@ -41,16 +41,20 @@ class BaseTabs {
     }
 
     clickShowForm() {
-        this.showFrom.on('click', () => {
-            this.from.addClass(this.activeClass);
-            this.contentInner.removeClass(this.activeClass);
+        const self = this;
+        this.showFrom.on('click', function() {
+            const tab = $(this).parents('[data-tab-content]');
+            tab.find(self.from).addClass(self.activeClass);
+            tab.find(self.contentInner).removeClass(self.activeClass);
         });
     }
 
     clickBack() {
-        this.back.on('click', () => {
-            this.from.removeClass(this.activeClass);
-            this.contentInner.addClass(this.activeClass);
+        const self = this;
+        this.back.on('click', function() {
+            const tab = $(this).parents('[data-tab-content]');
+            tab.find(self.from).removeClass(self.activeClass);
+            tab.find(self.contentInner).addClass(self.activeClass);
         });
     }
 }
