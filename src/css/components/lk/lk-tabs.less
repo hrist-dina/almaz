@@ -65,3 +65,35 @@
         }
     }
 }
+
+
+.guarantee {
+    &__row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        padding: 8px 16px;
+
+    }
+
+    &__col {
+        width: auto;
+        padding-right: 10px;
+        margin-bottom: 0;
+
+        &-value {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+}
+
+
+.guarantee .guarantee__row:nth-child(odd) {
+    background: #ECECEC;;
+}
