@@ -64,36 +64,161 @@
             }
         }
     }
-}
 
+    &__table {
+        margin-bottom: 32px;
 
-.guarantee {
-    &__row {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 8px;
-        padding: 8px 16px;
+        &-head {
+            border-bottom: 1px solid #CCCCCC;
+            padding-bottom: 10px;
+            margin-bottom: 8px;
+        }
 
-    }
+        &-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
 
-    &__col {
-        width: auto;
-        padding-right: 10px;
-        margin-bottom: 0;
+            &-wrap {
+                &:nth-child(odd) {
+                    background: #ECECEC;
+                }
+            }
 
-        &-value {
+            &-data {
+                position: relative;
+                display: none;
+            }
+        }
+
+        &-col {
             font-style: normal;
             font-weight: 500;
             font-size: 16px;
             line-height: 22px;
+            width: 100%;
+            padding-right: 10px;
+            box-sizing: border-box;
+            word-break: break-word;
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+
+            /* Типы таблиц */
+            .guarantee & {
+                &:nth-child(1) {
+                    max-width: 233px;
+                }
+                &:nth-child(2) {
+                    max-width: 110px;
+                }
+                &:nth-child(3) {
+                    max-width: 120px;
+                }
+                &:nth-child(4) {
+                    max-width: 150px;
+                }
+                &:nth-child(5) {
+                    max-width: 130px;
+                    text-align: right;
+                }
+            }
+        }
+
+        &-head &-col {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 24px;
+            color: #888484;
+            display: inline-flex;
+            align-items: center;
+
+            & .hint {
+                margin-left: 8px;
+            }
+        }
+
+        &-head &-row {
+            background: transparent;
+            padding: 0;
         }
     }
 
+    &__data {
+        padding-top: 16px;
+        padding-bottom: 50px;
+
+        &-row {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 16px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-label {
+            width: 30%;
+            margin-right: 16px;
+            box-sizing: border-box;
+            padding-left: 16px;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 22px;
+            color: #000;
+        }
+
+        &-value {
+            width: 70%;
+            box-sizing: border-box;
+
+            & .btn-border {
+                margin-top: 24px;
+            }
+        }
+
+        &-files {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 14px 16px 18px;
+            box-sizing: border-box;
+        }
+    }
+
+    &__data .list-dotted {
+        padding-right: 16px;
+    }
+
+    & .field-search ~ &__table {
+        margin-top: 48px;
+    }
 }
 
+.link-file {
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    padding-bottom: 3px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+    margin-left: 32px;
+    position: relative;
 
-.guarantee .guarantee__row:nth-child(odd) {
-    background: #ECECEC;;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -32px;
+        right: auto;
+        margin: auto;
+        width: 24px;
+        height: 24px;
+        .icon-file;
+    }
 }

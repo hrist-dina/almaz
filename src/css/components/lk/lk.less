@@ -284,6 +284,10 @@
                 box-shadow: none;
                 background-position: 14px center;
             }
+
+            &_colored {
+                background-color: #FBBA00;
+            }
         }
 
         &-req-text {
@@ -362,7 +366,26 @@
             line-height: 20px;
             color: #000;
         }
+    }
 
+    &__link {
+        display: inline-block;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FBBA00;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        .transition();
 
+        &:hover {
+            color: #FBBA00;
+            border-bottom-color: #FBBA00;
+        }
+
+        &-in-data {
+            position: absolute;
+            right: 16px;
+            bottom: 22px;
+        }
     }
 }

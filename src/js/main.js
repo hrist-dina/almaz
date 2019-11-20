@@ -3,6 +3,7 @@ import AuthForm from "./form/authForm";
 import Inputmask from "inputmask";
 import {BaseModal} from "./base-modal";
 import {BaseTabs} from "./base-tabs";
+import {BaseTable} from "./base-table";
 
 
 $(document).ready(function () {
@@ -15,6 +16,7 @@ $(document).ready(function () {
 
     new BaseModal();
     new BaseTabs();
+    new BaseTable();
 
     let sliderSet = {
         loop: false,

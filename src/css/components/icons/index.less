@@ -49,11 +49,22 @@
         background-image: url(@output);
     }
 }
+
 .icon-back {
     display: inline-block;
     width: 24px;
     height: 24px;
     .icon-back();
+    background: url(@output) center no-repeat;
+    background-size: contain;
+    .transition();
+}
+
+.icon-file {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    .icon-file();
     background: url(@output) center no-repeat;
     background-size: contain;
     .transition();

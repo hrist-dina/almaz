@@ -118,6 +118,28 @@
             background: linear-gradient(0deg, rgba(240, 68, 56, 0.08), rgba(240, 68, 56, 0.08)), #FFFFFF;
             border: 1px solid #E77373;
         }
+
+        .placeholder() {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #443E3E;
+        }
+
+        &::-webkit-input-placeholder {
+            .placeholder;
+        }
+        &::-moz-placeholder {
+            .placeholder;
+        }
+        /* Firefox 19+ */
+        &:-moz-placeholder {
+            .placeholder;
+        }
+        /* Firefox 18- */
+        &:-ms-input-placeholder {
+            .placeholder;
+        }
     }
 
 
@@ -148,6 +170,30 @@
             text-align: center;
             color: #000;
         }
+    }
+
+    &-search {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 16px;
+            left: auto;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            .icon-search();
+            background: center no-repeat url(@output);
+            background-size: contain;
+
+        }
+    }
+
+    &-search &__input {
+        padding-right: 52px;
     }
 }
 
