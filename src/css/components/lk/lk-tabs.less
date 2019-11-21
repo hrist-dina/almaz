@@ -9,6 +9,14 @@
             position: relative;
         }
 
+        &-top {
+            text-align: right;
+            margin-bottom: 32px;
+            &-btn {
+                display: inline-block;
+            }
+        }
+
         .lk &-content {
             margin-top: 32px;
 
@@ -111,6 +119,11 @@
                 position: relative;
                 display: none;
             }
+
+            .marketing & {
+                padding-top: 16px;
+                padding-bottom: 16px;
+            }
         }
 
         &-col {
@@ -204,6 +217,22 @@
                     text-align: right;
                 }
             }
+
+            .marketing & {
+                &:nth-child(1) {
+                    max-width: 170px;
+                }
+                &:nth-child(2) {
+                    max-width: 330px;
+                }
+                &:nth-child(3) {
+                    max-width: 150px;
+                }
+                &:nth-child(4) {
+                    max-width: 120px;
+                    text-align: right;
+                }
+            }
         }
 
         &-head &-col {
@@ -233,7 +262,15 @@
 
     &__data {
         padding-top: 16px;
-        padding-bottom: 50px;
+        padding-bottom: 60px;
+
+        &-separate {
+            height: 1px;
+            width: 100%;
+            background: #CCCCCC;
+            margin-top: 32px;
+            margin-bottom: 40px;
+        }
 
         &-box {
             background: #fff;
