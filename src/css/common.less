@@ -195,6 +195,95 @@
     &-search &__input {
         padding-right: 52px;
     }
+
+
+    &-radio {
+        display: inline-block;
+        position: relative;
+        padding-left: 26px;
+        margin-bottom: 16px;
+        margin-right: 26px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &__input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        &__checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border: 1px solid #CCCCCC;
+            box-sizing: border-box;
+            border-radius: 50%;
+            .transition();
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                opacity: 0;
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                .transition();
+            }
+        }
+
+        &:hover &__input:not(:checked) ~ &__checkmark:after {
+            background: #FBBA00;
+            opacity: .2;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        &__input:checked ~ &__checkmark:after {
+            background: #FBBA00;
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    &-textarea {
+        position: relative;
+        display: inline-block;
+        max-width: 480px;
+        width: 100%;
+        box-sizing: border-box;
+
+        & textarea {
+            resize: none;
+            min-height: 72px;
+            height: auto;
+            overflow: auto;
+        }
+    }
 }
 
 .tooltip {
@@ -215,7 +304,7 @@
 
 .btn {
     min-width: 180px;
-    padding: 18px 10px 16px;
+    padding: 18px 16px 16px;
     box-sizing: border-box;
     font-family: 'GP';
     font-size: 15px;

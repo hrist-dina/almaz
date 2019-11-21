@@ -2,6 +2,22 @@
 
 @activeColor: 'FBBA00';
 
+.icon-warranty-technology {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    .icon-warranty-technology();
+    background: url(@output) center no-repeat;
+    background-size: contain;
+    .transition();
+
+    a:hover &,
+    .active & {
+        .icon-warranty-technology(@activeColor);
+        background-image: url(@output);
+    }
+}
+
 .icon-technics {
     display: inline-block;
     width: 20px;
@@ -14,6 +30,22 @@
     a:hover &,
     .active & {
         .icon-technics(@activeColor);
+        background-image: url(@output);
+    }
+}
+
+.icon-spares {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    .icon-spares();
+    background: url(@output) center no-repeat;
+    background-size: contain;
+    .transition();
+
+    a:hover &,
+    .active & {
+        .icon-spares(@activeColor);
         background-image: url(@output);
     }
 }

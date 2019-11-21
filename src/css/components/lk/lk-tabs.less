@@ -6,7 +6,7 @@
     &__tabs {
 
         &-section {
-
+            position: relative;
         }
 
         .lk &-content {
@@ -19,20 +19,39 @@
                 }
             }
 
+            &-btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
             &-inner,
             &-form {
                 display: none;
                 &.active {
                     display: block;
                 }
+
+                & .btn-arrow {
+                    margin-bottom: 16px;
+                }
             }
 
-            & .btn-border {
-                margin-top: 48px;
+            &-inner {
+                & > .btn-border {
+                    margin-top: 48px;
+                }
             }
+
         }
 
         &-nav {
+
+            &-wrap {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
 
             &-link {
                 font-weight: bold;
@@ -44,6 +63,7 @@
                 margin-right: 25px;
                 padding-bottom: 15px;
                 border-bottom: 3px solid transparent;
+                .transition();
 
                 &:last-child {
                     margin-right: 0;
@@ -146,6 +166,44 @@
                     text-align: right;
                 }
             }
+
+            .technics & {
+                &:nth-child(1) {
+                    max-width: 100px;
+                }
+                &:nth-child(2) {
+                    max-width: 120px;
+                }
+                &:nth-child(3) {
+                    max-width: 140px;
+                }
+                &:nth-child(4) {
+                    max-width: 275px;
+                }
+                &:nth-child(5) {
+                    max-width: 120px;
+                }
+                &:nth-child(6) {
+                    max-width: 120px;
+                    text-align: right;
+                }
+            }
+
+            .spares & {
+                &:nth-child(1) {
+                    max-width: 160px;
+                }
+                &:nth-child(2) {
+                    max-width: 300px;
+                }
+                &:nth-child(3) {
+                    max-width: 150px;
+                }
+                &:nth-child(4) {
+                    max-width: 120px;
+                    text-align: right;
+                }
+            }
         }
 
         &-head &-col {
@@ -156,6 +214,11 @@
             color: #888484;
             display: inline-flex;
             align-items: center;
+
+            &:last-child,
+            &:first-child {
+                margin-right: 16px;
+            }
 
             & .hint {
                 margin-left: 8px;
@@ -171,6 +234,19 @@
     &__data {
         padding-top: 16px;
         padding-bottom: 50px;
+
+        &-box {
+            background: #fff;
+            border: 1px solid #CCCCCC;
+            box-sizing: border-box;
+            border-radius: 4px;
+            padding: 14px 16px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #443E3E;
+            margin-right: 16px;
+        }
 
         &-row {
             display: flex;
@@ -207,7 +283,11 @@
                 line-height: 22px;
                 color: #000;
                 padding-right: 16px;
-                margin-bottom: 16px;
+                margin: 0;
+
+                & + p {
+                    margin-top: 16px;
+                }
             }
 
             & .btn-border {
@@ -219,6 +299,13 @@
             background: rgba(0, 0, 0, 0.05);
             padding: 14px 16px 18px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            & .link-file + .link-file {
+                margin-top: 16px;
+            }
         }
     }
 
@@ -228,6 +315,10 @@
 
     & .field-search ~ &__table {
         margin-top: 48px;
+    }
+
+    &__data-value &__form-add {
+        margin-top: 16px;
     }
 }
 
