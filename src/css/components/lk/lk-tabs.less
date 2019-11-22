@@ -124,6 +124,7 @@
                 display: none;
             }
 
+            .service &,
             .marketing & {
                 padding-top: 16px;
                 padding-bottom: 16px;
@@ -237,6 +238,25 @@
                     text-align: right;
                 }
             }
+
+            .service & {
+                &:nth-child(1) {
+                    max-width: 250px;
+                }
+                &:nth-child(2) {
+                    max-width: 130px;
+                }
+                &:nth-child(3) {
+                    max-width: 250px;
+                }
+                &:nth-child(4) {
+                    max-width: 150px;
+                }
+                &:nth-child(5) {
+                    max-width: 110px;
+                    text-align: right;
+                }
+            }
         }
 
         &-head &-col {
@@ -267,6 +287,29 @@
     &__data {
         padding-top: 16px;
         padding-bottom: 60px;
+
+        &-grid {
+            background: rgba(0, 0, 0, 0.05);
+            list-style: none;
+            padding: 17px 18px 15px;
+
+            & li {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #000;
+                padding-bottom: 8px;
+                margin-bottom: 8px;
+                border-bottom: 1px solid #CCCCCC;
+                box-sizing: border-box;
+
+                &:last-child {
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                    border-bottom: none;
+                }
+            }
+        }
 
         &-separate {
             height: 1px;
