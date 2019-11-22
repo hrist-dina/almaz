@@ -43,6 +43,7 @@ class BaseTabs {
     clickShowForm() {
         const self = this;
         this.showFrom.on('click', function() {
+            $(this).addClass('hide');
             const tab = $(this).parents('[data-tab-content]');
             tab.find(self.from).addClass(self.activeClass);
             tab.find(self.contentInner).removeClass(self.activeClass);
@@ -52,6 +53,7 @@ class BaseTabs {
     clickBack() {
         const self = this;
         this.back.on('click', function() {
+            self.showFrom.removeClass('hide');
             const tab = $(this).parents('[data-tab-content]');
             tab.find(self.from).removeClass(self.activeClass);
             tab.find(self.contentInner).addClass(self.activeClass);

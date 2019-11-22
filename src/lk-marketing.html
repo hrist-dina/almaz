@@ -180,7 +180,7 @@
                 <article class="lk__tabs-content-item active" data-tab-content>
                     <div class="lk__tabs-content-inner js-tabs-content-inner active">
                       <div class="lk__tabs-top">
-                        <a class="btn lk__tabs-top-btn js-tabs-show-form" href="javascript:void(0)">Подать документы</a>
+                        <a class="btn btn_small lk__tabs-top-btn js-tabs-show-form" href="javascript:void(0)">Подать документы</a>
                       </div>
                       <div class="lk__table marketing">
                       <div class="lk__table-head">
@@ -371,19 +371,20 @@
                             </div>
                             <div class="lk__form-row">
                               <div class="lk__form-field required">
-                                <label class="field">
-                                  <span class="field__title field__required">Введите заводской номер введенной в эксплуатацию техники</span>
-                                  <input class="field__input" type="text" name="number">
-                                </label>
+                                <!-- Цитата из axshare: При введении нового покупателя должен быть выбор регионов с закреплением определенных регионов за конкретным дилером и выбор районов в регионе (т.е. нужна база районов). -->
+                                <select class="select js-select" name="region">
+                                  <option disabled selected hidden>Тип компенсации</option>
+                                  <option value="1">Выставка</option>
+                                  <option value="2">Демонстрационный показ</option>
+                                  <option value="3">Реклама в СМИ</option>
+                                  <option value="4">Наружная реклама</option>
+                                </select>
                               </div>
                               <div class="hint">
                                 <div class="hint__message">
                                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
                                   quia.
                                 </div>
-                              </div>
-                              <div class="tooltip">
-                                Поле не должно быть пустым
                               </div>
                             </div>
                           </div>
@@ -397,7 +398,7 @@
                               <div class="lk__form-file">
                                 <div class="lk__download">
                                   <div class="lk__download-title">
-                                    Акт выхода из строя
+                                    Отчет о проведенном мероприятии
                                   </div>
                                   <a href="#" class="lk__download-link">
                                     Скачать форму
@@ -420,11 +421,173 @@
                               <div class="lk__form-file">
                                 <div class="lk__download">
                                   <div class="lk__download-title">
-                                    Фото
+                                    Письмо-заявка
+                                  </div>
+                                  <a href="#" class="lk__download-link">
+                                    Скачать образец
+                                  </a>
+                                </div>
+                                <label class='field-file'>
+                                  <input class="field-file__input" type="file" name="file">
+                                  <span class="field-file__title">Загрузить</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="hint">
+                              <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
+                                similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
+                                Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                          </div>
+                          <div class="lk__form-row">
+                            <div class="lk__form-field required">
+                              <div class="lk__form-file">
+                                <div class="lk__download">
+                                  <div class="lk__download-title field__required">
+                                    Смета затрат
                                   </div>
                                 </div>
                                 <label class='field-file'>
-                                  <input class="field-file__input" type="file" name="photo[]">
+                                  <input class="field-file__input" type="file" name="file">
+                                  <span class="field-file__title">Загрузить</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="hint">
+                              <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
+                                similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
+                                Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="lk__form-section">
+                          <div class="lk__form-row">
+                            <div class="lk__form-field required">
+                              <div class="lk__form-file">
+                                <div class="lk__download">
+                                  <div class="lk__download-title field__required">
+                                    Договоры
+                                  </div>
+                                </div>
+                                <label class='field-file'>
+                                  <input class="field-file__input" type="file" name="contract[]">
+                                  <span class="field-file__title">Загрузить</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="hint">
+                              <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
+                                similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
+                                Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                          </div>
+                          <div class="lk__form-row">
+                            <a class="lk__form-add js-lk-row-add" href="javascript:void(0)">Еще</a>
+                          </div>
+                        </div>
+                        <div class="lk__form-section">
+                          <div class="lk__form-row">
+                            <div class="lk__form-field required">
+                              <div class="lk__form-file">
+                                <div class="lk__download">
+                                  <div class="lk__download-title field__required">
+                                    Документы, подтверждающие затраты
+                                  </div>
+                                </div>
+                                <label class='field-file'>
+                                  <input class="field-file__input" type="file" name="documents[]">
+                                  <span class="field-file__title">Загрузить</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="hint">
+                              <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
+                                similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
+                                Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                          </div>
+                          <div class="lk__form-row">
+                            <a class="lk__form-add js-lk-row-add" href="javascript:void(0)">Еще</a>
+                          </div>
+                        </div>
+                        <div class="lk__form-section">
+                          <div class="lk__form-row">
+                            <div class="lk__form-field required">
+                              <div class="lk__form-file">
+                                <div class="lk__download">
+                                  <div class="lk__download-title field__required">
+                                    Счет на компенсацию затрат
+                                  </div>
+                                </div>
+                                <label class='field-file'>
+                                  <input class="field-file__input" type="file" name="score">
+                                  <span class="field-file__title">Загрузить</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="hint">
+                              <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
+                                similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
+                                Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                          </div>
+                          <div class="lk__form-row">
+                            <div class="lk__form-field required">
+                              <div class="lk__form-file">
+                                <div class="lk__download">
+                                  <div class="lk__download-title field__required">
+                                    Акт выполненных работ
+                                  </div>
+                                </div>
+                                <label class='field-file'>
+                                  <input class="field-file__input" type="file" name="act">
+                                  <span class="field-file__title">Загрузить</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="hint">
+                              <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
+                                similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
+                                Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="lk__form-section">
+                          <div class="lk__form-row">
+                            <div class="lk__form-field required">
+                              <div class="lk__form-file">
+                                <div class="lk__download">
+                                  <div class="lk__download-title field__required">
+                                    Фото / видеоотчет о проведении выставки
+                                  </div>
+                                </div>
+                                <label class='field-file'>
+                                  <input class="field-file__input" type="file" name="photo_video[]">
+                                  <span class="field-file__title">Загрузить</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="hint">
+                              <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
+                                similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
+                                Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                          </div>
+                          <div class="lk__form-row">
+                            <a class="lk__form-add js-lk-row-add" href="javascript:void(0)">Еще</a>
+                          </div>
+                        </div>
+                        <div class="lk__form-section">
+                          <div class="lk__form-row">
+                            <div class="lk__form-field required">
+                              <div class="lk__form-file">
+                                <div class="lk__download">
+                                  <div class="lk__download-title">
+                                    Прочие документы (не обязательно)
+                                  </div>
+                                </div>
+                                <label class='field-file'>
+                                  <input class="field-file__input" type="file" name="other[]">
                                   <span class="field-file__title">Загрузить</span>
                                 </label>
                               </div>
@@ -441,7 +604,7 @@
                           <div class="lk__form-req-text">
                             <b>*</b> – поля, обязательные для заполнения
                           </div>
-                          <button class="btn lk__form-submit" type="submit">Отправить</button>
+                          <button class="btn lk__form-submit" type="submit">Подать компенсацию</button>
                         </div>
                       </form>
                     </div>
