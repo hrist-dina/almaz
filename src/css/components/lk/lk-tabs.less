@@ -98,7 +98,6 @@
     }
 
     &__table {
-        margin-bottom: 32px;
 
         &-head {
             border-bottom: 1px solid #CCCCCC;
@@ -257,6 +256,21 @@
                     text-align: right;
                 }
             }
+
+            .history & {
+                &:nth-child(1) {
+                    max-width: 120px;
+                }
+                &:nth-child(2) {
+                    max-width: 150px;
+                }
+                &:nth-child(3) {
+                    max-width: 200px;
+                }
+                &:nth-child(4) {
+                    max-width: 300px;
+                }
+            }
         }
 
         &-head &-col {
@@ -282,6 +296,10 @@
             background: transparent;
             padding: 0;
         }
+    }
+
+    &__table ~ &__form-add {
+        margin-top: 32px;
     }
 
     &__data {

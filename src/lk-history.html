@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
   <div class="page-nav">
     <a href="/" class="page-nav__logo">
       <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +98,7 @@
             <a href="tel:88007005008">8 800 700 50 08</a>
           </div>
           <div class="header__mobile">
-            <div class="header__location">
+            <!-- <div class="header__location">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.429824 13.4212L9.78979 17.3159L12 27.21L22.2099 6.89416L0.429824 13.4212Z" fill="black" />
               </svg>
@@ -111,7 +112,7 @@
                     fill="black" />
                 </svg>
               </a>
-            </div>
+            </div> -->
             <div class="header__burger">
               <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -124,33 +125,191 @@
       </div>
     </header>
     <div class="skybox"></div>
-    <section>
+    <section class="lk">
       <div class="container">
-        <ul>
-          <li>
-            <a href="auth.html">Авторизация</a>
-          </li>
-          <li>
-            <a href="lk-main.html">Личный кабинет - Главная страница</a>
-          </li>
-          <li>
-            <a href="lk-guarantee.html">Личный кабинет - Постановка на гарантию</a>
-          </li>
-          <li>
-            <a href="lk-reclamation.html">Личный кабинет - Рекламации</a>
-          </li>
-          <li>
-            <a href="lk-marketing.html">Личный кабинет - Маркетинговые компенсации</a>
-          </li>
-          <li>
-            <a href="lk-service.html">Личный кабинет - Сервисные компенсации</a>
-          </li>
-          <li>
-            <a href="lk-history.html">Личный кабинет - История действий</a>
-          </li>
-        </ul>
+        <div class="lk__head">
+          <h2 class="lk__title">Личный кабинет (дилер)</h2>
+          <h3 class="lk__subtitle">ООО «Пневмослон» </h3>
+        </div>
+        <div class="lk__block">
+          <div class="lk__sidebar">
+            <ul class="lk__menu">
+              <li>
+                <a href="lk-main.html">Главная страница</a>
+              </li>
+              <li>
+                <a href="lk-guarantee.html">Постановка на гарантию</a>
+              </li>
+              <li>
+                <a href="lk-reclamation.html">Рекламации</a>
+              </li>
+              <li>
+                <a href="lk-marketing.html">Маркетинговые компенсации</a>
+              </li>
+              <li>
+                <a href="lk-service.html">Сервисные компенсации</a>
+              </li>
+              <li class="active">
+                <a href="lk-history.html">История действий</a>
+              </li>
+            </ul>
+            <div class="lk__card">
+              <div class="lk__card-title">Возникли вопросы?</div>
+              <div class="lk__card-avatar">
+                <img src="img/lk/lk-avatar.png" alt="">
+              </div>
+              <div class="lk__card-name">
+                Клим Константинов
+              </div>
+              <div class="lk__card-position">
+                Персональный менеджер
+              </div>
+              <a href="tel:89069108899" class="lk__card-phone">8 906 910 88 99</a>
+              <a href="mailto:klim@almaz.ru" class="lk__card-mail">klim@almaz.ru</a>
+            </div>
+            <a href="#" class="lk__logout">Выход</a>
+          </div>
+
+          <div class="lk__content">
+            <div class="lk__file-link-block">
+              <a href="#" class="lk__file-link">Документы</a>
+              <a href="#" class="lk__file-link lk__file-link_info"> Справочная информация</a>
+            </div>
+            <div class="lk__content-box">
+              <div class="lk__table history">
+                <div class="lk__table-head">
+                  <div class="lk__table-row">
+                    <div class="lk__table-col">
+                      Дата и время
+                    </div>
+                    <div class="lk__table-col">
+                      Кто совершил
+                    </div>
+                    <div class="lk__table-col">
+                      Раздел
+                    </div>
+                    <div class="lk__table-col">
+                      Действие
+                    </div>
+                  </div>
+                </div>
+                <div class="lk__table-body">
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        13.11.2019 <br>
+                        11:05
+                      </div>
+                      <div class="lk__table-col">
+                        Сотрудник <br>
+                        <b>ООО "Тест"</b>
+                      </div>
+                      <div class="lk__table-col">
+                        Маркетинговые компенсации
+                      </div>
+                      <div class="lk__table-col">
+                        Компенсация <b>4815162342</b> изменен статус с <b>Отправлено</b> на <b>В работе</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        13.11.2019 <br>
+                        11:05
+                      </div>
+                      <div class="lk__table-col">
+                        Менеджер <br>
+                        <b>Алмаз</b>
+                      </div>
+                      <div class="lk__table-col">
+                        Маркетинговые компенсации
+                      </div>
+                      <div class="lk__table-col">
+                        Компенсация <b>4815162342</b> изменен статус с <b>Отправлено</b> на <b>В работе</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        13.11.2019 <br>
+                        11:05
+                      </div>
+                      <div class="lk__table-col">
+                        Сотрудник <br>
+                        <b>ООО "Тест"</b>
+                      </div>
+                      <div class="lk__table-col">
+                        Маркетинговые компенсации
+                      </div>
+                      <div class="lk__table-col">
+                        Компенсация <b>4815162342</b> изменен статус с <b>Отправлено</b> на <b>В работе</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        13.11.2019 <br>
+                        11:05
+                      </div>
+                      <div class="lk__table-col">
+                        Менеджер <br>
+                        <b>Алмаз</b>
+                      </div>
+                      <div class="lk__table-col">
+                        Маркетинговые компенсации
+                      </div>
+                      <div class="lk__table-col">
+                        Компенсация <b>4815162342</b> изменен статус с <b>Отправлено</b> на <b>В работе</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        13.11.2019 <br>
+                        11:05
+                      </div>
+                      <div class="lk__table-col">
+                        Сотрудник <br>
+                        <b>ООО "Тест"</b>
+                      </div>
+                      <div class="lk__table-col">
+                        Маркетинговые компенсации
+                      </div>
+                      <div class="lk__table-col">
+                        Компенсация <b>4815162342</b> изменен статус с <b>Отправлено</b> на <b>В работе</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                      13.11.2019 <br>
+                      11:05
+                    </div>
+                      <div class="lk__table-col">
+                        Менеджер <br>
+                        <b>Алмаз</b>
+                      </div>
+                      <div class="lk__table-col">
+                        Маркетинговые компенсации
+                      </div>
+                      <div class="lk__table-col">
+                        Компенсация <b>4815162342</b> изменен статус с <b>Отправлено</b> на <b>В работе</b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="container">
         <div class="row">
@@ -187,7 +346,7 @@
     <div class="menu__exit"><img src="img/exit.svg" alt=""></div>
     <div class="menu__inner">
       <div class="container">
-        <div class="menu-search">
+        <!-- <div class="menu-search">
           <form action="#">
             <input type="text" class="menu-search__input" placeholder="Поиск по сайту">
             <label for="" class="menu-search__btn">
@@ -198,15 +357,21 @@
               <input type="submit" value="">
             </label>
           </form>
-        </div>
-        <div class="menu-search-help">
+        </div> -->
+        <!-- <div class="menu-search-help">
           <div class="menu-search-help__item">234</div>
           <div class="menu-search-help__item">234</div>
-        </div>
+        </div> -->
         <div class="menu-blocks">
           <div class="menu-block">
             <h4 class="menu-block__title"><a href="#">Техника</a></h4>
-            <div class="menu-block__item">
+            <h4 class="menu-block__title"><a href="#">Запчасти</a></h4>
+            <h4 class="menu-block__title"><a href="#">Сервис</a></h4>
+            <h4 class="menu-block__title"><a href="#">Компания</a></h4>
+            <h4 class="menu-block__title"><a href="#">Покупка</a></h4>
+            <h4 class="menu-block__title"><a href="#">Пресс-центр</a></h4>
+            <h4 class="menu-block__title"><a href="#">Контакты</a></h4>
+            <!-- <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Алмаз РЗЗ</a></h5>
               <ul>
                 <li><a href="#">Дисковые бороны DANA</a></li>
@@ -229,9 +394,9 @@
                 <li><a href="#">Плоскорезы STAVR</a></li>
                 <li><a href="#">Культиваторы STAVRIS</a></li>
               </ul>
-            </div>
+            </div> -->
           </div>
-          <div class="menu-block">
+          <!-- <div class="menu-block">
             <h4 class="menu-block__title"><a href="#">Техника</a></h4>
             <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Каталог</a></h5>
@@ -320,7 +485,7 @@
             <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Общие контакты</a></h5>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="menu-phone">
           <h3><a href="tel:88007005008">8 800 700 50 08</a></h3>
@@ -522,7 +687,24 @@
     <span class="hint-region-ask__btn">НЕТ</span>
   </div>
 
+  <div class="popup-list">
+    <div class="popup popup__result js-modal" data-modal-type="result">
+      <div class="popup__inner">
+        <div class="close popup__close js-modal-close"></div>
+        <div class="popup__head js-modal-text">
+          <div class="popup__title">Действие совершено успешно</div>
+        </div>
+        <div class="popup__content js-modal-content">
+          <div class="popup__btn-wrap">
+            <a class="btn popup__btn js-modal-close" href="javascript:void(0)">Ок</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+
 </body>
 
 </html>
