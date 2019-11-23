@@ -852,19 +852,19 @@
                           <div class="lk__form-title">
                             Введите номер документа поступления (на выбор):
                           </div>
-                          <div class="lk__form-radio">
+                          <div class="lk__form-radio js-lk-radio">
                             <div class="lk__form-radio-block">
                               <label class="field-radio">Счет-фактура
-                                <input class="field-radio__input" type="radio" checked="checked" name="document-type">
+                                <input class="field-radio__input js-lk-radio-btn" type="radio" checked="checked" name="document-type" value="invoice">
                                 <span class="field-radio__checkmark"></span>
                               </label>
                               <label class="field-radio">Товарно-транспортная накладная
-                                <input class="field-radio__input" type="radio" name="document-type">
+                                <input class="field-radio__input js-lk-radio-btn" type="radio" name="document-type" value="waybill">
                                 <span class="field-radio__checkmark"></span>
                               </label>
                             </div>
                             <div class="lk__form-radio-data">
-                              <div class="lk__form-row">
+                              <div class="lk__form-row" data-radio-type="invoice">
                                 <div class="lk__form-field required">
                                   <label class="field">
                                     <span class="field__title field__required">Введите номер счета-фактуры</span>
@@ -881,7 +881,26 @@
                                   Название не должно быть пустым
                                 </div>
                               </div>
+                              <div class="lk__form-row hide" data-radio-type="waybill">
+                                <div class="lk__form-field required">
+                                  <label class="field">
+                                    <span class="field__title field__required">Введите номер товарно-транспортной накладной</span>
+                                    <input class="field__input" type="text" name="number">
+                                  </label>
+                                </div>
+                                <div class="hint">
+                                  <div class="hint__message">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
+                                    quia.
+                                  </div>
+                                </div>
+                                <div class="tooltip">
+                                  Название не должно быть пустым
+                                </div>
+                              </div>
                             </div>
+                          </div>
+                          <div class="lk__form-add-wrap">
                             <a class="lk__form-add js-lk-row-add" href="javascript:void(0)">Еще</a>
                           </div>
                         </div>

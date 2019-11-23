@@ -22,8 +22,7 @@ class BaseTabs {
         this.clickTab();
         this.clickShowForm();
         this.clickBack();
-        this.clickMobileSelect
-        ();
+        this.clickMobileSelect();
     }
 
     clickMobileSelect() {

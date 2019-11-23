@@ -1,9 +1,12 @@
+import $ from "jquery";
 import ExploitationForm from "./form/exploitationForm";
 import AuthForm from "./form/authForm";
 import Inputmask from "inputmask";
 import {BaseModal} from "./base-modal";
 import {BaseTabs} from "./base-tabs";
 import {BaseTable} from "./base-table";
+import {BaseLk} from "./base-lk";
+import {BaseSelect} from "./base-select";
 
 
 $(document).ready(function () {
@@ -17,6 +20,8 @@ $(document).ready(function () {
     new BaseModal();
     new BaseTabs();
     new BaseTable();
+    new BaseLk();
+    new BaseSelect();
 
     let sliderSet = {
         loop: false,
@@ -439,31 +444,6 @@ $(document).ready(function () {
         $('.hint-region__text').text(getCookie('regionCur'));
         $('body').removeClass('regions-active');
         $('.hint-region-ask').removeClass('active');
-    });
-
-    $.fn.select2.defaults.set("width", "100%");
-    $('.js-select').select2({
-        minimumResultsForSearch: Infinity,
-        theme: 'almaz'
-    });
-    $('.js-select-search').select2({
-        theme: 'almaz',
-        "language": {
-            "noResults": function () {
-                return "Не найдено";
-            }
-        },
-    });
-
-    $('.field input, .field textarea').focus(function () {
-        $(this).parents('.field').addClass('focused');
-    });
-
-    $('.field input, .field textarea').blur(function () {
-        let inputValue = $(this).val();
-        if (inputValue === "") {
-            $(this).parents('.field').removeClass('focused');
-        }
     });
 
     let imDate = new Inputmask({

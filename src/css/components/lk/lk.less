@@ -228,6 +228,7 @@
             font-size: 16px;
             line-height: 20px;
             color: #443E3E;
+            margin-bottom: 16px;
             & span {
                 font-size: 15px;
                 font-weight: 300
@@ -252,7 +253,7 @@
 
         &-row {
             display: flex;
-            & + &  {
+            &:not(.hide) + &  {
                 margin-top: 16px;
             }
 
