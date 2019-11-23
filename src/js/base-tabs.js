@@ -22,6 +22,14 @@ class BaseTabs {
         this.clickTab();
         this.clickShowForm();
         this.clickBack();
+        this.clickMobileSelect
+        ();
+    }
+
+    clickMobileSelect() {
+        this.nav.on('click', function () {
+            $(this).toggleClass('is-open');
+        });
     }
 
     clickTab() {
