@@ -1,5 +1,6 @@
 import $ from "jquery";
 import ExploitationForm from "./form/exploitationForm";
+import MarketingForm from "./form/marketingForm";
 import AuthForm from "./form/authForm";
 import Inputmask from "inputmask";
 import {BaseModal} from "./base-modal";
@@ -10,6 +11,9 @@ import {BaseSelect} from "./base-select";
 
 
 $(document).ready(function () {
+    $('.js-form-marketing').each((i, el) => {
+        new MarketingForm(el);
+    });
     $('.js-form-exploitation').each((i, el) => {
         new ExploitationForm(el);
     });
