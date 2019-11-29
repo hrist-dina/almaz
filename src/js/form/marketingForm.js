@@ -10,7 +10,6 @@ export default class MarketingForm extends BaseForm {
         const $fileInput = $('.js-file-mark');
 
         $fileInput.each(function (i, elem) {
-            if($(elem).hasAttribute('required'))
                 console.log($(elem).val());
             var type_file = $(elem).data('type');
             $(elem).change(function(){
