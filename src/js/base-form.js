@@ -106,6 +106,14 @@ class BaseForm {
             accept:"jpg,png,jpeg,gif"
         });
 
+        if($form.find('.js-file-mark').length > 0)
+        $form.find('.js-file-mark').each(function (i, elem) {
+            var type_file = $(elem).data('type');
+            $(elem).find('.js-file-mark').rules("add", {
+                accept:type_file
+            });
+        });
+
         $.validator.setDefaults({ignore: ".ignore"});
 
 

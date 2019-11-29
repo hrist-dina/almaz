@@ -7,16 +7,20 @@ export default class MarketingForm extends BaseForm {
     init() {
         this.validate();
         const filesExt = ['jpg', 'png' , "jpeg", "pdf"]; // массив расширений
-        const $fileInput = $('.js-file');
+        const $fileInput = $('.js-file-mark');
 
-        $fileInput.change(function(){
-            let parts = $(this).val().split('.');
-
-            if(filesExt.join().search(parts[parts.length - 1]) == -1){
-                let modal = BaseModal.openModal('result');
-                BaseModal.renderMessage(modal, 'Вы загрузили изображение неправильного формата. Поддерживаются jpg, png, pdf.');
-                $fileInput.val();
-            }
+        $fileInput.each(function (i, elem) {
+            if($(elem).hasAttribute('required'))
+                console.log($(elem).val());
+            var type_file = $(elem).data('type');
+            $(elem).change(function(){
+                let parts = $(this).val().split('.');
+                if(type_file.search(parts[parts.length - 1]) == -1){
+                    let modal = BaseModal.openModal('result');
+                    BaseModal.renderMessage(modal, 'Вы загрузили изображение неправильного формата. Поддерживаются '+type_file+'.');
+                    $fileInput.val();
+                }
+            });
         });
     }
 
@@ -38,6 +42,9 @@ export default class MarketingForm extends BaseForm {
                     let modal = BaseModal.openModal('result');
                     BaseModal.renderMessage(modal, 'Действие совершено успешно');
                     console.log('форма отправлена');
+                    $form.find('.mess').text('');
+                }else{
+                    $form.find('.mess').text(response.error).css('color', 'red');
                 }
             }
         });
