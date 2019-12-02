@@ -557,5 +557,29 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('input', '[name="SERIAL_NUMBER[]"]', function (e) {
+        const $el = $(e.target);
+        const path = $el.data('path');
+        $.ajax({
+            url: path,
+            method: "post",
+            data: {
+                number: $el.val()
+            },
+            dataType: 'json',
+            success: function (response) {
+                if(response.success){
+                    let data = response.data.DATA;
+                    if(data.id){
+                        $el.closest('.lk__form-box').find('[data-text="explotation"]').html('<b>'+data.number+'</b> '+data.type+' '+data.model);
+                        $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val(data.id);
+                    }else{
+                        $el.closest('.lk__form-box').find('[data-text="explotation"]').html('техника не найдена');
+                        $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val('');
+                    }
+                }
+            }
+        });
+    });
 
 });
