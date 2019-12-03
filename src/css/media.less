@@ -401,7 +401,19 @@
 
     .lk &__tabs {
 
+      &-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+      }
+
+      &-link {
+        margin-top: 5px;
+        margin-left: 0;
+      }
+
       &-nav {
+        display: block;
         overflow: hidden;
         height: 48px;
         .transition();

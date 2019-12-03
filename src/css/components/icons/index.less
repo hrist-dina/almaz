@@ -102,3 +102,35 @@
     .transition();
 }
 
+
+.icon-tasks {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    .transition();
+
+    &:before {
+        content: '!';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #FBBA00;
+        font-family: 'PT Root';
+        font-style: initial;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .transition();
+    }
+}
