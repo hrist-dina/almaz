@@ -36,6 +36,36 @@
 
         & li {
 
+            &.warning {
+                position: relative;
+
+                & a {
+                    padding-right: 40px;
+                }
+
+                &:before {
+                    content: '!';
+                    position: absolute;
+                    right: 16px;
+                    top: 0;
+                    bottom: 0;
+                    left: auto;
+                    margin: auto;
+                    background: #FBBA00;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 16px;
+                    text-align: center;
+                    color: #fff;
+                }
+            }
+
             &.active a {
                 border-color: #FBBA00;
                 color: #FBBA00;

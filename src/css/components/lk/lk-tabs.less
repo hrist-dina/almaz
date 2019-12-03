@@ -144,6 +144,36 @@
             box-sizing: border-box;
             word-break: break-word;
 
+            & .warning {
+                display: inline-block;
+                width: 100%;
+                font-weight: bold;
+                position: relative;
+                padding-right: 54px;
+
+                &:before {
+                    content: attr(data-warning);
+                    position: absolute;
+                    right: 24px;
+                    top: 0;
+                    bottom: 0;
+                    left: auto;
+                    margin: auto;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    background: #FBBA00;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 16px;
+                    text-align: center;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
             &-head {
                 font-weight: bold;
                 font-size: 14px;
@@ -302,6 +332,24 @@
                 }
                 &:nth-child(6) {
                     max-width: 100px;
+                }
+            }
+
+            .dealer-list & {
+                &:nth-child(1) {
+                    max-width: 150px;
+                }
+                &:nth-child(2) {
+                    max-width: 250px;
+                }
+                &:nth-child(3) {
+                    max-width: 120px;
+                }
+                &:nth-child(4) {
+                    max-width: 300px;
+                }
+                &:nth-child(5) {
+                    max-width: 120px;
                 }
             }
         }
