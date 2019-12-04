@@ -245,6 +245,129 @@
         background: #F2F2F2;
         box-sizing: border-box;
 
+        &-search-btn {
+            max-width: 160px;
+            min-width: auto;
+            width: 100%;
+            margin-left: 8px;
+        }
+
+        &-date {
+            max-width: 210px;
+            display: flex;
+            align-items: center;
+
+            &:nth-child(n + 2) {
+                max-width: 290px;
+                width: 100%;
+                &:before {
+                    content: '';
+                    position: relative;
+                    box-sizing: border-box;
+                    margin: 0 16px;
+                    max-width: 48px;
+                    width: 100%;
+                    height: 1px;
+                    background: #C4C4C4;
+                }
+            }
+
+            &-row {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &-tags {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: -8px;
+
+            &-wrap {
+                display: none;
+                &.active {
+                    display: block;
+                }
+            }
+
+            &-empty {
+                background: #ECECEC;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 50px;
+                box-sizing: border-box;
+
+                &.active {
+                    display: flex;
+                }
+
+                & span {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #000;
+                }
+            }
+
+            & li {
+                position: relative;
+                background: #ECECEC;
+                border-radius: 4px;
+                padding: 10px 36px 10px 16px;
+                box-sizing: border-box;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #443E3E;
+                margin-right: 8px;
+                margin-bottom: 8px;
+
+
+                & i {
+                    display: inline-block;
+                    position: absolute;
+                    right: 11px;
+                    top: 0;
+                    bottom: 0;
+                    left: auto;
+                    margin: auto;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+
+                    &:after,
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        left: 0;
+                        margin: auto;
+                        background: #455B66;
+                        width: 1px;
+                        height: 13px;
+                    }
+
+                    &:after {
+                        transform: rotate(-45deg);
+                    }
+
+                    &:before {
+                        transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);
+                    }
+                }
+
+                & input {
+                    display: none;
+                }
+            }
+        }
+
         &-title {
             font-size: 18px;
             line-height: 24px;
@@ -289,6 +412,11 @@
 
             &.hide {
                 display: none;
+            }
+
+            &-search {
+                display: flex;
+                margin-bottom: 16px;
             }
         }
 
@@ -350,6 +478,12 @@
 
         &-submit {
             margin-top: 16px;
+        }
+
+        &-unloading-submit {
+            margin-top: 40px;
+            max-width: 268px;
+            width: 100%;
         }
 
         &-block {
