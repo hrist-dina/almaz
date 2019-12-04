@@ -153,8 +153,18 @@
             padding: 10px 16px;
 
             &-wrap {
+                margin-bottom: 8px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
                 &:nth-child(odd) {
                     background: #ECECEC;
+                }
+
+                &.failed {
+                    background: #F3E3E3;
                 }
             }
 
@@ -370,6 +380,7 @@
                 }
                 &:nth-child(6) {
                     max-width: 100px;
+                    text-align: right;
                 }
             }
 
@@ -388,6 +399,36 @@
                 }
                 &:nth-child(5) {
                     max-width: 120px;
+                    text-align: right;
+                }
+            }
+
+            .manager-list & {
+                &:nth-child(1) {
+                    max-width: 400px;
+                }
+                &:nth-child(2) {
+                    max-width: 400px;
+                }
+                &:nth-child(3) {
+                    max-width: 120px;
+                    text-align: right;
+                }
+            }
+
+            .manager-dealer & {
+                &:nth-child(1) {
+                    max-width: 320px;
+                }
+                &:nth-child(2) {
+                    max-width: 280px;
+                }
+                &:nth-child(3) {
+                    max-width: 170px;
+                }
+                &:nth-child(4) {
+                    max-width: 120px;
+                    text-align: right;
                 }
             }
         }

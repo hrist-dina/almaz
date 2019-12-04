@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
   <div class="page-nav">
     <a href="/" class="page-nav__logo">
       <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +98,7 @@
             <a href="tel:88007005008">8 800 700 50 08</a>
           </div>
           <div class="header__mobile">
-            <div class="header__location">
+            <!-- <div class="header__location">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.429824 13.4212L9.78979 17.3159L12 27.21L22.2099 6.89416L0.429824 13.4212Z" fill="black" />
               </svg>
@@ -111,7 +112,7 @@
                     fill="black" />
                 </svg>
               </a>
-            </div>
+            </div> -->
             <div class="header__burger">
               <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -124,54 +125,167 @@
       </div>
     </header>
     <div class="skybox"></div>
-    <section>
+    <section class="lk">
       <div class="container">
-        <ul>
-          <li>
-            <a href="auth.html">Авторизация</a>
-          </li>
-          <li>
-            <a href="lk-main.html">Личный кабинет - Главная страница</a>
-          </li>
-          <li>
-            <a href="lk-guarantee.html">Личный кабинет - Постановка на гарантию</a>
-          </li>
-          <li>
-            <a href="lk-reclamation.html">Личный кабинет - Рекламации</a>
-          </li>
-          <li>
-            <a href="lk-marketing.html">Личный кабинет - Маркетинговые компенсации</a>
-          </li>
-          <li>
-            <a href="lk-service.html">Личный кабинет - Сервисные компенсации</a>
-          </li>
-          <li>
-            <a href="lk-history.html">Личный кабинет - История действий</a>
-          </li>
-          <li>
-            <a href="lk-manager-tasks.html">Личный кабинет (менеджер) - Входящие задачи</a>
-          </li>
-          <li>
-            <a href="lk-manager-dealer-list.html">Личный кабинет (менеджер) - Список дилеров</a>
-          </li>
-          <li>
-            <a href="lk-manager-dealer-item.html">Личный кабинет (менеджер) - Список дилеров - Детальная</a>
-          </li>
-          <li>
-            <a href="lk-admin-tasks.html">Личный кабинет (администратор) - Входящие задачи</a>
-          </li>
-          <li>
-            <a href="lk-admin-dealer-list.html">Личный кабинет (администратор) - Список дилеров</a>
-          </li>
-          <li>
-            <a href="lk-admin-dealer-item.html">Личный кабинет (администратор) - Список дилеров - Детальная</a>
-          </li>
-          <li>
-            <a href="lk-admin-manager-list.html">Личный кабинет (администратор) - Список менеджеров</a>
-          </li>
-        </ul>
+        <div class="lk__head">
+          <h2 class="lk__title">Личный кабинет (администратор)</h2>
+          <h3 class="lk__subtitle">Администратор</h3>
+        </div>
+        <div class="lk__block">
+          <div class="lk__sidebar">
+            <ul class="lk__menu">
+              <li class="warning">
+                <a href="lk-admin-tasks.html">Входящие задачи</a>
+              </li>
+              <li>
+                <a href="lk-admin-dealer-list.html">Список дилеров</a>
+              </li>
+              <li class="active">
+                <a href="lk-admin-manager-list.html">Список менеджеров</a>
+              </li>
+              <li>
+                <a href="lk-admin-unloading.html">Выгрузка</a>
+              </li>
+              <li>
+                <a href="lk-admin-history.html">История действий</a>
+              </li>
+            </ul>
+            <a href="#" class="lk__logout">Выход</a>
+          </div>
+
+          <div class="lk__content">
+            <div class="lk__file-link-block">
+              <a href="#" class="lk__file-link">Документы</a>
+              <a href="#" class="lk__file-link lk__file-link_info"> Справочная информация</a>
+            </div>
+            <div class="lk__content-box">
+              <div class="lk__table manager-list">
+                <div class="lk__table-head">
+                  <div class="lk__table-row">
+                    <div class="lk__table-col">
+                      ФИО
+                    </div>
+                    <div class="lk__table-col">
+                      Должность
+                    </div>
+                    <div class="lk__table-col">
+                    </div>
+                  </div>
+                </div>
+                <div class="lk__table-body">
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          ФИО
+                        </div>
+                        Васильев Иван Андреевич
+                      </div>
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          Должность
+                        </div>
+                        Менеджер среднего звена
+                      </div>
+                      <div class="lk__table-col">
+                        <a class="lk__link" href="lk-admin-manager-item.html">
+                          Подробнее
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          ФИО
+                        </div>
+                        Васильев Иван Андреевич
+                      </div>
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          Должность
+                        </div>
+                        Менеджер среднего звена
+                      </div>
+                      <div class="lk__table-col">
+                        <a class="lk__link" href="lk-admin-manager-item.html">
+                          Подробнее
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          ФИО
+                        </div>
+                        Васильев Иван Андреевич
+                      </div>
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          Должность
+                        </div>
+                        Менеджер среднего звена
+                      </div>
+                      <div class="lk__table-col">
+                        <a class="lk__link" href="lk-admin-manager-item.html">
+                          Подробнее
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          ФИО
+                        </div>
+                        Васильев Иван Андреевич
+                      </div>
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          Должность
+                        </div>
+                        Менеджер среднего звена
+                      </div>
+                      <div class="lk__table-col">
+                        <a class="lk__link" href="lk-admin-manager-item.html">
+                          Подробнее
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__table-row-wrap">
+                    <div class="lk__table-row">
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          ФИО
+                        </div>
+                        Васильев Иван Андреевич
+                      </div>
+                      <div class="lk__table-col">
+                        <div class="lk__table-col-head">
+                          Должность
+                        </div>
+                        Менеджер среднего звена
+                      </div>
+                      <div class="lk__table-col">
+                        <a class="lk__link" href="lk-admin-manager-item.html">
+                          Подробнее
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="container">
         <div class="row">
@@ -208,7 +322,7 @@
     <div class="menu__exit"><img src="img/exit.svg" alt=""></div>
     <div class="menu__inner">
       <div class="container">
-        <div class="menu-search">
+        <!-- <div class="menu-search">
           <form action="#">
             <input type="text" class="menu-search__input" placeholder="Поиск по сайту">
             <label for="" class="menu-search__btn">
@@ -219,15 +333,21 @@
               <input type="submit" value="">
             </label>
           </form>
-        </div>
-        <div class="menu-search-help">
+        </div> -->
+        <!-- <div class="menu-search-help">
           <div class="menu-search-help__item">234</div>
           <div class="menu-search-help__item">234</div>
-        </div>
+        </div> -->
         <div class="menu-blocks">
           <div class="menu-block">
             <h4 class="menu-block__title"><a href="#">Техника</a></h4>
-            <div class="menu-block__item">
+            <h4 class="menu-block__title"><a href="#">Запчасти</a></h4>
+            <h4 class="menu-block__title"><a href="#">Сервис</a></h4>
+            <h4 class="menu-block__title"><a href="#">Компания</a></h4>
+            <h4 class="menu-block__title"><a href="#">Покупка</a></h4>
+            <h4 class="menu-block__title"><a href="#">Пресс-центр</a></h4>
+            <h4 class="menu-block__title"><a href="#">Контакты</a></h4>
+            <!-- <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Алмаз РЗЗ</a></h5>
               <ul>
                 <li><a href="#">Дисковые бороны DANA</a></li>
@@ -250,9 +370,9 @@
                 <li><a href="#">Плоскорезы STAVR</a></li>
                 <li><a href="#">Культиваторы STAVRIS</a></li>
               </ul>
-            </div>
+            </div> -->
           </div>
-          <div class="menu-block">
+          <!-- <div class="menu-block">
             <h4 class="menu-block__title"><a href="#">Техника</a></h4>
             <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Каталог</a></h5>
@@ -341,7 +461,7 @@
             <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Общие контакты</a></h5>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="menu-phone">
           <h3><a href="tel:88007005008">8 800 700 50 08</a></h3>
@@ -543,7 +663,24 @@
     <span class="hint-region-ask__btn">НЕТ</span>
   </div>
 
+  <div class="popup-list">
+    <div class="popup popup__result js-modal" data-modal-type="result">
+      <div class="popup__inner">
+        <div class="close popup__close js-modal-close"></div>
+        <div class="popup__head js-modal-text">
+          <div class="popup__title">Действие совершено успешно</div>
+        </div>
+        <div class="popup__content js-modal-content">
+          <div class="popup__btn-wrap">
+            <a class="btn popup__btn js-modal-close" href="javascript:void(0)">Ок</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+
 </body>
 
 </html>
