@@ -489,39 +489,106 @@
                       </a>
                       <form action="" method="POST">
                         <div class="lk__form-section">
-                          <div class="lk__form-box">
-                            <div class="lk__form-title">
-                              Укажите технику:
-                            </div>
-                            <div class="lk__form-row lk__form-row_long">
-                              <div class="lk__form-field required">
-                                <label class="field">
-                                  <span class="field__title field__required">Введите заводской номер введенной в эксплуатацию техники</span>
-                                  <input class="field__input" type="text" name="number">
-                                </label>
+                          <div class="lk__form-box-wrap js-lk-form-box active">
+                            <div class="lk__form-box">
+                              <div class="lk__form-title">
+                                Укажите технику:
                               </div>
-                              <div class="hint">
-                                <div class="hint__message">
-                                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                                  quia.
+                              <div class="lk__form-row lk__form-row_long">
+                                <div class="lk__form-field required">
+                                  <label class="field">
+                                    <span class="field__title field__required">Введите заводской номер введенной в эксплуатацию техники</span>
+                                    <input class="field__input" type="text" name="number">
+                                  </label>
+                                </div>
+                                <div class="hint">
+                                  <div class="hint__message">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
+                                    quia.
+                                  </div>
+                                </div>
+                                <div class="tooltip">
+                                  Поле не должно быть пустым
                                 </div>
                               </div>
-                              <div class="tooltip">
-                                Поле не должно быть пустым
+                              <div class="lk__form-desc">
+                                Название техники (<span>появится автоматически после ввода заводского номера</span>)
                               </div>
                             </div>
-                            <div class="lk__form-desc">
-                              Название техники (<span>появится автоматически после ввода заводского номера</span>)
+                            <div class="lk__form-box">
+                              <div class="lk__form-row">
+                                <a class="btn-border js-lk-form-box-show" href="javascript:void(0)">Техника не введена в эксплуатацию</a>
+                                <div class="hint">
+                                  <div class="hint__message">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
+                                    quia.
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                          <div class="lk__form-box">
-                            <div class="lk__form-row">
-                              <a class="btn-border" href="#">Техника не введена в эксплуатацию</a>
-                              <div class="hint">
-                                <div class="hint__message">
-                                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam
-                                  quia.
+                          <div class="lk__form-box-wrap js-lk-form-box">
+                            <div class="lk__form-box">
+                              <div class="lk__form-title">
+                                Укажите технику:
+                              </div>
+                              <div class="lk__form-row">
+                                <div class="lk__form-field required">
+                                  <select class="select js-select" name="type">
+                                    <option disabled selected hidden>Выберите тип техники</option>
+                                    <option value="1">Техника 1</option>
+                                    <option value="2">Техника 2</option>
+                                    <option value="3">Техника 3</option>
+                                    <option value="4">Тест 4</option>
+                                    <option value="5">Тест 5</option>
+                                  </select>
                                 </div>
+                                <div class="hint">
+                                  <div class="hint__message">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
+                                    libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
+                                    veritatis quibusdam, aliquid natus.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="lk__form-row">
+                                <div class="lk__form-field required">
+                                  <select class="select js-select" name="model">
+                                    <option disabled selected hidden>Выберите модель</option>
+                                    <option value="1">Модель 1</option>
+                                    <option value="2">Модель 2</option>
+                                    <option value="3">Модель 3</option>
+                                    <option value="4">Тест модель 4</option>
+                                    <option value="5">Тест модель 5</option>
+                                  </select>
+                                </div>
+                                <div class="hint">
+                                  <div class="hint__message">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
+                                    libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
+                                    veritatis quibusdam, aliquid natus.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="lk__form-row">
+                                <div class="lk__form-field required">
+                                  <label class="field"><span class="field__title field__required">Введите заводской номер</span>
+                                    <input class="field__input" type="text" name="number">
+                                  </label>
+                                </div>
+                                <div class="hint">
+                                  <div class="hint__message">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat necessitatibus quam quia
+                                    libero expedita? Reprehenderit vitae minima illum excepturi quis obcaecati in laborum eius quos
+                                    veritatis quibusdam, aliquid natus.
+                                  </div>
+                                </div>
+                                <div class="tooltip">
+                                  Номер введен неверно
+                                </div>
+                              </div>
+                              <div class="lk__form-row">
+                                <a class="lk__link js-lk-form-box-hide" href="javascript:void(0)">Назад</a>
                               </div>
                             </div>
                           </div>

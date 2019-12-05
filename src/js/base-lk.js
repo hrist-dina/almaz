@@ -21,6 +21,10 @@ class BaseLk {
         this.tagSelect = `${this.tag}-select`;
         this.tagSelectBtn = `${this.tagSelect}-btn`;
 
+        this.formBox = `${selector}-form-box`;
+        this.formBoxShow = `${this.formBox}-show`;
+        this.formBoxHide = `${this.formBox}-hide`;
+
         this.init();
     }
 
@@ -30,6 +34,30 @@ class BaseLk {
         this.initField();
         this.clickOnSelectBtn();
         this.clickOnTagDelete();
+        this.clickOnFormBoxShow();
+        this.clickOnFormBoxHide();
+    }
+
+    toggleFormBox(element) {
+        let parent = $(element).parents(this.formBox);
+        parent.removeClass('active');
+        parent.siblings(this.formBox).filter((item) => {
+            return !$(item).hasClass('active');
+        }).addClass('active');
+    }
+
+    clickOnFormBoxShow() {
+        const self = this;
+        $(this.formBoxShow).on('click', function () {
+            self.toggleFormBox(this);
+        });
+    }
+
+    clickOnFormBoxHide() {
+        const self = this;
+        $(this.formBoxHide).on('click', function () {
+            self.toggleFormBox(this);
+        });
     }
 
 
