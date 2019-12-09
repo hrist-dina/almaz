@@ -571,11 +571,21 @@ $(document).ready(function () {
                 if(response.success){
                     let data = response.data.DATA;
                     if(data.id){
-                        $el.closest('.lk__form-box').find('[data-text="explotation"]').html('<b>'+data.number+'</b> '+data.type+' '+data.model);
-                        $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val(data.id);
+                        if($el.closest('.lk__form-box').length > 0){
+                            $el.closest('.lk__form-box').find('[data-text="explotation"]').html('<b>'+data.number+'</b> '+data.type+' '+data.model);
+                            $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val(data.id);
+                        }else if($el.closest('.lk__form-box-wrap').length > 0){
+                            $el.closest('.lk__form-box-wrap').find('[data-text="explotation"]').html('<b>'+data.number+'</b> '+data.type+' '+data.model);
+                            $el.closest('.lk__form-box-wrap').find('[name="id_explotation[]"]').val(data.id);
+                        }
                     }else{
-                        $el.closest('.lk__form-box').find('[data-text="explotation"]').html('техника не найдена');
-                        $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val('');
+                        if($el.closest('.lk__form-box').length > 0) {
+                            $el.closest('.lk__form-box').find('[data-text="explotation"]').html('техника не найдена');
+                            $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val('');
+                        }else if($el.closest('.lk__form-box-wrap').length > 0) {
+                            $el.closest('.lk__form-box-wrap').find('[data-text="explotation"]').html('техника не найдена');
+                            $el.closest('.lk__form-box-wrap').find('[name="id_explotation[]"]').val('');
+                        }
                     }
                 }
             }

@@ -44,6 +44,17 @@ class BaseLk {
         parent.siblings(this.formBox).filter((item) => {
             return !$(item).hasClass('active');
         }).addClass('active');
+        if($(element).data('req') == 'Y'){
+            parent.find('.lk__form-field').removeClass('required');
+            parent.find('.select').removeClass('required');
+            parent.find('.field__title').removeClass('.field__required');
+            parent.find('.field__input').removeAttr('required');
+
+            parent.siblings(this.formBox).find('.lk__form-field').addClass('required');
+            parent.siblings(this.formBox).find('.select').addClass('required');
+            parent.siblings(this.formBox).find('.field__title').addClass('field__required');
+            parent.siblings(this.formBox).find('.field__input').attr('required', 'required');
+        }
     }
 
     clickOnFormBoxShow() {
@@ -137,10 +148,21 @@ class BaseLk {
     changeRadio() {
         const self = this;
         $(document).on('change', this.radioBtn, function () {
-            const val = $(this).val();
-            const row = $(this).parents(self.radio).find(`[data-radio-type="${val}"]`);
+            const radio = $(this);
+            const val = radio.val();
+            const row = radio.parents(self.radio).find(`[data-radio-type="${val}"]`);
             row.siblings().addClass('hide');
             row.removeClass('hide');
+            if(radio.data('req') == 'Y'){
+                row.find('.lk__form-field').addClass('required');
+                row.find('.field__title').addClass('field__required');
+                row.find('.field__input').attr('required', 'required');
+
+                row.siblings().removeClass('error');
+                row.siblings().find('.lk__form-field').removeClass('required');
+                row.siblings().find('.field__title').removeClass('field__required');
+                row.siblings().find('.field__input').removeAttr('required');
+            }
         });
     }
 
