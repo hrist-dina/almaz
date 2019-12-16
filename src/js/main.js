@@ -592,4 +592,27 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '[data-edittask]', function (e) {
+        let $el=$(this),
+            status=$el.data('status'),
+            id_elem=$el.data('edittask'),
+            id_dealer=$el.data('dealer');
+        if(id_elem && status){
+            $.ajax({
+                url: '/ajax/task/edit',
+                method: "post",
+                data: {
+                    id_elem: id_elem,
+                    status: status,
+                    id_dealer:id_dealer
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if(response.success){
+                        $el.closest('.js-table-detail').remove();
+                    }
+                }
+            });
+        }
+    });
 });
