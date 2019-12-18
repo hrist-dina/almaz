@@ -10,6 +10,11 @@ import {BaseLk} from "./base-lk";
 import {BaseSelect} from "./base-select";
 
 
+function blockAjax(e) {
+    let txt='';
+    return txt = e.split("<!--startAjaxPage-->"), txt = txt[1], txt = txt.split("<!--endAjaxPage-->"), txt[0]
+}
+
 $(document).ready(function () {
     $('.js-form-marketing').each((i, el) => {
         new MarketingForm(el);
@@ -614,5 +619,18 @@ $(document).ready(function () {
                 }
             });
         }
+    });
+    $(document).on('keyup', '[data-search]', function (e) {
+        let pageUrl = $(document).find('[name="urlPage"]').val(), query = $(this).val();
+        $.ajax({
+            url: pageUrl+'?search='+query,
+            type: "GET",
+            success: function (response) {
+                let block_elems = $("<!--startAjaxPage-->"+blockAjax(response)+"<!--endAjaxPage-->");
+                $(document).find('[data-blockajax]').html(block_elems);
+                history.pushState({}, '', pageUrl+'?search='+query);
+                new BaseTable();
+            }
+        });
     });
 });
