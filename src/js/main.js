@@ -455,13 +455,21 @@ $(document).ready(function () {
         $('.hint-region-ask').removeClass('active');
     });
 
-    let imDate = new Inputmask({
-        mask: "99.99.9999",
-        showMaskOnHover: false
-    });
-    imDate.mask ('.js-datepicker');
-    $('.js-datepicker').datepicker();
+    $('.js-datepicker').each((key, item) => {
+        let datepicker = $(item);
+        let options = {};
+        if (datepicker.data('max-date-current') === true) {
+            options = {...options, ...{maxDate: new Date()}};
+        }
 
+        let imDate = new Inputmask({
+            mask: "99.99.9999",
+            showMaskOnHover: false
+        });
+        imDate.mask (datepicker);
+
+        datepicker.datepicker(options);
+    });
 
     $('.js-lk-buyer-add').on('click', function () {
         const $wrap = $(this).parents('.js-lk-buyer-add-wrap');
