@@ -10,13 +10,13 @@ import {BaseLk} from "./base-lk";
 import {BaseSelect} from "./base-select";
 
 
-function blockAjax(e) {
+function blockAjax(e, has) {
     let txt='';
-    return txt = e.split("<!--startAjaxPage-->"), txt = txt[1], txt = txt.split("<!--endAjaxPage-->"), txt[0]
+    return txt = e.split("<!--startAjaxPage"+has+"-->"), txt = txt[1], txt = txt.split("<!--endAjaxPage"+has+"-->"), txt[0]
 }
-function pagenElems(e) {
+function pagenElems(e, has) {
     let txt='';
-    return txt = e.split("<!--startAjaxPagination-->"), txt = txt[1], txt = txt.split("<!--endAjaxPagination-->"), txt[0]
+    return txt = e.split("<!--startAjaxPagination"+has+"-->"), txt = txt[1], txt = txt.split("<!--endAjaxPagination"+has+"-->"), txt[0]
 }
 
 $(document).ready(function () {
@@ -652,11 +652,14 @@ $(document).ready(function () {
             url: searchUrl+query,
             type: "GET",
             success: function (response) {
-                let block_elems = $("<!--startAjaxPage-->"+blockAjax(response)+"<!--endAjaxPage-->");
-                let pagen = $("<!--startAjaxPage-->"+pagenElems(response)+"<!--endAjaxPage-->")
+                let block_elems = $("<!--startAjaxPage"+has+"-->"+blockAjax(response, has)+"<!--endAjaxPage"+has+"-->");
+                let pagen = '';
+                if($(response).find('[data-pagenajax="'+has+'"]').length > 0){
+                    pagen = $("<!--startAjaxPage"+has+"-->"+pagenElems(response, has)+"<!--endAjaxPage"+has+"-->");
+                }
                 $(document).find('[data-blockajax="'+has+'"]').html(block_elems);
                 $(document).find('[data-pagenajax="'+has+'"]').html(pagen);
-                history.pushState({}, '', searchUrl+query);
+                history.pushState({}, '', searchUrl+query+'#'+has);
                 new BaseTable();
             }
         });
