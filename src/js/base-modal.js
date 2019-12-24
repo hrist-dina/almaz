@@ -83,7 +83,7 @@ class BaseModal {
             .on("click", function (event) {
                 event.preventDefault();
                 self.close();
-                self.open($(this).data("modal-type"));
+                self.open($(this).data("modal-type"), $(this).data('modal-success-url-button'));
             });
         $(this.selectorClose).on("click", function (event) {
             event.preventDefault();
@@ -91,10 +91,17 @@ class BaseModal {
         });
     }
 
-    open(type) {
+    open(type, successUrl = null) {
         this.element
             .filter(function () {
                 return $(this).data("modal-type") === type;
+            })
+            .map(function (index, item) {
+                if (successUrl) {
+                    return $(item).data('modal-success-url', successUrl);
+                } else {
+                    return item;
+                }
             })
             .iziModal("open");
     }
