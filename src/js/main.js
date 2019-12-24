@@ -14,6 +14,10 @@ function blockAjax(e) {
     let txt='';
     return txt = e.split("<!--startAjaxPage-->"), txt = txt[1], txt = txt.split("<!--endAjaxPage-->"), txt[0]
 }
+function pagenElems(e) {
+    let txt='';
+    return txt = e.split("<!--startAjaxPagination-->"), txt = txt[1], txt = txt.split("<!--endAjaxPagination-->"), txt[0]
+}
 
 $(document).ready(function () {
     $('.js-form-marketing').each((i, el) => {
@@ -643,14 +647,16 @@ $(document).ready(function () {
         }
     });
     $(document).on('keyup', '[data-search]', function (e) {
-        let pageUrl = $(document).find('[name="urlPage"]').val(), query = $(this).val();
+        let searchUrl = $(this).data('search'), query = $(this).val(), has = $(this).data('has');
         $.ajax({
-            url: pageUrl+'?search='+query,
+            url: searchUrl+query,
             type: "GET",
             success: function (response) {
                 let block_elems = $("<!--startAjaxPage-->"+blockAjax(response)+"<!--endAjaxPage-->");
-                $(document).find('[data-blockajax]').html(block_elems);
-                history.pushState({}, '', pageUrl+'?search='+query);
+                let pagen = $("<!--startAjaxPage-->"+pagenElems(response)+"<!--endAjaxPage-->")
+                $(document).find('[data-blockajax="'+has+'"]').html(block_elems);
+                $(document).find('[data-pagenajax="'+has+'"]').html(pagen);
+                history.pushState({}, '', searchUrl+query);
                 new BaseTable();
             }
         });
