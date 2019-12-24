@@ -39,7 +39,11 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '[data-href]', function() {
-        window.location.href = $(this).data('href');
+        let href = $(this).data('href');
+        if (window.location.origin + href === window.location.href) {
+            window.location.reload();
+        }
+        window.location.href = href;
     });
 
     let sliderSet = {
