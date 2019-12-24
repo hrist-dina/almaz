@@ -10,6 +10,9 @@ class BaseTabs {
         this.content = $(`${selector}-content`);
         this.contentInner = $(`${selector}-content-inner`);
 
+        this.select = $(`${selector}-select`);
+        this.selectContent = $(`${selector}-select-content`);
+
         this.showFrom = $(`${selector}-show-form`);
         this.from = $(`${selector}-form`);
         this.back = $(`${selector}-back`);
@@ -24,11 +27,27 @@ class BaseTabs {
         this.clickBack();
         this.clickMobileSelect();
         this.onLoad();
+        this.onChangeSelect();
     }
 
     clickMobileSelect() {
         this.nav.on('click', function () {
             $(this).toggleClass('is-open');
+        });
+    }
+
+    onChangeSelect() {
+        const self = this;
+        this.select.on('change', function () {
+            const type  = $(this).val();
+            let content = $(this).parents('form').find(self.selectContent);
+            content.children('fieldset').map(function (index,item) {
+                if ($(item).data('form-fieldset') === type) {
+                    $(item).prop('disabled', false);
+                } else {
+                    $(item).prop('disabled', true);
+                }
+            });
         });
     }
 

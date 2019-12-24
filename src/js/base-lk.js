@@ -32,6 +32,7 @@ class BaseLk {
         this.clickRowAdd();
         this.changeRadio();
         this.initField();
+        this.initInputFile();
         this.clickOnSelectBtn();
         this.clickOnTagDelete();
         this.clickOnFormBoxShow();
@@ -140,8 +141,10 @@ class BaseLk {
             radio.attr('name', `${self.nameRadioGroup}-${self.countRadioGroup}`);
             self.countRadioGroup++;
             clone.insertAfter(prevRow);
+            clone.find('.selected .field-file > span').trigger('click');
             new BaseSelect();
             self.initField();
+            self.initInputFile();
         });
     }
 
@@ -176,6 +179,40 @@ class BaseLk {
             if (inputValue === "") {
                 $(this).parents('.field').removeClass('focused');
             }
+        });
+    }
+
+    initInputFile() {
+        $(document).on('change', '.field-file input[type=file]', function() {
+            let fileName = $(this).val().split('\\').pop();
+            let label =
+                $(this)
+                    .parent('.field-file')
+                    .siblings('.lk__download')
+                    .find('.lk__download-title');
+
+            let parent = label.parents('.lk__form-file');
+            let span = $(this).siblings('span');
+
+            if (label.data('default-title') === undefined) {
+                label.attr('data-default-title', label.html().trim());
+                span.attr('data-default-title', span.html().trim());
+            }
+
+            if (fileName === '') {
+                parent.removeClass("selected");
+                label.html(label.data('default-title'));
+                span.html(span.data('default-title'));
+            } else {
+                parent.addClass('selected');
+                label.html(fileName);
+                span.text('Удалить файл');
+            }
+        });
+
+        $(document).on('click', '.selected .field-file > span', function(e) {
+            e.preventDefault();
+            $(this).siblings('input[type=file]').val('').trigger('change');
         });
     }
 }
