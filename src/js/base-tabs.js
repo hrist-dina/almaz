@@ -23,6 +23,7 @@ class BaseTabs {
         this.clickShowForm();
         this.clickBack();
         this.clickMobileSelect();
+        this.onLoad();
     }
 
     clickMobileSelect() {
@@ -34,17 +35,35 @@ class BaseTabs {
     clickTab() {
         const self = this;
         this.nav.children().on('click', function () {
-            self.nav.children().removeClass(self.activeClass);
-            $(this).addClass(self.activeClass);
             const type = $(this).data('tab');
-            self.content.children().each((index, item) => {
-                if ($(item).data('tab-content') === type) {
-                    $(item).addClass(self.activeClass);
-                } else {
-                    $(item).removeClass(self.activeClass);
-                }
-            });
+            window.location.hash = type;
+            self.openTab(type);
         });
+    }
+
+    openTab(type) {
+        this.content.children().each((index, item) => {
+            if ($(item).data('tab-content') === type) {
+                $(item).addClass(this.activeClass);
+            } else {
+                $(item).removeClass(this.activeClass);
+            }
+        });
+
+        this.nav.children().each((index, item) => {
+            if ($(item).data('tab') === type) {
+                $(item).addClass(this.activeClass);
+            } else {
+                $(item).removeClass(this.activeClass);
+            }
+        });
+    }
+
+    onLoad() {
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            this.openTab(hash);
+        }
     }
 
     clickShowForm() {

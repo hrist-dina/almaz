@@ -12,7 +12,9 @@ class BaseModal {
         this.element = $(document).find(this.selector);
         this.selectorOpen = `${selector}-open`;
         this.selectorClose = `${selector}-close`;
-        this.options = $.extend(BaseModal.baseOptions(), options);
+        this.options = $.extend(BaseModal.baseOptions(), options, {
+            onClosed: this.eventOnClosed
+        });
         this.init();
     }
 
@@ -102,6 +104,13 @@ class BaseModal {
             $(elem).iziModal("close");
             BaseModal.clear(elem);
         });
+    }
+
+    eventOnClosed(data){
+        const url = $(data.$element).data('modal-success-url');
+        if (url) {
+            window.location.href = url;
+        }
     }
 }
 
