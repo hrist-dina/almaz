@@ -32,6 +32,16 @@ $(document).ready(function () {
     new BaseLk();
     new BaseSelect();
 
+    $('[data-click="upHref"]').on('click', function() {
+        let elemBtn = $(document).find('.js-link-href'),
+            dataUrl = $(this).data('url');
+        elemBtn.attr('data-href', dataUrl);
+    });
+
+    $(document).on('click', '[data-href]', function() {
+        window.location.href = $(this).data('href');
+    });
+
     let sliderSet = {
         loop: false,
         // autoplay:true,

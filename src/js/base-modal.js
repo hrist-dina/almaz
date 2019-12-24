@@ -98,7 +98,7 @@ class BaseModal {
             })
             .map(function (index, item) {
                 if (successUrl) {
-                    return $(item).data('modal-success-url', successUrl);
+                    return $(item).attr('data-modal-success-url', successUrl);
                 } else {
                     return item;
                 }
