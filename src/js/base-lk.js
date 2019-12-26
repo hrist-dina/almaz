@@ -213,6 +213,9 @@ class BaseLk {
         $(document).on('click', '.selected .field-file > span', function(e) {
             e.preventDefault();
             $(this).siblings('input[type=file]').val('').trigger('change');
+            if($(this).closest('.lk__form-file').find('[data-editfile]').length > 0 && $(this).closest('.lk__form-file').find('[data-editfile]').val()){
+                $(this).closest('.lk__form-file').find('[data-editfile]').remove();
+            }
         });
     }
 }
