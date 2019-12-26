@@ -8,6 +8,7 @@ import {BaseTabs} from "./base-tabs";
 import {BaseTable} from "./base-table";
 import {BaseLk} from "./base-lk";
 import {BaseSelect} from "./base-select";
+import {Loader} from "./loader";
 
 
 function blockAjax(e, has) {
@@ -35,6 +36,12 @@ $(document).ready(function () {
     new BaseTable();
     new BaseLk();
     new BaseSelect();
+
+    // let loader = new Loader();
+    // loader.show();
+    // $(window).on('load', function() {
+    //     loader.hide();
+    // });
 
     $('[data-click="upHref"]').on('click', function() {
         let elemBtn = $(document).find('.js-link-href'),

@@ -10,7 +10,8 @@
   <title>Алмаз</title>
 </head>
 
-<body>
+<body class="body-right">
+
   <div class="page-nav">
     <a href="/" class="page-nav__logo">
       <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +98,7 @@
             <a href="tel:88007005008">8 800 700 50 08</a>
           </div>
           <div class="header__mobile">
-            <div class="header__location">
+            <!-- <div class="header__location">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.429824 13.4212L9.78979 17.3159L12 27.21L22.2099 6.89416L0.429824 13.4212Z" fill="black" />
               </svg>
@@ -111,7 +112,7 @@
                     fill="black" />
                 </svg>
               </a>
-            </div>
+            </div> -->
             <div class="header__burger">
               <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -124,69 +125,38 @@
       </div>
     </header>
     <div class="skybox"></div>
-    <section>
+
+    <section class="auth-section">
       <div class="container">
-        <ul>
-          <li>
-            <a href="auth.html">Авторизация</a>
-          </li>
-          <li>
-            <a href="lk-main.html">Личный кабинет - Главная страница</a>
-          </li>
-          <li>
-            <a href="lk-guarantee.html">Личный кабинет - Постановка на гарантию</a>
-          </li>
-          <li>
-            <a href="lk-reclamation.html">Личный кабинет - Рекламации</a>
-          </li>
-          <li>
-            <a href="lk-marketing.html">Личный кабинет - Маркетинговые компенсации</a>
-          </li>
-          <li>
-            <a href="lk-service.html">Личный кабинет - Сервисные компенсации</a>
-          </li>
-          <li>
-            <a href="lk-history.html">Личный кабинет - История действий</a>
-          </li>
-          <li>
-            <a href="lk-manager-tasks.html">Личный кабинет (менеджер) - Входящие задачи</a>
-          </li>
-          <li>
-            <a href="lk-manager-dealer-list.html">Личный кабинет (менеджер) - Список дилеров</a>
-          </li>
-          <li>
-            <a href="lk-manager-dealer-item.html">Личный кабинет (менеджер) - Список дилеров - Детальная</a>
-          </li>
-          <li>
-            <a href="lk-manager-history.html">Личный кабинет (менеджер) - История действий</a>
-          </li>
-          <li>
-            <a href="lk-admin-tasks.html">Личный кабинет (администратор) - Входящие задачи</a>
-          </li>
-          <li>
-            <a href="lk-admin-dealer-list.html">Личный кабинет (администратор) - Список дилеров</a>
-          </li>
-          <li>
-            <a href="lk-admin-dealer-item.html">Личный кабинет (администратор) - Список дилеров - Детальная</a>
-          </li>
-          <li>
-            <a href="lk-admin-manager-list.html">Личный кабинет (администратор) - Список менеджеров</a>
-          </li>
-          <li>
-            <a href="lk-admin-unloading.html">Личный кабинет (администратор) - Выгрузка</a>
-          </li>
-          <li>
-            <a href="lk-admin-history.html">Личный кабинет (администратор) - История действий</a>
-          </li>
-          <li>
-            <a href="lk-modal.html">Модалка</a>
-          </li>
-          <li>
-            <a href="loader.html">Прелоадер</a>
-          </li>
-        </ul>
+        <h2 class="auth-title">Вход в личный кабинет</h2>
+        <div class="auth-wrap">
+          <form action="" method="POST" class="auth-form">
+            <div class="auth-form__row">
+              <div class="auth-form__field required">
+                <label class="field"><span class="field__title field__required">Электронная почта</span>
+                  <input class="field__input" type="text" name="email">
+                </label>
+              </div>
+              <div class="tooltip">
+                Поле не должно быть пустым
+              </div>
+            </div>
+            <div class="auth-form__row">
+              <div class="auth-form__field required">
+                <label class="field"><span class="field__title field__required">Пароль</span>
+                  <input class="field__input" type="text" name="password">
+                </label>
+              </div>
+              <div class="tooltip">
+                Поле не должно быть пустым
+              </div>
+            </div>
+
+            <button class="btn auth-form__submit" type="submit">Войти</button>
+        </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="container">
         <div class="row">
@@ -223,7 +193,7 @@
     <div class="menu__exit"><img src="img/exit.svg" alt=""></div>
     <div class="menu__inner">
       <div class="container">
-        <div class="menu-search">
+        <!-- <div class="menu-search">
           <form action="#">
             <input type="text" class="menu-search__input" placeholder="Поиск по сайту">
             <label for="" class="menu-search__btn">
@@ -234,15 +204,21 @@
               <input type="submit" value="">
             </label>
           </form>
-        </div>
-        <div class="menu-search-help">
+        </div> -->
+        <!-- <div class="menu-search-help">
           <div class="menu-search-help__item">234</div>
           <div class="menu-search-help__item">234</div>
-        </div>
+        </div> -->
         <div class="menu-blocks">
           <div class="menu-block">
             <h4 class="menu-block__title"><a href="#">Техника</a></h4>
-            <div class="menu-block__item">
+            <h4 class="menu-block__title"><a href="#">Запчасти</a></h4>
+            <h4 class="menu-block__title"><a href="#">Сервис</a></h4>
+            <h4 class="menu-block__title"><a href="#">Компания</a></h4>
+            <h4 class="menu-block__title"><a href="#">Покупка</a></h4>
+            <h4 class="menu-block__title"><a href="#">Пресс-центр</a></h4>
+            <h4 class="menu-block__title"><a href="#">Контакты</a></h4>
+            <!-- <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Алмаз РЗЗ</a></h5>
               <ul>
                 <li><a href="#">Дисковые бороны DANA</a></li>
@@ -265,9 +241,9 @@
                 <li><a href="#">Плоскорезы STAVR</a></li>
                 <li><a href="#">Культиваторы STAVRIS</a></li>
               </ul>
-            </div>
+            </div> -->
           </div>
-          <div class="menu-block">
+          <!-- <div class="menu-block">
             <h4 class="menu-block__title"><a href="#">Техника</a></h4>
             <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Каталог</a></h5>
@@ -356,7 +332,7 @@
             <div class="menu-block__item">
               <h5 class="menu-block__item-title"><a href="#">Общие контакты</a></h5>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="menu-phone">
           <h3><a href="tel:88007005008">8 800 700 50 08</a></h3>
@@ -558,7 +534,26 @@
     <span class="hint-region-ask__btn">НЕТ</span>
   </div>
 
+  <div class="cube-loader-wrap js-cube-loader">
+    <div class="cube-loader-inner">
+      <div class="caption">
+        <div class="cube-loader">
+          <div class="cube loader-1"></div>
+          <div class="cube loader-2"></div>
+          <div class="cube loader-4"></div>
+          <div class="cube loader-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    // Для примера, не использовать, есть отдельный класс
+    var loader = document.querySelector('.js-cube-loader');
+    loader.style = 'display: block;';
+  </script>
+
 </body>
 
 </html>
