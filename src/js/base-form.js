@@ -4,8 +4,9 @@ import "jquery-mask-plugin";
 // import autosize from "autosize/src/autosize";
 
 class BaseForm {
-    constructor(element) {
+    constructor(element, loader) {
         this.$element = $(element);
+        this.loader = loader;
 
         this.$element.find('.js-submit').on('click', () => {
             this.$element.trigger('submit');
@@ -18,6 +19,7 @@ class BaseForm {
 
     validate() {
         const $form = this.$element;
+        const loader = this.loader;
 
         $.validator.addMethod('checkPhone', function (value, element) {
             return /\+\d{1} \(\d{3}\) \d{3}-\d{4}/g.test(value);
@@ -73,7 +75,7 @@ class BaseForm {
                 // modal.iziModal('open');
             },
             submitHandler: (form) => {
-                this.submitFunction(form);
+                this.submitFunction(form, loader);
             },
         });
 

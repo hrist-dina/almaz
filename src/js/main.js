@@ -21,14 +21,15 @@ function pagenElems(e, has) {
 }
 
 $(document).ready(function () {
+    let loader = new Loader();
     $('.js-form-marketing').each((i, el) => {
-        new MarketingForm(el);
+        new MarketingForm(el, loader);
     });
     $('.js-form-exploitation').each((i, el) => {
-        new ExploitationForm(el);
+        new ExploitationForm(el, loader);
     });
     $('.js-form-auth').each((i, el) => {
-        new AuthForm(el);
+        new AuthForm(el, loader);
     });
 
     new BaseModal();
@@ -635,6 +636,7 @@ $(document).ready(function () {
             status=$el.data('status'),
             id_elem=$el.data('edittask'),
             id_dealer=$el.data('dealer');
+        loader.show();
         if(id_elem && status){
             $.ajax({
                 url: '/ajax/task/edit',
@@ -649,6 +651,7 @@ $(document).ready(function () {
                     if(response.success){
                         $el.closest('.js-table-detail').remove();
                     }
+                    loader.hide();
                 }
             });
         }

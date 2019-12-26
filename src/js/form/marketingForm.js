@@ -22,10 +22,10 @@ export default class MarketingForm extends BaseForm {
         });
     }
 
-    submitFunction(form) {
+    submitFunction(form, loader) {
         const $form = this.$element;
         let formData = new FormData($form.get(0));
-
+        loader.show();
         $.ajax({
             url: $form.attr('action'),
             method: "post",
@@ -44,6 +44,7 @@ export default class MarketingForm extends BaseForm {
                 }else{
                     $form.find('.mess').text(response.error).css('color', 'red');
                 }
+                loader.hide();
             }
         });
     }
