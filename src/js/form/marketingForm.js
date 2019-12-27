@@ -39,7 +39,6 @@ export default class MarketingForm extends BaseForm {
                     $form.trigger('reset');
                     let modal = BaseModal.openModal('result');
                     BaseModal.renderMessage(modal, 'Действие совершено успешно');
-                    console.log('форма отправлена');
                     $form.find('.mess').text('');
                 }else{
                     $form.find('.mess').text(response.error).css('color', 'red');
