@@ -20,6 +20,7 @@ class BaseForm {
     validate() {
         const $form = this.$element;
         const loader = this.loader;
+        const self = this;
 
         $.validator.addMethod('checkPhone', function (value, element) {
             return /\+\d{1} \(\d{3}\) \d{3}-\d{4}/g.test(value);
@@ -56,6 +57,7 @@ class BaseForm {
             errorPlacement: function (error, element) {
                 $(element).closest('.js-field').addClass('error').find('.js-error-tooltip').fadeIn();
 
+                self.beforeSubmit();
                 return true;
             },
             success: function (element) {
@@ -105,16 +107,17 @@ class BaseForm {
         });
 
         $form.find('.js-file').rules("add", {
-            accept:"jpg,png,jpeg,gif"
+            accept: "jpg,png,jpeg,gif"
         });
 
-        if($form.find('.js-file-mark').length > 0)
-        $form.find('.js-file-mark').each(function (i, elem) {
-            var type_file = $(elem).data('type');
-            $(elem).find('.js-file-mark').rules("add", {
-                accept:type_file
+        if ($form.find('.js-file-mark').length > 0) {
+            $form.find('.js-file-mark').each(function (i, elem) {
+                var type_file = $(elem).data('type');
+                $(elem).find('.js-file-mark').rules("add", {
+                    accept: type_file
+                });
             });
-        });
+        }
 
         $.validator.setDefaults({ignore: ".ignore"});
 
@@ -124,6 +127,22 @@ class BaseForm {
         // });
 
 
+    }
+
+    beforeSubmit() {
+        let fileInput = this.$element.find('input[type=file]:required');
+        let error = [];
+        fileInput.each((i, el) => {
+            let field = $(el).parents('.js-field');
+            if($(el).val() === '') {
+                field.addClass('error');
+                error.push(true);
+            } else {
+                field.removeClass('error');
+                error.push(false);
+            }
+        });
+        return !!error.filter((el) => el).length;
     }
 
     submitFunction(form) {

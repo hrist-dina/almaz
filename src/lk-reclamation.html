@@ -487,18 +487,18 @@
                         <i class="icon-back"></i>
                         <span>Назад</span>
                       </a>
-                      <form action="" method="POST">
+                      <form action="" method="POST" class="js-form-marketing" novalidate="novalidate">
                         <div class="lk__form-section">
                           <div class="lk__form-box-wrap js-lk-form-box active">
                             <div class="lk__form-box">
                               <div class="lk__form-title">
                                 Укажите технику:
                               </div>
-                              <div class="lk__form-row lk__form-row_long">
+                              <div class="lk__form-row lk__form-row_long js-field">
                                 <div class="lk__form-field required">
                                   <label class="field">
                                     <span class="field__title field__required">Введите заводской номер введенной в эксплуатацию техники</span>
-                                    <input class="field__input" type="text" name="number">
+                                    <input class="field__input" type="text" name="number" required>
                                   </label>
                                 </div>
                                 <div class="hint">
@@ -507,7 +507,7 @@
                                     quia.
                                   </div>
                                 </div>
-                                <div class="tooltip">
+                                <div class="tooltip js-error-tooltip">
                                   Поле не должно быть пустым
                                 </div>
                               </div>
@@ -617,11 +617,11 @@
                           <div class="lk__form-title">
                             Прикрепите необходимые документы
                           </div>
-                          <div class="lk__form-row">
-                            <div class="lk__form-field">
+                          <div class="lk__form-row js-field">
+                            <div class="lk__form-field required">
                               <div class="lk__form-file">
                                 <div class="lk__download">
-                                  <div class="lk__download-title">
+                                  <div class="lk__download-title field__required">
                                     Акт выхода из строя
                                   </div>
                                   <a href="#" class="lk__download-link">
@@ -629,7 +629,7 @@
                                   </a>
                                 </div>
                                 <label class='field-file'>
-                                  <input class="field-file__input" type="file" name="file">
+                                  <input class="field-file__input" type="file" name="file" required>
                                   <span class="field-file__title">Загрузить</span>
                                 </label>
                               </div>
@@ -638,6 +638,9 @@
                               <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
                                 similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
                                 Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                            <div class="tooltip js-error-tooltip">
+                              Поле Акт выхода из строя не может быть пустым
                             </div>
                           </div>
                           <div class="lk__form-row">
@@ -914,7 +917,8 @@
                         <i class="icon-back"></i>
                         <span>Назад</span>
                       </a>
-                      <form action="" method="POST">
+                      <form action="" method="POST"
+                            class="js-form-marketing" novalidate="novalidate">
                         <div class="lk__form-section">
                           <div class="lk__form-title">
                             Введите номер документа поступления (на выбор):
@@ -995,8 +999,8 @@
                           <div class="lk__form-title">
                             Прикрепите необходимые документы
                           </div>
-                          <div class="lk__form-row">
-                            <div class="lk__form-field">
+                          <div class="lk__form-row js-field">
+                            <div class="lk__form-field required">
                               <div class="lk__form-file">
                                 <div class="lk__download">
                                   <div class="lk__download-title">
@@ -1007,7 +1011,7 @@
                                   </a>
                                 </div>
                                 <label class='field-file'>
-                                  <input class="field-file__input" type="file" name="file">
+                                  <input class="field-file__input" type="file" name="file" required>
                                   <span class="field-file__title">Загрузить</span>
                                 </label>
                               </div>
@@ -1016,6 +1020,9 @@
                               <div class="hint__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo quo
                                 similique quasi iste ipsum qui voluptas, numquam dolor esse minus, quisquam quod sunt eius.
                                 Excepturi laudantium atque distinctio saepe?</div>
+                            </div>
+                            <div class="tooltip js-error-tooltip">
+                              Поле Акт выхода из строя не может быть пустым
                             </div>
                           </div>
                           <div class="lk__form-row">

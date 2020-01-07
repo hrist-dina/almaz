@@ -23,6 +23,9 @@ export default class MarketingForm extends BaseForm {
     }
 
     submitFunction(form, loader) {
+        if (this.beforeSubmit()) {
+            return;
+        }
         const $form = this.$element;
         let formData = new FormData($form.get(0));
         loader.show();
