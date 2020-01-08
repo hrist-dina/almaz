@@ -134,7 +134,7 @@ class BaseForm {
         let error = [];
         fileInput.each((i, el) => {
             let field = $(el).parents('.js-field');
-            if($(el).val() === '') {
+            if($(el).val() === '' && $(el).closest('.lk__form-file').find('[data-editfile]').length <= 0) {
                 field.addClass('error');
                 error.push(true);
             } else {
