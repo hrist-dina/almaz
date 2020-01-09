@@ -130,7 +130,7 @@ class BaseForm {
     }
 
     beforeSubmit() {
-        let fileInput = this.$element.find('form:visible').find('input[type=file]:required');
+        let fileInput = this.$element.find('input[type=file]:required');
         let error = [];
         fileInput.each((i, el) => {
             let field = $(el).parents('.js-field');
