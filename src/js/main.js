@@ -22,9 +22,14 @@ function pagenElems(e, has) {
 
 $(document).ready(function () {
     let loader = new Loader();
-    $('.js-form-marketing').each((i, el) => {
-        new MarketingForm(el, loader);
+    $(document).find('[type="submit"]').on('click', function () {
+        if($(this).closest('.js-form-marketing').length > 0){
+            new MarketingForm($(this).closest('.js-form-marketing'), loader);
+        }
     });
+    /*$('.js-form-marketing').each((i, el) => {
+        new MarketingForm(el, loader);
+    });*/
     $('.js-form-exploitation').each((i, el) => {
         new ExploitationForm(el, loader);
     });

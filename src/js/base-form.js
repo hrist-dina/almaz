@@ -55,14 +55,13 @@ class BaseForm {
 
         $form.validate({
             errorPlacement: function (error, element) {
-                $(element).closest('.js-field').addClass('error').find('.js-error-tooltip').fadeIn();
-
-                self.beforeSubmit();
-                return true;
+                    console.log(element);
+                    $(element).closest('.js-field').addClass('error').find('.js-error-tooltip').fadeIn();
+                    self.beforeSubmit();
+                    return true;
             },
             success: function (element) {
                 $(element).closest('.js-field').removeClass('error').find('.js-error-tooltip').fadeOut();
-
                 return true;
             },
             highlight: function (element) {
@@ -142,7 +141,6 @@ class BaseForm {
                 error.push(false);
             }
         });
-        console.log(error);
         return !!error.filter((el) => el).length;
     }
 
