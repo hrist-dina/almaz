@@ -125,13 +125,15 @@ class BaseLk {
         );
     }
 
-
     clickRowAdd() {
         const self = this;
         this.rowAdd.on('click', function () {
             const thisRow = $(this).parent();
             const prevRow = thisRow.prev();
             const clone = thisRow.prev().clone();
+            if(clone.find('input').length > 0){
+                clone.find('input').val('');
+            }
             clone.find('.select2').remove();
             const radio = clone.find('input[type=radio]');
 
