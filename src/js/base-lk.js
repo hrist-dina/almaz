@@ -131,8 +131,8 @@ class BaseLk {
             const thisRow = $(this).parent();
             const prevRow = thisRow.prev();
             const clone = thisRow.prev().clone();
-            if(clone.find('input').length > 0){
-                clone.find('input').val('');
+            if(clone.find('label.field').find('input').length > 0){
+                clone.find('label.field').find('input').val('');
             }
             clone.find('.select2').remove();
             const radio = clone.find('input[type=radio]');
