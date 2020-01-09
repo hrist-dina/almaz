@@ -22,7 +22,7 @@ function pagenElems(e, has) {
 
 $(document).ready(function () {
     let loader = new Loader();
-    $('.js-form-marketing').each((i, el) => {
+    $('.js-form-marketing:visible').each((i, el) => {
         new MarketingForm(el, loader);
     });
     $('.js-form-exploitation').each((i, el) => {
