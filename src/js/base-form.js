@@ -130,10 +130,10 @@ class BaseForm {
     }
 
     beforeSubmit() {
-        let fileInput = this.$element.find('input[type=file]:required');
+        let fileInput = this.$element.find('input[type="file"]:required');
         let error = [];
         fileInput.each((i, el) => {
-            let field = $(el).parents('.js-field');
+            let field = $(el).closest('.js-field');
             if($(el).val() === '' && $(el).closest('.lk__form-file').find('[data-editfile]').length <= 0) {
                 field.addClass('error');
                 error.push(true);
@@ -142,6 +142,7 @@ class BaseForm {
                 error.push(false);
             }
         });
+        console.log(error);
         return !!error.filter((el) => el).length;
     }
 
