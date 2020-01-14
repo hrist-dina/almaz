@@ -55,7 +55,6 @@ class BaseForm {
 
         $form.validate({
             errorPlacement: function (error, element) {
-                    console.log(element);
                     $(element).closest('.js-field').addClass('error').find('.js-error-tooltip').fadeIn();
                     self.beforeSubmit();
                     return true;

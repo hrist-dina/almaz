@@ -45,8 +45,26 @@ class BaseTabs {
                 let fieldset = $(item).data('form-fieldset');
                 if (fieldset.toString() === type.toString()) {
                     $(item).prop('disabled', false);
+                    if($(item).find("[data-req]").length > 0){
+                        $(item).find("[data-req]").each(function (i, elem) {
+                            if($(elem).data('req') == 'Y'){
+                                $(elem).find('div.lk__form-field').addClass('required');
+                                $(elem).find('div.lk__download-title').addClass('field__required');
+                                $(elem).find('input.field-file__input').attr('required', 'required');
+                            }
+                        });
+                    }
                 } else {
                     $(item).prop('disabled', true);
+                    if($(item).find("[data-req]").length > 0){
+                        $(item).find("[data-req]").each(function (i, elem) {
+                            if($(elem).data('req') == 'Y'){
+                                $(elem).find('div.lk__form-field').removeClass('required');
+                                $(elem).find('div.lk__download-title').removeClass('field__required');
+                                $(elem).find('input.field-file__input').removeAttr('required');
+                            }
+                        });
+                    }
                 }
             });
         });
