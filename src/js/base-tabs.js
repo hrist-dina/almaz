@@ -41,8 +41,13 @@ class BaseTabs {
         this.select.on('change', function () {
             const type  = $(this).val();
             let content = $(this).parents('form').find(self.selectContent);
+            console.log(content);
             content.children('fieldset').map(function (index,item) {
-                if ($(item).data('form-fieldset') === type) {
+                let fieldset = $(item).data('form-fieldset');
+                console.log(fieldset);
+                console.log(type);
+
+                if (fieldset === type) {
                     $(item).prop('disabled', false);
                 } else {
                     $(item).prop('disabled', true);
