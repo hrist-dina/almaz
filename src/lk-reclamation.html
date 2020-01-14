@@ -498,8 +498,12 @@
                                 <div class="lk__form-field required">
                                   <label class="field">
                                     <span class="field__title field__required">Введите заводской номер введенной в эксплуатацию техники</span>
-                                    <input class="field__input" type="text" name="number" required>
+                                    <input class="field__input js-autocomplete" type="text" name="number" required data-path="/ajax/dealer/getExplotationSerial/" data-min-len="4">
                                   </label>
+<!--                                  <ul class="lk__form-field-suggests js-autocomplete-suggests">-->
+<!--                                    <li><b>1231-123-12312</b> тип модель</li>-->
+<!--                                    <li><b>1231-123-12312</b> тип модель</li>-->
+<!--                                  </ul>-->
                                 </div>
                                 <div class="hint">
                                   <div class="hint__message">
@@ -512,8 +516,9 @@
                                 </div>
                               </div>
                               <div class="lk__form-desc">
-                                Название техники (<span>появится автоматически после ввода заводского номера</span>)
+                                Название техники (<span class="js-autocomplete-text">появится автоматически после ввода заводского номера</span>)
                               </div>
+                              <input class="js-autocomplete-hidden-input" type="hidden" name="id_explotation[]" value="" required="">
                             </div>
                             <div class="lk__form-box">
                               <div class="lk__form-row">

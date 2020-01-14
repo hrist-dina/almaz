@@ -9,21 +9,23 @@ import {BaseTable} from "./base-table";
 import {BaseLk} from "./base-lk";
 import {BaseSelect} from "./base-select";
 import {Loader} from "./loader";
+import {BaseAutocomplete} from "./base-autocomplete";
 
 
 function blockAjax(e, has) {
-    let txt='';
-    return txt = e.split("<!--startAjaxPage"+has+"-->"), txt = txt[1], txt = txt.split("<!--endAjaxPage"+has+"-->"), txt[0]
+    let txt = '';
+    return txt = e.split("<!--startAjaxPage" + has + "-->"), txt = txt[1], txt = txt.split("<!--endAjaxPage" + has + "-->"), txt[0];
 }
+
 function pagenElems(e, has) {
-    let txt='';
-    return txt = e.split("<!--startAjaxPagination"+has+"-->"), txt = txt[1], txt = txt.split("<!--endAjaxPagination"+has+"-->"), txt[0]
+    let txt = '';
+    return txt = e.split("<!--startAjaxPagination" + has + "-->"), txt = txt[1], txt = txt.split("<!--endAjaxPagination" + has + "-->"), txt[0];
 }
 
 $(document).ready(function () {
     let loader = new Loader();
     $(document).find('[type="submit"]').on('click', function () {
-        if($(this).closest('.js-form-marketing').length > 0){
+        if ($(this).closest('.js-form-marketing').length > 0) {
             new MarketingForm($(this).closest('.js-form-marketing'), loader);
         }
     });
@@ -43,19 +45,26 @@ $(document).ready(function () {
     new BaseLk();
     new BaseSelect();
 
+    new BaseAutocomplete();
+    new BaseAutocomplete(
+        '[name="SERIAL_NUMBER[]"]',
+        '[name="id_explotation[]"]',
+        '[data-text="explotation"]',
+        'Техника не найдена'
+    );
     // let loader = new Loader();
     // loader.show();
     // $(window).on('load', function() {
     //     loader.hide();
     // });
 
-    $('[data-click="upHref"]').on('click', function() {
+    $('[data-onClick="upHref"]').on('click', function () {
         let elemBtn = $(document).find('.js-link-href'),
             dataUrl = $(this).data('url');
         elemBtn.attr('data-href', dataUrl);
     });
 
-    $(document).on('click', '[data-href]', function() {
+    $(document).on('click', '[data-href]', function () {
         let href = $(this).data('href');
         if (window.location.origin + href === window.location.href) {
             window.location.reload();
@@ -91,7 +100,7 @@ $(document).ready(function () {
                 nav: true,
             }
         },
-    }
+    };
 
     let sliderSetBig = {};
     Object.assign(sliderSetBig, sliderSet);
@@ -182,7 +191,7 @@ $(document).ready(function () {
                 $viewport.stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup');
             }
         });
-    }
+    };
     window.initScrollToPos = function (element, pos, offset) {
         $(element).on('click', function (event) {
             event.preventDefault();
@@ -193,7 +202,7 @@ $(document).ready(function () {
             }
             window.scrollToPos(offSetEl);
         });
-    }
+    };
     // initScrollToPos('.CLASS', 'CLASS OR' NUMBER, 80);
 
     jQuery(function ($) {
@@ -213,13 +222,13 @@ $(document).ready(function () {
         let imTin = new Inputmask({
             mask: "99-9999999",
             showMaskOnHover: false
-        })
+        });
         imTin.mask("#tin");
 
         let imSsn = new Inputmask({
             mask: "999-99-9999",
             showMaskOnHover: false
-        })
+        });
         imSsn.mask("#ssn");
     });
     //form menu-search
@@ -439,7 +448,7 @@ $(document).ready(function () {
     function deleteCookie(name) {
         setCookie(name, "", {
             expires: -1
-        })
+        });
     }
 
     /*if (getCookie('regionCur') == undefined) {
@@ -447,7 +456,7 @@ $(document).ready(function () {
     } else {
       $('.hint-region__text').text(getCookie('regionCur'));
     }
-    $('.hint-region-ask__btn').on('click', function (e) {
+    $('.hint-region-ask__btn').on('onClick', function (e) {
       let elIndex = $(this).index();
       if (elIndex == 1) {
         setCookie('regionCur', 'Алтайский край', {
@@ -497,7 +506,7 @@ $(document).ready(function () {
             mask: "99.99.9999",
             showMaskOnHover: false
         });
-        imDate.mask (datepicker);
+        imDate.mask(datepicker);
 
         datepicker.datepicker(options);
     });
@@ -556,7 +565,7 @@ $(document).ready(function () {
 
     $(window).on('scroll', function (e) {
         let docScroll = $('body,html').scrollTop();
-        let dataTab = $('[data-tab]')
+        let dataTab = $('[data-tab]');
         dataTab.each(function (i, item) {
             if ($(item).offset().top - 125 < docScroll && docScroll < ($(item).offset().top + $(item).height())) {
                 $('.first__tab').removeClass('current');
@@ -594,66 +603,31 @@ $(document).ready(function () {
                     $linkedNode.val(0);
 
                     $.each(response.data.DATA, (index, value) => {
-                        $linkedNode.append(`<option value="${value['ID']}">${value['NAME']}</option>`)
+                        $linkedNode.append(`<option value="${value['ID']}">${value['NAME']}</option>`);
                     });
                 }
             }
         });
     });
 
-    $(document).on('input', '[name="SERIAL_NUMBER[]"]', function (e) {
-        const $el = $(e.target);
-        const path = $el.data('path');
-        $.ajax({
-            url: path,
-            method: "post",
-            data: {
-                number: $el.val()
-            },
-            dataType: 'json',
-            success: function (response) {
-                if(response.success){
-                    let data = response.data.DATA;
-                    if(data.id){
-                        if($el.closest('.lk__form-box').length > 0){
-                            $el.closest('.lk__form-box').find('[data-text="explotation"]').html('<b>'+data.number+'</b> '+data.type+' '+data.model);
-                            $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val(data.id);
-                        }else if($el.closest('.lk__form-box-wrap').length > 0){
-                            $el.closest('.lk__form-box-wrap').find('[data-text="explotation"]').html('<b>'+data.number+'</b> '+data.type+' '+data.model);
-                            $el.closest('.lk__form-box-wrap').find('[name="id_explotation[]"]').val(data.id);
-                        }
-                    }else{
-                        if($el.closest('.lk__form-box').length > 0) {
-                            $el.closest('.lk__form-box').find('[data-text="explotation"]').html('техника не найдена');
-                            $el.closest('.lk__form-box').find('[name="id_explotation[]"]').val('');
-                        }else if($el.closest('.lk__form-box-wrap').length > 0) {
-                            $el.closest('.lk__form-box-wrap').find('[data-text="explotation"]').html('техника не найдена');
-                            $el.closest('.lk__form-box-wrap').find('[name="id_explotation[]"]').val('');
-                        }
-                    }
-                }
-            }
-        });
-    });
-
     $(document).on('click', '[data-edittask]', function (e) {
-        let $el=$(this),
-            status=$el.data('status'),
-            id_elem=$el.data('edittask'),
-            id_dealer=$el.data('dealer');
+        let $el = $(this),
+            status = $el.data('status'),
+            id_elem = $el.data('edittask'),
+            id_dealer = $el.data('dealer');
         loader.show();
-        if(id_elem && status){
+        if (id_elem && status) {
             $.ajax({
                 url: '/ajax/task/edit',
                 method: "post",
                 data: {
                     id_elem: id_elem,
                     status: status,
-                    id_dealer:id_dealer
+                    id_dealer: id_dealer
                 },
                 dataType: 'json',
                 success: function (response) {
-                    if(response.success){
+                    if (response.success) {
                         $el.closest('.js-table-detail').remove();
                     }
                     loader.hide();
@@ -664,17 +638,17 @@ $(document).ready(function () {
     $(document).on('keyup', '[data-search]', function (e) {
         let searchUrl = $(this).data('search'), query = $(this).val(), has = $(this).data('has');
         $.ajax({
-            url: searchUrl+query,
+            url: searchUrl + query,
             type: "GET",
             success: function (response) {
-                let block_elems = $("<!--startAjaxPage"+has+"-->"+blockAjax(response, has)+"<!--endAjaxPage"+has+"-->");
+                let block_elems = $("<!--startAjaxPage" + has + "-->" + blockAjax(response, has) + "<!--endAjaxPage" + has + "-->");
                 let pagen = '';
-                if($(response).find('[data-pagenajax="'+has+'"]').length > 0){
-                    pagen = $("<!--startAjaxPage"+has+"-->"+pagenElems(response, has)+"<!--endAjaxPage"+has+"-->");
+                if ($(response).find('[data-pagenajax="' + has + '"]').length > 0) {
+                    pagen = $("<!--startAjaxPage" + has + "-->" + pagenElems(response, has) + "<!--endAjaxPage" + has + "-->");
                 }
-                $(document).find('[data-blockajax="'+has+'"]').html(block_elems);
-                $(document).find('[data-pagenajax="'+has+'"]').html(pagen);
-                history.pushState({}, '', searchUrl+query+'#'+has);
+                $(document).find('[data-blockajax="' + has + '"]').html(block_elems);
+                $(document).find('[data-pagenajax="' + has + '"]').html(pagen);
+                history.pushState({}, '', searchUrl + query + '#' + has);
                 new BaseTable();
             }
         });
