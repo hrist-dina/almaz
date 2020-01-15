@@ -108,12 +108,14 @@ class BaseAutocomplete {
         }
         dataArray.map(data => {
             const id = data.id;
+            const id_reclamation = data.id_reclamation;
             const number = data.number;
             const type = data.type;
             const model = data.model;
             ul.append(
                 `<li 
                     data-id="${id}"
+                    data-id-reclamation="${id_reclamation}"
                     data-number="${number}"
                     data-type="${type}"
                     data-model="${model}"
@@ -150,6 +152,7 @@ class BaseAutocomplete {
     setData($el, isClean = false) {
 
         const id = isClean ? '' : $el.data('id');
+        const id_reclamation = isClean ? '' : $el.data('id-reclamation');
         const number = isClean ? '' : $el.data('number') || '';
         const type = $el.data('type') || '';
         const model = $el.data('model') || '';
@@ -166,7 +169,19 @@ class BaseAutocomplete {
             return;
         }
         textElement.html(dataText);
-        boxElem.find(this.hiddenInput).val(id);
+
+        if(boxElem.find(this.hiddenInput).length > 0){
+            boxElem.find(this.hiddenInput).each(function(i, elem){
+                switch($(elem).attr('name')){
+                    case 'id_reclamation[]':
+                        $(elem).val(id_reclamation);
+                        break       ;
+                    default:
+                        $(elem).val(id);
+                        break;
+                }
+            });
+        }
 
         return number;
     }
