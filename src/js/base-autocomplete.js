@@ -43,7 +43,7 @@ class BaseAutocomplete {
             let suggests = $el.closest(self.suggests);
             if (number) {
                 const toInput = number.toString().replace(/<[^>]+>/g, '');
-                suggests.siblings('label').find(self.selector.toString).val(toInput).trigger('focus');
+                suggests.siblings('label').find(self.selector).val(toInput).trigger('focus');
             }
             suggests.remove();
         });
@@ -152,7 +152,7 @@ class BaseAutocomplete {
         const type = $el.data('type');
         const model = $el.data('model');
 
-        let dataText = isClean ? this.textOnSaved : `${type} ${model}`;
+        let dataText = isClean ? this.textOnSaved : this.renderSuggestText(number, type, model);
 
         let boxElem = this.getBoxElement($el);
 
