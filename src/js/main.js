@@ -52,7 +52,7 @@ $(document).ready(function () {
     //     loader.hide();
     // });
 
-    $('[data-onClick="upHref"]').on('click', function () {
+    $('[data-click="upHref"]').on('click', function () {
         let elemBtn = $(document).find('.js-link-href'),
             dataUrl = $(this).data('url');
         elemBtn.attr('data-href', dataUrl);
@@ -450,7 +450,7 @@ $(document).ready(function () {
     } else {
       $('.hint-region__text').text(getCookie('regionCur'));
     }
-    $('.hint-region-ask__btn').on('onClick', function (e) {
+    $('.hint-region-ask__btn').on('click', function (e) {
       let elIndex = $(this).index();
       if (elIndex == 1) {
         setCookie('regionCur', 'Алтайский край', {
