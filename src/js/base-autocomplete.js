@@ -38,11 +38,12 @@ class BaseAutocomplete {
         $(document).on('click', `${this.suggests} li`, function (e) {
             const $el = $(e.target);
 
-            const dataText = self.setData($el);
+            const number = self.setData($el);
 
             let suggests = $el.closest(self.suggests);
-            if (dataText) {
-                suggests.siblings('label').find(self.selector).val(dataText.replace(/<[^>]+>/g, '')).trigger('focus');
+            if (number) {
+                const toInput = number.toString().replace(/<[^>]+>/g, '');
+                suggests.siblings('label').find(self.selector.toString).val(toInput).trigger('focus');
             }
             suggests.remove();
         });
@@ -147,11 +148,11 @@ class BaseAutocomplete {
     setData($el, isClean = false) {
 
         const id = isClean ? '' : $el.data('id');
-        const number = $el.data('number');
+        const number = isClean ? '' : $el.data('number');
         const type = $el.data('type');
         const model = $el.data('model');
 
-        let dataText = isClean ? this.textOnSaved : this.renderSuggestText(number, type, model);
+        let dataText = isClean ? this.textOnSaved : `${type} ${model}`;
 
         let boxElem = this.getBoxElement($el);
 
@@ -161,7 +162,7 @@ class BaseAutocomplete {
         boxElem.find(this.textElement).html(dataText);
         boxElem.find(this.hiddenInput).val(id);
 
-        return dataText;
+        return number;
     }
 }
 
