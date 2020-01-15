@@ -46,12 +46,6 @@ $(document).ready(function () {
     new BaseSelect();
 
     new BaseAutocomplete();
-    new BaseAutocomplete(
-        '[name="SERIAL_NUMBER[]"]',
-        '[name="id_explotation[]"]',
-        '[data-text="explotation"]',
-        'Техника не найдена'
-    );
     // let loader = new Loader();
     // loader.show();
     // $(window).on('load', function() {

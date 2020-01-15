@@ -15,7 +15,6 @@ class BaseAutocomplete {
         this.textElement = textElement;
         this.textForEmpty = textForEmpty;
         this.suggests = `${selectorBase}-suggests`;
-        this.textOnSaved = '';
 
         this.init();
     }
@@ -29,7 +28,10 @@ class BaseAutocomplete {
     onLoad() {
         let boxElem = this.getBoxElement($(document).find(this.selector));
         if (boxElem) {
-            this.textOnSaved = $(boxElem).find(this.textElement).text();
+            const testElements = $(boxElem).find(this.textElement);
+            testElements.each((i, item) => {
+                $(item).attr('data-def-text', $(item).text());
+            });
         }
     }
 
@@ -148,18 +150,22 @@ class BaseAutocomplete {
     setData($el, isClean = false) {
 
         const id = isClean ? '' : $el.data('id');
-        const number = isClean ? '' : $el.data('number');
-        const type = $el.data('type');
-        const model = $el.data('model');
-
-        let dataText = isClean ? this.textOnSaved : this.renderSuggestText(number, type, model);
+        const number = isClean ? '' : $el.data('number') || '';
+        const type = $el.data('type') || '';
+        const model = $el.data('model') || '';
 
         let boxElem = this.getBoxElement($el);
+        if (!boxElem) {
+            return;
+        }
+        const textElement = boxElem.find(this.textElement);
+
+        let dataText = isClean ? textElement.data('def-text') : this.renderSuggestText(number, type, model);
 
         if (!boxElem) {
             return;
         }
-        boxElem.find(this.textElement).html(dataText);
+        textElement.html(dataText);
         boxElem.find(this.hiddenInput).val(id);
 
         return number;
