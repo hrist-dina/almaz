@@ -4,7 +4,6 @@ import {BaseModal} from "./base-modal";
 class BaseFile {
     constructor(selector = '.js-file') {
         this.selector = selector;
-        this.mark = `${selector}-mark`;
         this.filesExtDef = 'jpg, png, jpeg, pdf';
 
         this.init();
@@ -16,7 +15,7 @@ class BaseFile {
 
     onChange() {
         const self = this;
-        $(this.mark).each((i, elem) => {
+        $(this.selector).each((i, elem) => {
             const typeFile = $(elem).data('type') || self.filesExtDef;
             $(elem).change(function() {
                 let parts = $(this).val().split('.');
