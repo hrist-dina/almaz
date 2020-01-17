@@ -27,7 +27,12 @@ export default class MarketingForm extends BaseForm {
                 if (response.success === 1) {
                     $form.trigger('reset');
                     let modal = BaseModal.openModal('result');
-                    BaseModal.renderMessage(modal, 'Действие совершено успешно');
+                    if(response.data.file){
+                        BaseModal.renderMessage(modal, 'Файл сформирован');
+                        $(modal).find('.js-link-href').text('Скачать').attr('href', response.data.file).attr("download","Report.xlsx");
+                    }else {
+                        BaseModal.renderMessage(modal, 'Действие совершено успешно');
+                    }
                     $form.find('.mess').text('');
                 }else{
                     $form.find('.mess').text(response.error).css('color', 'red');
