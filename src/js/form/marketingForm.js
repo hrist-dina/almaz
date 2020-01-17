@@ -6,20 +6,6 @@ import {BaseModal} from "../base-modal";
 export default class MarketingForm extends BaseForm {
     init() {
         this.validate();
-        const filesExt = ['jpg', 'png' , "jpeg", "pdf"]; // массив расширений
-        const $fileInput = $('.js-file-mark');
-
-        $fileInput.each(function (i, elem) {
-            var type_file = $(elem).data('type');
-            $(elem).change(function(){
-                let parts = $(this).val().split('.');
-                if(type_file.search(parts[parts.length - 1]) == -1){
-                    let modal = BaseModal.openModal('result');
-                    BaseModal.renderMessage(modal, 'Вы загрузили изображение неправильного формата. Поддерживаются '+type_file+'.');
-                    $fileInput.val();
-                }
-            });
-        });
     }
 
     submitFunction(form, loader) {

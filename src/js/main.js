@@ -10,6 +10,7 @@ import {BaseLk} from "./base-lk";
 import {BaseSelect} from "./base-select";
 import {Loader} from "./loader";
 import {BaseAutocomplete} from "./base-autocomplete";
+import {BaseFile} from "./base-file";
 
 
 function blockAjax(e, has) {
@@ -46,6 +47,7 @@ $(document).ready(function () {
     new BaseSelect();
 
     new BaseAutocomplete();
+    new BaseFile();
     // let loader = new Loader();
     // loader.show();
     // $(window).on('load', function() {

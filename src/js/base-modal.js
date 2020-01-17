@@ -41,8 +41,12 @@ class BaseModal {
         return $(selectorBase);
     }
 
-    static renderMessage(modal, message) {
-        $(modal).find('.js-modal-text').html($("<div>", {class: "popup__title"}).html(message));
+    static renderMessage(modal, message, text= false) {
+        const textElem = $(modal).find('.js-modal-text');
+        textElem.html($("<div>", {class: "popup__title"}).html(message));
+        if (text) {
+            textElem.append($("<div>", {class: "popup__text"}).html(text));
+        }
     }
 
     static clear(element) {
