@@ -798,6 +798,12 @@
       height: auto;
     }
   }
+
+  .popup {
+    &__inner {
+      padding: 80px 20px 30px;
+    }
+  }
 }
 
 @media(max-width: 576px) {
@@ -1051,6 +1057,18 @@
             margin-left: 0;
           }
         }
+      }
+    }
+  }
+
+  .popup {
+    &__btn {
+      margin: 0 0 15px 0;
+
+      &-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     }
   }

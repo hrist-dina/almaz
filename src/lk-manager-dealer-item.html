@@ -156,7 +156,57 @@
               <section class="lk__tabs-section">
                 <div class="lk__tabs-header">
                   <div class="lk__tabs-title">ООО «Тест»</div>
-                  <a class="lk__tabs-link" href="#">Данные дилера</a>
+                  <a class="lk__tabs-link js-modal-open" data-modal-type="dealer-data" href="javascript:void(0)">Данные дилера</a>
+                  <div class="popup popup__dealer-data js-modal" data-modal-type="dealer-data">
+                    <div class="popup__inner">
+                      <div class="close popup__close js-modal-close"></div>
+                      <div class="popup__content">
+                        <ul class="list-dotted js-modal-copy-area">
+                          <li class="list-dotted__row">
+                            <span class="list-dotted__name">Название организации:</span>
+                            <span class="list-dotted__line"></span>
+                            <span class="list-dotted__value">ООО "Тест"</span>
+                          </li>
+                          <li class="list-dotted__row">
+                            <span class="list-dotted__name">Адрес:</span>
+                            <span class="list-dotted__line"></span>
+                            <span class="list-dotted__value">Алтайский край, Барнаул, пл. Баварина 1, офис 407</span>
+                          </li>
+                          <li class="list-dotted__row">
+                            <span class="list-dotted__name">Закрепленные за дилером регионы:</span>
+                            <span class="list-dotted__line"></span>
+                            <span class="list-dotted__value">Регион 1, Регион 2</span>
+                          </li>
+                          <li class="list-dotted__row">
+                            <span class="list-dotted__name">Контактное лицо:</span>
+                            <span class="list-dotted__line"></span>
+                            <span class="list-dotted__value">Регион 1, Регион 2</span>
+                          </li>
+                          <li class="list-dotted__row">
+                            <span class="list-dotted__name">ИНН:</span>
+                            <span class="list-dotted__line"></span>
+                            <span class="list-dotted__value">3334587324</span>
+                          </li>
+                          <li class="list-dotted__row">
+                            <span class="list-dotted__name">Телефон:</span>
+                            <span class="list-dotted__line"></span>
+                            <span class="list-dotted__value">
+                                   <a href="tel:89010010101">8 (901) 002-02-02</a>
+                                </span>
+                          </li>
+                          <li class="list-dotted__row">
+                            <span class="list-dotted__name">Адрес электронной почты:</span>
+                            <span class="list-dotted__line"></span>
+                            <span class="list-dotted__value"><a href="mailto:pochta@test.ru">pochta@test.ru</a></span>
+                          </li>
+                        </ul>
+                        <div class="popup__btn-wrap popup__btn-wrap-m-t">
+                          <a class="btn popup__btn js-modal-close" href="javascript:void(0)">Закрыть</a>
+                          <a class="btn btn-black popup__btn js-modal-copy" data-copy-message="Скопировано" href="javascript:void(0)">Скопировать</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <nav class="lk__tabs-nav js-tabs-nav">
                   <a class="lk__tabs-nav-link active" data-tab='tasks' href="javascript:void(0)">

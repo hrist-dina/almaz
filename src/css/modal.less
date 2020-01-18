@@ -4,9 +4,13 @@
     margin: auto;
     max-width: 530px;
 
-
     &-list {
         display: none;
+    }
+
+    & .list-dotted__value,
+    & .list-dotted__name {
+        max-width: initial;
     }
 
     &__head {
@@ -24,12 +28,14 @@
 
     &__close {
         position: absolute;
-        right: 45px;
-        top: 40px;
+        right: 30px;
+        top: 30px;
         background: transparent;
         opacity: 1;
         cursor: pointer;
         z-index: 100;
+        width: 20px;
+        height: 20px;
 
         &:hover {
             opacity: 0.9;
@@ -79,14 +85,36 @@
     &__btn {
         text-align: center;
         display: inline-block;
+        margin-left: 20px;
+
+        &.copied {
+            background: #0d95e8;
+            cursor: not-allowed;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
 
         &-wrap {
             text-align: center;
+
+            &-m-t {
+                margin-top: 30px;
+            }
         }
     }
 
-
     &__result {
         max-width: 530px;
+    }
+
+    &__dealer-data {
+        max-width: 830px;
+        display: none;
     }
 }

@@ -12,6 +12,8 @@ class BaseModal {
         this.element = $(document).find(this.selector);
         this.selectorOpen = `${selector}-open`;
         this.selectorClose = `${selector}-close`;
+        this.copyButton = `${selector}-copy`;
+        this.copyArea = `${this.copyButton}-area`;
         this.options = $.extend(BaseModal.baseOptions(), options, {
             onClosed: this.eventOnClosed
         });
@@ -76,6 +78,7 @@ class BaseModal {
         if (this.element.length) {
             this.element.iziModal(this.options);
             this.onClick();
+            this.copy();
         }
     }
 
@@ -93,6 +96,36 @@ class BaseModal {
             event.preventDefault();
             self.close();
         });
+    }
+
+    copy() {
+        const self = this;
+        $(document).on('click', this.copyButton, function () {
+            const copyButton = $(this);
+
+            const copyDefMessage = copyButton.text();
+            copyButton.text(copyButton.data('copy-message'));
+            copyButton.addClass('copied');
+            const copyText = copyButton.closest(self.selector).find(self.copyArea);
+
+            self.copyDivToClipboard(copyText.get(0));
+
+            setTimeout(() => {
+                copyButton.text(copyDefMessage);
+                copyButton.removeClass('copied');
+            }, 3000);
+        });
+    }
+
+    copyDivToClipboard(elem) {
+        const range = document.createRange();
+        range.selectNode(elem);
+        console.log(range);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        console.log(range);
     }
 
     open(type, successUrl = null) {
