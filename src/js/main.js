@@ -605,7 +605,10 @@ $(document).ready(function () {
             }
         });
     });
-
+    $(document).on('click', '[data-block-visible]', function (e) {
+        $(this).closest('[data-block]').addClass('no-elem');
+        $(document).find('[data-block="'+$(this).data('block-visible')+'"]').removeClass('no-elem');
+    });
     $(document).on('click', '[data-edittask]', function (e) {
         let $el = $(this),
             status = $el.data('status'),
