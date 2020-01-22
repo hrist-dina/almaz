@@ -92,7 +92,7 @@ class BaseModal {
                 self.close();
                 self.open($(this).data("modal-type"), $(this).data('modal-success-url-button'));
             });
-        $(this.selectorClose).on("click", function (event) {
+        $(document).on("click", this.selectorClose, function (event) {
             event.preventDefault();
             self.close();
         });
@@ -115,6 +115,10 @@ class BaseModal {
                 copyButton.removeClass('copied');
             }, 3000);
         });
+    }
+
+    static setCloseOnOk(element) {
+        element.find('.js-link-href').addClass('js-modal-close');
     }
 
     copyDivToClipboard(elem) {

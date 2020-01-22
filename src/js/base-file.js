@@ -21,6 +21,7 @@ class BaseFile {
                 let parts = $(this).val().split('.');
                 if(typeFile.search(parts[parts.length - 1]) === -1){
                     let modal = BaseModal.openModal('result');
+                    BaseModal.setCloseOnOk(modal);
                     BaseModal.renderMessage(modal, 'Ошибка', `Вы загрузили изображение неправильного формата. Поддерживаются ${typeFile}.`);
                     $(this).val('');
                 }
